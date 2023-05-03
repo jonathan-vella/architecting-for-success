@@ -1,6 +1,6 @@
-# What The Hack
+# Architecting For Success
 
-# Module 02: Strategy & Plan Hackathon
+# Strategy and Plan Hackathon
 
 ## Customer Scenario - Contoso Land Surveying
 
