@@ -1,6 +1,6 @@
-# What the CAF
+# Architecting for Succes
 
-# Module 02 - Strategy and Plan Hackathon
+## Strategy and Plan Hackathon
 
 ## Challenge 3 - Time to Plan (1hr 15mins)
 
