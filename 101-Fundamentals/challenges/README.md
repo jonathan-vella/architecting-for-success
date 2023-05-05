@@ -4,6 +4,8 @@
 
 ## Customer Scenario - Contoso Land Surveying
 
+(/101-Fundamentals/images/drones.jpg)
+
 **Contoso Land Surveying** operates a global geology surveying business, where they deploy surveyors to carry out detailed land surveys for companies such as food producers, airports, oil companies, utilities, railway companies, ports authorities and other business which are reliant on infrastructure heavy. Surveys are carried out on dry land as well as underwater and in areas of variable terrain.
 
 Contoso see an opportunity to leverage technology such as drones, data and AI to improve efficiency and provide deeper insights into surveys predicting the challenges of today and tomorrow for their clients and their use of land as an asset.
@@ -39,7 +41,7 @@ The following information can you help you formulate a guestimate which you can 
 
 
 
-![IT spending as a percent of revenue](media/IT-spending-as-percent-of-revenue.png)
+![IT spending as a percent of revenue](/101-Fundamentals/images/IT-spending-as-percent-of-revenue.png)
 
 ![IT spending per employee](/101-Fundamentals/images/IT-spending-per-employee.png)
 
