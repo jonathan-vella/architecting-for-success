@@ -4,7 +4,7 @@
 
 ## Customer Scenario - Contoso Land Surveying
 
-!(/101-Fundamentals/images/drones.jpg)
+![Contoso Land Surveying](/101-Fundamentals/images/drones.jpg)
 
 **Contoso Land Surveying** operates a global geology surveying business, where they deploy surveyors to carry out detailed land surveys for companies such as food producers, airports, oil companies, utilities, railway companies, ports authorities and other business which are reliant on infrastructure heavy. Surveys are carried out on dry land as well as underwater and in areas of variable terrain.
 
