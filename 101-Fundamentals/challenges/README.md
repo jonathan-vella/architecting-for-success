@@ -41,7 +41,7 @@ The following information can you help you formulate a guestimate which you can 
 
 ![IT spending as a percent of revenue](media/IT-spending-as-percent-of-revenue.png)
 
-![IT spending per employee](./101-Fundamentals/images/IT-spending-per-employee.png)
+![IT spending per employee](/101-Fundamentals/images/IT-spending-per-employee.png)
 
 ### Estimate IT spend categories
 
