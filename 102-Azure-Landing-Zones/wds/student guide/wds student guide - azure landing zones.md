@@ -1,4 +1,6 @@
-# WDS - Azure Landing Zones
+# Architecting for Success
+
+# Azure Landing Zones Whiteboard Design Session
 
 ## Abstract and learning objectives
 
