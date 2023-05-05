@@ -1,3 +1,4 @@
+![](/102-Azure-Landing-Zones/images/nuke-azure.jpg)
 # Clean up your entire Azure subscription aka Nuke-My-Azure
 
 **Proceed with extreme caution**
