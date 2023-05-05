@@ -1,6 +1,6 @@
-# What the CAF
+# Architecting for Succes
 
-# Module 02 - Strategy and Plan Hackathon
+## Strategy and Plan Hackathon
 
 ## Challenge 2  - Addressing Business Risks (45mins)
 

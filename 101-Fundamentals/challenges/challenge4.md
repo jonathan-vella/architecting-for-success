@@ -1,6 +1,6 @@
-# What the CAF
+# Architecting for Succes
 
-# Module 02 - Strategy and Plan Hackathon
+## Strategy and Plan Hackathon
 
 ## Challenge 4 - Sell it to Contoso, and your coach! (45mins)
 

@@ -1,6 +1,6 @@
-# What the CAF
+# Architecting for Succes
 
-## Module 02 - Strategy and Plan Hackathon
+## Strategy and Plan Hackathon
 
 ## Challenge 1 - Build an outcome-based strategy (1hr 30mins)
 
