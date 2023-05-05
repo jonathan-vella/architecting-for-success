@@ -1,6 +1,6 @@
-# What the CAF
+# Architecting for Success
 
-# Module 04 - ALZ Accelerator Hackathon
+# Azure Landing Zones
 
 ## Overview
 
@@ -9,7 +9,7 @@ Successful cloud adoption is built on the strong foundations of the Cloud Adopti
 Simply put, a landing zone is a multi-subscription Azure environment for hosting workloads, pre-provisioned through code. Out-of-the-box it accounts for scale, security, governance, networking, and identity. It  enables application migration, modernization, and innovation at enterprise-scale for all customers irrespective of size in Azure. This approach considers all platform resources that are required to support the customer's application portfolio and doesn't differentiate between infrastructure as a service or platform as a service.
 
 Watch this [short video](https://www.youtube.com/watch?v=VTnqUDMchXA) to learn more.
-![Azure Landing Zone Conceptual Architecture](./images/alz_accelerator.png)
+![Azure Landing Zone Conceptual Architecture](/102-Azure Landing Zones/images/alz_accelerator.png)
 
 ---
 
