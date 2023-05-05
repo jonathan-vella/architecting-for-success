@@ -114,7 +114,7 @@ In preparations for their cloud adoption journey, Tailspin has already had an Az
 ### Infographic for common scenarios
 
 **Hub-spoke network topology in Azure**
-![The image shows how on-premises network on the left connects through Azure ExpressRoute to the Hub VNet with Azure Bastion and Azure Firewall. On the right is multiple Spoke VNet that connect to the Hub VNet through VNet Peering and hosts multiple VM workloads.](/103-Azure-Infra-Migration/images/"Hub-spoke network topology in Azure")
+![The image shows how on-premises network on the left connects through Azure ExpressRoute to the Hub VNet with Azure Bastion and Azure Firewall. On the right is multiple Spoke VNet that connect to the Hub VNet through VNet Peering and hosts multiple VM workloads.](images/diagram-azure-vnet-hub-spoke.png/"Hub-spoke network topology in Azure")
 
 **Azure Arc control plan**
 ![The image shows Azure with Azure Resource Manager in the center for managing Azure resources. On the left is customers who connect to Azure to manage their resources. On the right is Azure Arc enabling the Azure Arc-enabled workloads on-premises to be managed by Azure Resource Manager along-side Azure workloads.](images/diagram-azure-arc-control-plane.png "Azure Arc control plan")
