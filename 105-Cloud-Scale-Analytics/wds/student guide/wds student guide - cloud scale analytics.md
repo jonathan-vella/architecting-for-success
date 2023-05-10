@@ -26,7 +26,7 @@ Directions: With all participants in the session, the facilitator/SME presents a
 ### Infographic for common scenarios
 
 **Azure Landing Zones conceptual architecture**
-![For many organizations, the ALZ conceptual architecture below represents the destination in their cloud adoption journey. It's a mature, scaled-out target architecture intended to help organizations operate successful cloud environments that drive their business while maintaining best practices for security and governance.](/102-Azure-Landing-Zones/images/alz_accelerator.png)
+![For many organizations, the ALZ conceptual architecture below represents the destination in their cloud adoption journey. It's a mature, scaled-out target architecture intended to help organizations operate successful cloud environments that drive their business while maintaining best practices for security and governance.](/105-Cloud-Scale-Analytics/images/azure-synapse-landing-zone.png)
 
 ## Step 2: Design a proof of concept solution
 
@@ -37,7 +37,7 @@ Timeframe: 30 minutes
 
 Your design must include all of the following:
 
-1. Details about minimum requirements and information you need have at hand to deploy ALZ accelerator. Think of tenants, subscriptions, privileged identities, security contacts, IP addresses, etc.
+1. Details about minimum requirements and information you need have at hand to deploy Data Management and Data Product landing zones. Think of subscriptions, privileged identities, security contacts, IP addresses, ownership etc.
 2. A management group hierarchy including subscription organization
 3. A list of the required Azure Policy (built-in & custom) policies or initiatives including scope assignments
 4. A list of RBAC assignment
@@ -47,9 +47,10 @@ When designing your solution, consider the following:
 
 1. What will you use to help the customer easily create cost-related reports for each workload based on department, owner, and environment? And how will you apply it?
 2. How will you implement the customer's regulatory & compliance requirements?
-3. How are you going to make sure that M-Series and L-Series VMs can only be deployed in the SAP environments without impacting agility and scale?
+3. How are you going to make sure that data stores are only deployed in the respective subscriptions?
 4. How will you ensure that "development environments and associated VNETs are not able to communicate with production"?
 5. How will you assign developers access to development environments at scale and with minimal administrative effort?
+6. How will developer changes get promoted to Test and Prod environments?
 
 ## Step 3: Present the solution
 
