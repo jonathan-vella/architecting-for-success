@@ -121,13 +121,15 @@ The best approach for migrating to the cloud, based on their digital estate is t
 2. Be able to automatically and continuously deploy new software builds.
 3. Ensure that continuously deployed builds to the cloud do not interfere with the production system.
 4. Use pull based approach to reconcile configuration changes without exposing cluster endpoints to the build agents.
+5. Keep Azure Kubernetes Service (AKS) nodes up to date with the latest security patches or supported Kubernetes versions.
 
 #### Business Continuity
 
 1. Ensure that the workloads remains functional in case of Data Centre failure.
-2. Ability but not a hard requirement to failover to another region in case of disaster.
-3. Spin-off a new cluster including all the configuration easily.
-4. Ability to back up and restore your Kubernetes workloads and persistent volumes deployed in AKS cluster.
+2. Kubernetes API Server should have a guarantee uptime of 99.95%
+3. Ability but not a hard requirement to failover to another region in case of disaster.
+4. Spin-off a new cluster including all the configuration easily.
+5. Bakcup strategy for Kubernetes resources and persistent volumes.
 
 ### Customer objections
 
@@ -224,7 +226,7 @@ _Business Continuity_
 
 1. Describe how you would ensure that the following resources would be available in case of disaster based on their requirement.
 
-2. Describe the backup and restore options in AKS
+2. Describe the backup strategy for Kubernetes resources and persistent volumes.
 
 **Prepare**
 
