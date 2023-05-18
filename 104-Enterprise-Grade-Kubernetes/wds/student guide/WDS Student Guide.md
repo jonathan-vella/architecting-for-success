@@ -8,14 +8,14 @@
 
 - [Enterprise Kubernetes Regulated Cluster whiteboard design session student guide](#\insert-workshop-name-here\-whiteboard-design-session-student-guide)
   - [Abstract and learning objectives](#abstract-and-learning-objectives)
-  - [Step 1: Review the customer case study](#step-1-review-the-customer-case-study)
+  - [Step 1: Review the customer case study](#step-1-review-the-customer-case-study) (15 mins)
     - [Customer situation](#customer-situation)
     - [Customer needs](#customer-needs)
     - [Customer objections](#customer-objections)
     - [Infographic for common scenarios](#infographic-for-common-scenarios)
-  - [Step 2: Design a proof of concept solution](#step-2-design-a-proof-of-concept-solution)
-  - [Step 3: Present the solution](#step-3-present-the-solution)
-  - [Wrap-up](#wrap-up)
+  - [Step 2: Design a proof of concept solution](#step-2-design-a-proof-of-concept-solution) (45 mins)
+  - [Step 3: Present the solution](#step-3-present-the-solution)  (15 mins)
+  - [Wrap-up](#wrap-up) (Optional 15 mins)
   - [Additional references](#additional-references)
 
 <!-- /TOC -->
@@ -32,7 +32,7 @@ This session will help you consider the baseline requirements of a regulated clu
 
 Analyze your customer's needs.
 
-Timeframe: 10 minutes
+Timeframe: 15 minutes
 
 Directions: With all participants in the session, the facilitator/SME presents an overview of the customer case study along with technical tips.
 
@@ -81,7 +81,7 @@ The best approach for migrating to the cloud, based on their digital estate is t
 7. Use private container registry with support of container image scanning.
 8. Sensitive parameters should not be stored in the Kubernetes cluster, but in a secret store.
 9. Application workloads should be separated from control plane workloads.
-10. Ability to use ingress controllers that does not consume compute power from the cluster.
+10. Ability to use ingress controller that does not consume compute power from the cluster.
 11. Protect all your web apps from common web-hacking techniques such as SQL injection and security vulnerabilities such as cross-site scripting.
 12. Control and secure the outbound traffic.
 13. Continuously assess AKS cluster to provide visibility into misconfigurations and guidelines to help mitigate identified threats.
@@ -172,9 +172,9 @@ _Use GitOps with Flux, GitHub, and AKS to implement CI/CD_
 
 **Outcome**
 
-Design a solution and prepare to present the solution to the target customer audience in a 10-minute chalk-talk format.
+Design a solution and prepare to present the solution to the target customer audience in a 15-minute chalk-talk format.
 
-Timeframe: 30 minutes
+Timeframe: 45 minutes
 
 **Business needs**
 
@@ -237,15 +237,15 @@ Directions: As a team:
 
 3. Determine how you will respond to the customer's objections.
 
-Prepare a 10-minute chalk-talk style presentation to the customer.
+Prepare a 15-minute chalk-talk style presentation to the customer.
 
 ## Step 3: Present the solution
 
 **Outcome**
 
-Present a solution to the target customer audience in a 10-minute chalk-talk format.
+Present a solution to the target customer audience in a 15-minute chalk-talk format.
 
-Timeframe: 10 minutes
+Timeframe: 15 minutes
 
 **Presentation**
 
@@ -265,7 +265,7 @@ Directions:
 
 7. (Optional) Switch roles and repeat Steps 2-6.
 
-## Wrap-up
+## Wrap-up (Optional)
 
 Timeframe: 10 minutes
 
