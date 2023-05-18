@@ -139,7 +139,6 @@ The best approach for migrating to the cloud, based on their digital estate is t
 4. We heard about Managed Identities. We would like to understand how it would improve the security of the solution you are recommending to us.
 5. Microsoft does their best for securing the Azure network, but we are unsure how to detect when hackers are attacking our systems. How will Microsoft's solution ensure we have visibility into our security posture?
 6. Does Azure allow enough granular Kubernetes RBAC controls to meet our least privilege needs?
-7. Can Azure supplement on-premises and third-party SIEM systems for auditing and compliance tasks?
 8. It is not clear to us ,how Azure helps our solution become PCI compliant. How can we ensure continued PCI DSS compliance?
 9. The new system may require querying data from on-premises data sources, how do you bridge that gap?
 10. What is meant by a pull pipeline? How is it different from a push pipeline? 
