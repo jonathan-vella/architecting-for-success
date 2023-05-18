@@ -1,10 +1,10 @@
 # Architecting for Success
 
-# Azure Landing Zones Whiteboard Design Session
+# Cloud Scale Analytics Whiteboard Design Session
 
 ## Abstract and learning objectives
 
-In this whiteboard design session, you will learn to design an Azure Landing Zones architecture for Contoso. You will be working through the customer scenario and their particular requirements to produce a tailored architecture for their Azure Landing Zone deployment.
+In this whiteboard design session, you will learn to design a Cloud Scale Analytics architecture for Contoso. You will be working through the customer scenario and their particular requirements to produce a tailored architecture for their Azure Landing Zone deployment.
 
 ---
 
@@ -25,7 +25,7 @@ Directions: With all participants in the session, the facilitator/SME presents a
 
 ### Infographic for common scenarios
 
-**Azure Landing Zones conceptual architecture**
+**Azure Synapse Landing Zone conceptual architecture**
 ![For many organizations, the ALZ conceptual architecture below represents the destination in their cloud adoption journey. It's a mature, scaled-out target architecture intended to help organizations operate successful cloud environments that drive their business while maintaining best practices for security and governance.](/105-Cloud-Scale-Analytics/images/azure-synapse-landing-zone.png)
 
 ## Step 2: Design a proof of concept solution
