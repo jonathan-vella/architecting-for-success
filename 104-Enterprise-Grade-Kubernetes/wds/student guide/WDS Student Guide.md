@@ -50,11 +50,11 @@ Consoso seeks to maximize the cost-effectiveness and flexibility of its IT, espe
 
 They are interested in a large-scale solution that will help mitigate creeping costs and start the transition to a modern cloud-based enterprise architecture.
 
-Their workloads should be fully compliant with the Payment Card Industry Data Security Standard (PCI DDS). Contoso must evaluate their environment for compliance gaps with respect to moving to Azure. 
+Their workloads should be fully compliant with the Payment Card Industry Data Security Standard (PCI DSS). Contoso must evaluate their environment for compliance gaps with respect to moving to Azure. 
 
 In addition to the PCI DSS compliance requirements, they are expecting significant growth. They foresee the need to scale their system and are exploring moving their web applications, corporate and data collection web apps, to Microsoft Azure via lift and shift and other applicable methods to simplify some of the operations management overhead and associated costs. They would also like to ensure that the workloads of different business units are sufficiently isolated. Lastly, they want to ensure that resources are created using best practices and that those practices are followed during the resource provisioning process.
 
-The technical leadership team has decided to move forward with a Microsoft enterprise agreement (EA) with a heavy commitment in Microsoft Azure. Their CTO, is aware of the potential of the cloud, but also has a keen understanding that without strong governance, they may end up with an environment that lacks essential business controls. These incorrect practices can then be disbursed across the enterprise, leading to an unmanageable Azure estate and costs which are hard to track or control. He wants to start on the right foot by enforcing best practices from the start.
+The CTO, is aware of the cloud potentials, but also has a keen understanding that without strong governance, they may end up with an environment that lacks essential business controls. These incorrect practices can then be disbursed across the enterprise, leading to an unmanageable Azure estate and costs which are hard to track or control. He wants to start on the right foot by enforcing best practices from the start.
 
 To kick off planning for integrating Azure into their environment, the CTO introduced you to several directors within the Enterprise IT group that have been part of the initial Azure planning process.
 
