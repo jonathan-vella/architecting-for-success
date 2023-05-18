@@ -81,7 +81,7 @@ The best approach for migrating to the cloud, based on their digital estate is t
 7. Use private container registry with support of container image scanning.
 8. Sensitive parameters should not be stored in the Kubernetes cluster, but in a secret store.
 9. Application workloads should be separated from control plane workloads.
-10. Some workloads should use ingress controllers that does not consume the compute power of the cluster.
+10. Ability to use ingress controllers that does not consume compute power from the cluster.
 11. Protect all your web apps from common web-hacking techniques such as SQL injection and security vulnerabilities such as cross-site scripting.
 12. Control and secure the outbound traffic.
 13. Continuously assess AKS cluster to provide visibility into misconfigurations and guidelines to help mitigate identified threats.
