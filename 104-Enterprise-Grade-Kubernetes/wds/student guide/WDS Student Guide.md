@@ -50,11 +50,11 @@ Consoso seeks to maximize the cost-effectiveness and flexibility of its IT, espe
 
 They are interested in a large-scale solution that will help mitigate creeping costs and start the transition to a modern cloud-based enterprise architecture.
 
-Their workloads should be fully compliant with the Payment Card Industry Data Security Standard (PCI DDS). Contoso must evaluate their environment for compliance gaps with respect to moving to Azure. 
+Their workloads should be fully compliant with the Payment Card Industry Data Security Standard (PCI DSS). Contoso must evaluate their environment for compliance gaps with respect to moving to Azure. 
 
 In addition to the PCI DSS compliance requirements, they are expecting significant growth. They foresee the need to scale their system and are exploring moving their web applications, corporate and data collection web apps, to Microsoft Azure via lift and shift and other applicable methods to simplify some of the operations management overhead and associated costs. They would also like to ensure that the workloads of different business units are sufficiently isolated. Lastly, they want to ensure that resources are created using best practices and that those practices are followed during the resource provisioning process.
 
-The technical leadership team has decided to move forward with a Microsoft enterprise agreement (EA) with a heavy commitment in Microsoft Azure. Their CTO, is aware of the potential of the cloud, but also has a keen understanding that without strong governance, they may end up with an environment that lacks essential business controls. These incorrect practices can then be disbursed across the enterprise, leading to an unmanageable Azure estate and costs which are hard to track or control. He wants to start on the right foot by enforcing best practices from the start.
+The CTO, is aware of the cloud potentials, but also has a keen understanding that without strong governance, they may end up with an environment that lacks essential business controls. These incorrect practices can then be disbursed across the enterprise, leading to an unmanageable Azure estate and costs which are hard to track or control. He wants to start on the right foot by enforcing best practices from the start.
 
 To kick off planning for integrating Azure into their environment, the CTO introduced you to several directors within the Enterprise IT group that have been part of the initial Azure planning process.
 
@@ -74,14 +74,14 @@ The best approach for migrating to the cloud, based on their digital estate is t
 
 1. AKS cluster should not have any public IP addresses.
 2. Limit access of AKS cluster from an internal network, and continue to support VPN access.
-3. Traffic between application components are encrypted with TLS
+3. Incoming traffic and traffic between application components should be encrypted with TLS
 4. Make sure that pods from different namespaces cannot communicate with each other
 5. Make sure that the services pods (APIs) can only be accessed by the front end pods or the ingress controller pods.
 6. Ability to scale automatically as the company grows and system load increases.
 7. Use private container registry with support of container image scanning.
 8. Sensitive parameters should not be stored in the Kubernetes cluster, but in a secret store.
 9. Application workloads should be separated from control plane workloads.
-10. Some workloads should use ingress controllers that does not consume the compute power of the cluster.
+10. Ability to use ingress controllers that does not consume compute power from the cluster.
 11. Protect all your web apps from common web-hacking techniques such as SQL injection and security vulnerabilities such as cross-site scripting.
 12. Control and secure the outbound traffic.
 13. Continuously assess AKS cluster to provide visibility into misconfigurations and guidelines to help mitigate identified threats.
@@ -139,7 +139,6 @@ The best approach for migrating to the cloud, based on their digital estate is t
 4. We heard about Managed Identities. We would like to understand how it would improve the security of the solution you are recommending to us.
 5. Microsoft does their best for securing the Azure network, but we are unsure how to detect when hackers are attacking our systems. How will Microsoft's solution ensure we have visibility into our security posture?
 6. Does Azure allow enough granular Kubernetes RBAC controls to meet our least privilege needs?
-7. Can Azure supplement on-premises and third-party SIEM systems for auditing and compliance tasks?
 8. It is not clear to us ,how Azure helps our solution become PCI compliant. How can we ensure continued PCI DSS compliance?
 9. The new system may require querying data from on-premises data sources, how do you bridge that gap?
 10. What is meant by a pull pipeline? How is it different from a push pipeline? 
