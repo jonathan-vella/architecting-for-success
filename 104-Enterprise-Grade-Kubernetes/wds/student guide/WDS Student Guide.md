@@ -74,7 +74,7 @@ The best approach for migrating to the cloud, based on their digital estate is t
 
 1. AKS cluster should not have any public IP addresses.
 2. Limit access of AKS cluster from an internal network, and continue to support VPN access.
-3. Traffic between application components are encrypted with TLS
+3. Incoming traffic and traffic between application components should be encrypted with TLS
 4. Make sure that pods from different namespaces cannot communicate with each other
 5. Make sure that the services pods (APIs) can only be accessed by the front end pods or the ingress controller pods.
 6. Ability to scale automatically as the company grows and system load increases.
