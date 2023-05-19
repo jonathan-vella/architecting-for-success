@@ -1,5 +1,14 @@
 # Architecting for Success  - Enterprise Kubernetes Regulated Cluster Whiteboard Design Session
 
+<!-- TOC -->
+* [Architecting for Success  - Enterprise Kubernetes Regulated Cluster Whiteboard Design Session](#architecting-for-success---enterprise-kubernetes-regulated-cluster-whiteboard-design-session)
+  * [Student Guide](#student-guide)
+  * [Target audience](#target-audience)
+  * [Azure services and related products](#azure-services-and-related-products)
+  * [Infographics](#infographics)
+  * [Additional references](#additional-references)
+<!-- TOC -->
+
 Contoso Payment Services Ltd. is a multinational corporation, headquartered in Europe that provides payment services solutions. They have data centres and branch offices scattered across Europe.
 
 Consoso seeks to maximize the cost-effectiveness and flexibility of its IT, especially in new projects. Contoso has a large number of business units, each with its own unique IT requirements. The costs of internal hardware and data centre investment are ballooning. As a result, Contoso has decided to move their current workloads to the cloud and all future developments should follow a cloud native approach.

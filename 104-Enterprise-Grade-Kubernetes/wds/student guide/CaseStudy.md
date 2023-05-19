@@ -1,5 +1,21 @@
 # Architecting for Success - Case Study
 
+## Table of Contents
+
+<!-- TOC -->
+* [Architecting for Success - Case Study](#architecting-for-success---case-study)
+  * [Table of Contents](#table-of-contents)
+  * [Customer situation](#customer-situation)
+  * [Customer needs](#customer-needs)
+    * [Security](#security)
+    * [Governance](#governance)
+    * [Observability](#observability)
+    * [Scalability](#scalability)
+    * [Identity and Access Control](#identity-and-access-control)
+    * [Operations](#operations)
+    * [Business Continuity](#business-continuity)
+<!-- TOC -->
+
 ## Customer situation
 
 Contoso Payment Services Ltd. is a multinational corporation, headquartered in Europe that provides payment services solutions. They have data centres and branch offices scattered across Europe.
