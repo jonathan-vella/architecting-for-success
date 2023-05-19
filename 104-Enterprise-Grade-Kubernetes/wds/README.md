@@ -1,6 +1,4 @@
-# Architecting for Success
-
-# Enterprise Kubernetes Regulated Cluster Whiteboard Design Session
+# Architecting for Success  - Enterprise Kubernetes Regulated Cluster Whiteboard Design Session
 
 Contoso Payment Services Ltd. is a multinational corporation, headquartered in Europe that provides payment services solutions. They have data centres and branch offices scattered across Europe.
 
@@ -13,6 +11,8 @@ Their workloads should be fully compliant with the Payment Card Industry Data Se
 In this whiteboard design session, you will learn how to design an Enterprise Kubernetes Regulated Cluster architecture for Contoso. You will be working through the customer scenario and their particular requirements to produce a tailored architecture for their deployment.
 
 ## Student Guide
+
+In this whiteboard design session, you will learn how to design an Enterprise Kubernetes Regulated Cluster architecture for Contoso. You will be working through the customer scenario and their particular requirements to produce a tailored architecture for their deployment.
 
 This session will help you consider the baseline requirements of a regulated cluster and guide you on how to run sensitive workloads in an Azure Kubernetes Service (AKS) cluster.
 

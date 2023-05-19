@@ -1,13 +1,10 @@
-# Architecting for Success
-
-# Enterprise Kubernetes Regulated Cluster Whiteboard Design Session student guide
+# Architecting for Success - Whiteboard Design Session student guide
 
 **Contents**
 
 <!-- TOC -->
 
 - [Enterprise Kubernetes Regulated Cluster whiteboard design session student guide](#\insert-workshop-name-here\-whiteboard-design-session-student-guide)
-  - [Abstract and learning objectives](#abstract-and-learning-objectives)
   - [Step 1: Review the customer case study](#step-1-review-the-customer-case-study) (15 mins)
     - [Case Study](./CaseStudy.md)
   - [Step 2: Design a proof of concept solution](#step-2-design-a-proof-of-concept-solution) (45 mins)
@@ -15,12 +12,6 @@
   - [Wrap-up](#wrap-up) (Optional 15 mins)  
 
 <!-- /TOC -->
-
-## Abstract and learning objectives
-
-In this whiteboard design session, you will learn how to design an Enterprise Kubernetes Regulated Cluster architecture for Contoso. You will be working through the customer scenario and their particular requirements to produce a tailored architecture for their deployment.
-
-This session will help you consider the baseline requirements of a regulated cluster and guide you on how to run sensitive workloads in an Azure Kubernetes Service (AKS) cluster.
 
 ## Step 1: Review the customer case study
 
