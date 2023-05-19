@@ -41,3 +41,29 @@ Follow the student guide: [White board design session student guide](./student%2
 - Azure Monitor
 - Azure Log Analytics
 - Application Insights
+
+## Additional references
+
+|                                                            |                                                                                                                       |
+| ---------------------------------------------------------- |:--------------------------------------------------------------------------------------------------------------------- |
+| **Description**                                            | **Links**                                                                                                             |
+| Azure Kubernetes Services (AKS)                            | <https://docs.microsoft.com/azure/aks/intro-kubernetes/>                                                              |
+| Baseline architecture for an AKS cluster                   | <https://learn.microsoft.com/en-us/azure/architecture/reference-architectures/containers/aks/baseline-aks>            |
+| Azure security baseline for AKS                            | <https://learn.microsoft.com/en-us/security/benchmark/azure/baselines/azure-kubernetes-service-aks-security-baseline> |
+| AKS Baseline Cluster for Regulated Workloads               | <https://github.com/mspnp/aks-baseline-regulated/tree/main>                                                           |
+| Introduction of an AKS regulated cluster for PCI-DSS 3.2.1 | <https://learn.microsoft.com/en-us/azure/architecture/reference-architectures/containers/aks-pci/aks-pci-intro>       |
+| Microsoft Defender for Containers                          | <https://learn.microsoft.com/en-us/azure/defender-for-cloud/defender-for-containers-introduction>                     |
+| GitOps for Azure Kubernetes Service                        | <https://learn.microsoft.com/en-us/azure/architecture/example-scenario/gitops-aks/gitops-blueprint-aks#scenario-2-use-gitops-with-flux-github-and-aks-to-implement-cicd>                     |
+| Autoscaling AKS                                            | <https://github.com/kubernetes/autoscaler>                                                                            |
+| AKS Cluster Autoscaler                                     | <https://docs.microsoft.com/azure/aks/cluster-autoscaler>                                                             |
+| Upgrading an AKS cluster                                   | <https://docs.microsoft.com/azure/aks/upgrade-cluster>                                                                |
+| Azure Arc-enabled Kubernetes                               | <https://docs.microsoft.com/azure/azure-arc/kubernetes/overview/>                                                     |
+| Azure Bastion                                              | <https://learn.microsoft.com/en-us/azure/bastion/bastion-overview>                                                    |
+| Azure Key Vault                                            | <https://learn.microsoft.com/en-us/azure/key-vault/general/basic-concepts>                                            |
+| Private Endpoints                                          | <https://learn.microsoft.com/en-us/azure/private-link/private-endpoint-overview>                                      |
+| Application Gateway with WAF                               | <https://learn.microsoft.com/en-us/azure/application-gateway/overview>                                                |
+| Azure Firewall                                             | <https://learn.microsoft.com/en-us/azure/firewall/overview>                                                           |
+| Azure Policy built-in definitions ofr AKS                  | <https://learn.microsoft.com/en-us/azure/aks/policy-reference>                                                        |
+| Azure Container Registry                                   | <https://learn.microsoft.com/en-us/azure/container-registry/container-registry-intro>                                 |
+| Access and identity options for AKS                        | <https://learn.microsoft.com/en-us/azure/aks/concepts-identity>                                                       |
+| Monitor AKS with Azure Monitor                             | <https://learn.microsoft.com/en-us/azure/aks/monitor-aks>                                                             |
