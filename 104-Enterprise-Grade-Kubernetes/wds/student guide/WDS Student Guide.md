@@ -35,7 +35,7 @@ Directions: With all participants in the session, the facilitator/SME presents a
 
 Design a solution and prepare to present the solution to the target customer audience in a 15-minute chalk-talk format.
 
-Timeframe: 45 minutes
+Timeframe: **45 minutes**
 
 **Business needs**
 
@@ -98,7 +98,7 @@ Directions: As a team:
 
 3. Determine how you will respond to the customer's objections.
 
-Prepare a 15-minute chalk-talk style presentation to the customer.
+Prepare a **15-minute chalk-talk** style presentation to the customer.
 
 ## Step 3: Present the solution
 
@@ -106,7 +106,7 @@ Prepare a 15-minute chalk-talk style presentation to the customer.
 
 Present a solution to the target customer audience in a 15-minute chalk-talk format.
 
-Timeframe: 15 minutes
+Timeframe: **15 minutes**
 
 **Presentation**
 
@@ -126,8 +126,10 @@ Directions:
 
 7. (Optional) Switch roles and repeat Steps 2-6.
 
+**Be prepared** to answer questions from another team - list of questions available [here](./CustomerQuestions.md).
+
 ## Wrap-up (Optional)
 
-Timeframe: 10 minutes
+Timeframe: **10 minutes**
 
 Directions: Reconvene with the larger group to hear the facilitator/SME share the preferred solution for the case study.

@@ -1,8 +1,6 @@
-# Architecting for Success
+# Architecting for Success - Case Study
 
-# Enterprise Kubernetes Regulated Cluster Whiteboard Design Session - Case Study
-
-### Customer situation
+## Customer situation
 
 Contoso Payment Services Ltd. is a multinational corporation, headquartered in Europe that provides payment services solutions. They have data centres and branch offices scattered across Europe.
 
@@ -28,9 +26,9 @@ The Cloud Governance team is in the process of finalizing the actionable plan fo
 
 The best approach for migrating to the cloud, based on their digital estate is to utilize Azure Kubernetes Services as the orchestrator for hosting their stateless applications. The majority of their applications are containerized.
 
-### Customer needs
+## Customer needs
 
-#### Security
+### Security
 
 1. AKS cluster should not have any public IP addresses.
 2. Limit access of AKS cluster from an internal network, and continue to support VPN access.
@@ -47,7 +45,7 @@ The best approach for migrating to the cloud, based on their digital estate is t
 13. Continuously assess AKS cluster to provide visibility into misconfigurations and guidelines to help mitigate identified threats.
 14. Use cluster and nodes threat protection by generating security alerts for suspicious activities.
 
-#### Governance
+### Governance
 
 1. Continually review and assign legal compliance tasks and provide a compliance reporting ability for Azure resources.
 2. Enforce cluster pod security restricted standards for Linux-based workloads.
@@ -56,7 +54,7 @@ The best approach for migrating to the cloud, based on their digital estate is t
 5. Ensure that no Load Balancer services with a public IP address can be created in the Kubernetes cluster.
 6. Ensure that access to the application over the ingress controller is encrypted with SSL.
 
-#### Observability
+### Observability
 
 1. Enable logging across all components to support an all-encompassing monitoring solution.
 2. Provide tooling to help them with monitoring and managing container health and security.
@@ -64,18 +62,18 @@ The best approach for migrating to the cloud, based on their digital estate is t
 4. Enhance the logged data from the application to give the developers a more complete picture of the application's performance and behavior.
 5. Implement proactive diagnostics to generate automatic alerts for unusual application behavior including unusual request response time, dependency response time, and page load time.
 
-#### Scalability
+### Scalability
 
 1. The cluster should auto scale based on demand.
 2. Control pod scaling on resource utilization.
 
-#### Identity and Access Control
+### Identity and Access Control
 
 1. Ensure that Azure admins utilize best practices when accessing the Azure resources and that all logins are logged for identity theft analysis activities.
 2. Kubernetes administrators must authenticate to the cluster using their AAD credentials.
 3. Kubernetes authorization on resource level (i.e namepsace) should be managed through an Identity provider.
 
-#### Operations
+### Operations
 
 1. Be able to test functionality before pushing it to production systems.
 2. Be able to automatically and continuously deploy new software builds.
@@ -83,47 +81,10 @@ The best approach for migrating to the cloud, based on their digital estate is t
 4. Use pull based approach to reconcile configuration changes without exposing cluster endpoints to the build agents.
 5. Keep Azure Kubernetes Service (AKS) nodes up to date with the latest security patches or supported Kubernetes versions.
 
-#### Business Continuity
+### Business Continuity
 
 1. Ensure that the workloads remains functional in case of Data Centre failure.
 2. Kubernetes API Server should have a guarantee uptime of 99.95%
 3. Ability but not a hard requirement to failover to another region in case of disaster.
 4. Spin-off a new cluster including all the configuration easily.
 5. Bakcup strategy for Kubernetes resources and persistent volumes.
-
-### Customer objections
-
-1. We've been told that Azure's services, like Azure SQL Database, Azure Storage and Key Vault, must always have a public endpoint. Is that really true?
-2. How can Azure help control the costs associated with non-Production clusters left running out-of-hours?
-3. We have invested heavily in a third-party backup solution but we want to utilize Azure backup capabilities. Does Azure support this?
-4. We heard about Managed Identities. We would like to understand how it would improve the security of the solution you are recommending to us.
-5. Microsoft does their best for securing the Azure network, but we are unsure how to detect when hackers are attacking our systems. How will Microsoft's solution ensure we have visibility into our security posture?
-6. Does Azure allow enough granular Kubernetes RBAC controls to meet our least privilege needs?
-8. It is not clear to us ,how Azure helps our solution become PCI compliant. How can we ensure continued PCI DSS compliance?
-9. The new system may require querying data from on-premises data sources, how do you bridge that gap?
-10. What is meant by a pull pipeline? How is it different from a push pipeline? 
-11. We have been told that we can use authorized IP ranges accessing our Kubernetes API server. Can we use this functionality to limit API server access from specific IPs in a private cluster?
-12. Somebody in the Enterprise IT team had an issue in the past with asymmetric routing when enabling Azure Firewall to control outbound traffic from AKS cluster resources. How can we bypass this issue?
-13. We are not sure what network model to use in our cluster. During our investigation we realize that we can use Azure CNI, Kubenet and Azure CNI overlay. Which networking option should we choose for our AKS cluster.
-
-### Infographic for common scenarios
-
-_Kubernetes Architecture_
-
-> **Note**: This reference implementation demonstrates the *recommended starting (baseline) infrastructure architecture* for an AKS cluster that is under regulatory compliance requirements (such as PCI). This implementation builds directly upon the [AKS Baseline Cluster reference implementation](https://github.com/mspnp/aks-baseline) and adds to it additional implementation points that are more commonly seen in regulated environments vs typical "public cloud" consumption patterns.The reference architecture and implementation have not been certified by an official authority. By completing this series and deploying the code assets, you do not clear audit for PCI DSS. Acquire compliance attestations from third-party auditor.
-
-[<img src="../../images/regulated-architecture.svg" width="600"/>](../../images/regulated-architecture.svg)
-
-<https://learn.microsoft.com/en-us/azure/architecture/reference-architectures/containers/aks-pci/aks-pci-ra-code-assets>
-
-_Workload HTTPS request flow_
-
-[<img src="../../images/flow.svg" width="600"/>](../../images/flow.svg)
-
-<https://learn.microsoft.com/en-us/azure/architecture/reference-architectures/containers/aks-pci/aks-pci-ra-code-assets#tls-encryption>
-
-_Use GitOps with Flux, GitHub, and AKS to implement CI/CD_
-
-[<img src="../../images/gitops-ci-cd-flux.png" width="600"/>](../../images/gitops-ci-cd-flux.png)
-
-<https://learn.microsoft.com/en-us/azure/architecture/example-scenario/gitops-aks/gitops-blueprint-aks#scenario-2-use-gitops-with-flux-github-and-aks-to-implement-cicd>

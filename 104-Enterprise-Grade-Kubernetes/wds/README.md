@@ -42,6 +42,10 @@ Follow the student guide: [White board design session student guide](./student%2
 - Azure Log Analytics
 - Application Insights
 
+## Infographics
+
+- [Infographics](./student%20guide/Infographics.md)
+
 ## Additional references
 
 |                                                            |                                                                                                                       |
