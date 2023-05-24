@@ -104,4 +104,3 @@ The best approach for migrating to the cloud, based on their digital estate is t
 3. Ability but not a hard requirement to failover to another region in case of disaster.
 4. Spin-off a new cluster including all the configuration easily.
 5. Backup strategy for Kubernetes resources and persistent volumes.
-6. Stop being malakas by pointing out typos.
