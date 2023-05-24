@@ -10,8 +10,7 @@ In this whiteboard design session, you will learn to design an Azure Landing Zon
 
 ## Step 1: Review the customer case study
 
-**Outcome**
-Analyze your customer's needs.
+**Outcome** Analyze your customer's needs.
 
 Timeframe: 15 minutes
 
@@ -28,6 +27,8 @@ Directions: With all participants in the session, the facilitator/SME presents a
 **Azure Landing Zones conceptual architecture**
 ![For many organizations, the ALZ conceptual architecture below represents the destination in their cloud adoption journey. It's a mature, scaled-out target architecture intended to help organizations operate successful cloud environments that drive their business while maintaining best practices for security and governance.](/102-Azure-Landing-Zones/images/alz_accelerator.png)
 
+---
+
 ## Step 2: Design a proof of concept solution
 
 **Outcome**
@@ -43,6 +44,7 @@ Your design must include all of the following:
 4. A list of RBAC assignment
 5. A network topology
 
+
 When designing your solution, consider the following:
 
 1. What will you use to help the customer easily create cost-related reports for each workload based on department, owner, and environment? And how will you apply it?
@@ -50,6 +52,8 @@ When designing your solution, consider the following:
 3. How are you going to make sure that M-Series and L-Series VMs can only be deployed in the SAP environments without impacting agility and scale?
 4. How will you ensure that "development environments and associated VNETs are not able to communicate with production"?
 5. How will you assign develops access to development environments at scale and with minimal administrative effort?
+
+---
 
 ## Step 3: Present the solution
 
