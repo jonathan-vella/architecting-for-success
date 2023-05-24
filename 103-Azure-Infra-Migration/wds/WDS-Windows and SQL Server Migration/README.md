@@ -25,7 +25,7 @@ In this whiteboard design session, you will learn to design a strategy for migra
 
 At the end of the whiteboard design session, you will be better able to design a migration strategy for Windows Server workloads to Azure VMs, SQL Server workloads to Azure SQL Managed Instance (SQL MI), and simplify workload management using Azure Arc.
 
-Continue to the [Whiteboard design session](Whiteboard%20design%20session) documents folder.
+Continue to the [Whiteboard design session](./student%20guide/wds%20student%20guide%20-%20windows%20and%20sql%20server%20to%20azure.md) documents folder.
 
 ### Hands-on Lab
 
