@@ -87,7 +87,7 @@ The best approach for migrating to the cloud, based on their digital estate is t
 
 1. Ensure that Azure admins utilize best practices when accessing the Azure resources and that all logins are logged for identity theft analysis activities.
 2. Kubernetes administrators must authenticate to the cluster using their AAD credentials.
-3. Kubernetes authorization on resource level (i.e namepsace) should be managed through an Identity provider.
+3. Kubernetes authorization on resource level (i.e namespace) should be managed through an Identity provider.
 
 ### Operations
 
@@ -103,4 +103,5 @@ The best approach for migrating to the cloud, based on their digital estate is t
 2. Kubernetes API Server should have a guarantee uptime of 99.95%
 3. Ability but not a hard requirement to failover to another region in case of disaster.
 4. Spin-off a new cluster including all the configuration easily.
-5. Bakcup strategy for Kubernetes resources and persistent volumes.
+5. Backup strategy for Kubernetes resources and persistent volumes.
+6. Stop being malakas by pointing out typos.
