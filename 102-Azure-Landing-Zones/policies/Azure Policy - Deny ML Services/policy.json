@@ -1,0 +1,69 @@
+{
+ "properties": {
+  "displayName": "Audit or Deny the use of Machine Learning Services based on SKU",
+  "policyType": "Custom",
+  "mode": "All",
+  "description": "This policy audits or denies the use of Machine Learning Services based on SKU. Resource creation will be denied unless SKU and / or Target Type are explicitly allowed in the policy. Combined with other policies which for example audit the use of M-Series and N-series VMs outside of ML Services, this policy can help mitigate the risk and minimize the impact of cryptojacking.",
+  "metadata": {
+   "category": "Machine Learning"
+  },
+  "parameters": {
+   "listOfAllowedSKUs": {
+    "type": "Array",
+    "metadata": {
+     "displayName": "Allowed Compute Size by SKU",
+     "description": "The list of SKUs which are allowed for virtual machines.",
+     "strongType": "vmSKUs"
+    }
+   },
+   "computeType": {
+    "type": "Array",
+    "metadata": {
+     "displayName": "Allowed Compute Target Types",
+     "description": "The list of allowed Compute Target Type. More info at https://docs.microsoft.com/en-us/azure/machine-learning/concept-compute-target"
+    },
+    "allowedValues": [
+     "AKS",
+     "AmlCompute",
+     "ComputeInstance"
+    ]
+   },
+   "effect": {
+    "type": "String",
+    "metadata": {
+     "displayName": "Effect",
+     "description": "Enable or disable the execution of the policy"
+    },
+    "allowedValues": [
+     "Audit",
+     "Deny",
+     "Disabled"
+    ],
+    "defaultValue": "Deny"
+   }
+  },
+  "policyRule": {
+   "if": {
+    "allOf": [
+     {
+      "equals": "Microsoft.MachineLearningServices/workspaces/computes",
+      "field": "type"
+     },
+     {
+      "field": "Microsoft.MachineLearningServices/workspaces/computes/computeType",
+      "in": "[parameters('computeType')]"
+     },
+     {
+      "not": {
+       "field": "Microsoft.MachineLearningServices/workspaces/computes/vmSize",
+       "in": "[parameters('listOfAllowedSKUs')]"
+      }
+     }
+    ]
+   },
+   "then": {
+    "effect": "[parameters('effect')]"
+   }
+  }
+ }
+}

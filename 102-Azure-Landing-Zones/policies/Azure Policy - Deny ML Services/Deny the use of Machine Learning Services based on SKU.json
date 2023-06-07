@@ -1,0 +1,61 @@
+{
+    "mode": "All",
+    "policyRule": {
+      "if": {
+        "allOf": [
+          {
+            "equals": "Microsoft.MachineLearningServices/workspaces/computes",
+            "field": "type"
+          },
+          {
+            "field": "Microsoft.MachineLearningServices/workspaces/computes/computeType",
+            "in": "[parameters('computeType')]"
+          },
+          {
+            "not": {
+              "field": "Microsoft.MachineLearningServices/workspaces/computes/vmSize",
+              "in": "[parameters('listOfAllowedSKUs')]"
+            }
+          }
+        ]
+      },
+      "then": {
+        "effect": "[parameters('effect')]"
+      }
+    },
+    "parameters": {
+      "listOfAllowedSKUs": {
+        "type": "Array",
+        "metadata": {
+          "displayName": "Allowed Compute Size by SKU",
+          "description": "The list of SKUs which are allowed for virtual machines.",
+          "strongType": "vmSKUs"
+        }
+      },
+      "computeType": {
+        "type": "Array",
+        "metadata": {
+          "displayName": "Allowed Compute Target Types",
+          "description": "The list of allowed Compute Target Type. More info at https://docs.microsoft.com/en-us/azure/machine-learning/concept-compute-target"
+        },
+        "allowedValues": [
+          "AKS",
+          "AmlCompute",
+          "ComputeInstance"
+        ]
+      },
+      "effect": {
+        "type": "String",
+        "metadata": {
+          "displayName": "Effect",
+          "description": "Enable or disable the execution of the policy"
+        },
+        "allowedValues": [
+          "Audit",
+          "Deny",
+          "Disabled"
+        ],
+        "defaultValue": "Deny"
+      }
+    }
+  }
