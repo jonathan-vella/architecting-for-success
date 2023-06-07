@@ -1,6 +1,6 @@
-# Audit or Deny the use of Machine Learning Services based on SKU
+# Deny the use of Machine Learning Services based on SKU
 
-This policy can audit or deny the use of Azure Machine Learning Services based on SKU. Resource creation will be denied unless SKU and / or Target Type are explicitly defined in the policy. Combined with other policies which for example audit the use of M-Series and N-series VMs outside of ML Services, this policy can help mitigate the risk and minimize the impact of cryptojacking.
+This policy can deny the use of Azure Machine Learning Services based on SKU. Resource creation will be denied unless SKU and / or Target Type are explicitly defined in the policy. Combined with other policies which for example deny the use of M-Series and N-series VMs outside of ML Services, this policy can help mitigate the risk and minimize the impact of cryptojacking.
 
 > Note: By default this policy is configure with a "deny" effect; this will not impact any existing resources. Other allowed values are "Audit" and "Disabled".
 
