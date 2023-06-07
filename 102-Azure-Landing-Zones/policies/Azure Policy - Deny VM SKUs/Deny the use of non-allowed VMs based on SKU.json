@@ -1,43 +1,66 @@
 {
-    "mode": "Indexed",
-    "policyRule": {
-      "if": {
-        "allOf": [
-          {
-            "field": "type",
-            "equals": "Microsoft.Compute/virtualMachines"
-          },
-          {
-            "field": "Microsoft.Compute/virtualMachines/sku.name",
-            "in": "[parameters('listOfDeniedSKUs')]"
-          }
-        ]
-      },
-      "then": {
-        "effect": "[parameters('effect')]"
-      }
-    },
-    "parameters": {
-      "listOfDeniedSKUs": {
-        "type": "Array",
-        "metadata": {
-          "displayName": "Denied Size SKUs",
-          "description": "The list of size SKUs that should not be in use.",
-          "strongType": "VMSKUs"
-        }
-      },
-      "effect": {
-        "type": "String",
-        "metadata": {
-          "displayName": "Effect",
-          "description": "Enable or disable the execution of the policy"
+  "mode": "All",
+  "policyRule": {
+    "if": {
+      "AllOf": [
+        {
+          "AnyOf": [
+            {
+              "field": "type",
+              "in": [
+                "Microsoft.Compute/virtualMachines"
+              ]
+            },
+            {
+              "field": "type",
+              "in": [
+                "Microsoft.Compute/virtualMachineScaleSets"
+              ]
+            }
+          ]
         },
-        "allowedValues": [
-          "Audit",
-          "Deny",
-          "Disabled"
-        ],
-        "defaultValue": "Deny"
+        {
+          "anyOf": [
+            {
+              "AllOf": [
+                {
+                  "field": "Microsoft.Compute/virtualMachines/sku.name",
+                  "in": "[parameters('BlockedSKUs')]"
+                },
+                {
+                  "field": "Microsoft.Compute/virtualMachines/priority",
+                  "notEquals": "Spot"
+                }
+              ]
+            },
+            {
+              "AllOf": [
+                {
+                  "field": "Microsoft.Compute/virtualMachineScaleSets/sku.name",
+                  "in": "[parameters('BlockedSKUs')]"
+                },
+                {
+                  "field": "Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile.priority",
+                  "notEquals": "Spot"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "then": {
+      "effect": "Deny"
+    }
+  },
+  "parameters": {
+    "BlockedSKUs": {
+      "type": "Array",
+      "metadata": {
+        "displayName": "Blocked skus",
+        "description": "The list of VM SKUs to block",
+        "strongType": "VMSKUs"
       }
     }
   }
+}
