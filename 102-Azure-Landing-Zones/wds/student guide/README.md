@@ -7,8 +7,8 @@
 ### Company background & information
 
 - Contoso are a localized brand focusing on wholesale, distribution and retail and have their HQ in Athens with warehouses, distribution centres & shops located across the entire Greek territory.
-- The CEO demands that no data is stored outside of the EU.
-- COVID-19 accelerated their digital transformation and are now looking to aggressively migrate all workloads to Microsoft Azure.
+- The CEO demands that no data is stored outside of the EU. He is also very concerned around the risk and impact of fraudulent activities and misuse of Azure resources.
+- COVID-19 accelerated thofr digital transformation and are now looking to aggressively migrate all workloads to Microsoft Azure.
 - They are currently hosting all of their workloads on VMware vSphere and have 2 main sites - Athens (Prod DC) and Thessaloniki (DR DC).
 - They have circa 75 virtual machines in production, and around 20 for Dev & Test scenarios.
 - COVID-19 triggered a heavy investment in their online presence which is now a key business revenue stream accounting to 50% of their sales.
