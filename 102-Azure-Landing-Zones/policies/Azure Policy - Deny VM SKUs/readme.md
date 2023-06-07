@@ -1,6 +1,6 @@
-# Audit or Deny the use of non-allowed VMs based on SKU
+# Deny the use of non-allowed VMs based on SKU
 
-This policy can either audit or deny the use of non-allowed VM SKUs such as M-Series and N-Series. This policy, combined with other policies which for example audit or deny the use of Azure Machines Learning Services, can help mitigate the risk and impact of cryptojacking.
+This policy can deny the use of non-allowed VM SKUs such as M-Series and N-Series. This policy, combined with other policies which for example deny the use of Azure Machines Learning Services, can help mitigate the risk and impact of cryptojacking.
 
 > Note: By default this policy is configure with a "deny" effect; this will not impact any existing resources. Other allowed values are "Audit" and "Disabled".
 
