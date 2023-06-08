@@ -3,7 +3,7 @@
 # Module 04 - ALZ Accelerator Hackathon
 
 ---
-
+## Important Notice: As of May 2023, the Azure Portal experience (accelerator) of the ALZ Reference Implementation (RI), will not include the "Platform DevOps and automation" section anymore.
 ## Challenge 02 - IaC with GitHub Actions (90mins)
 
 In this challenge you will be manually creating a CICD pipeline which will allow you to operate the Azure platform using [AzOps](https://github.com/Azure/AzOps) and [GitHub Actions](https://github.com/skills/hello-github-actions).
