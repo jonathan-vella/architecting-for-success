@@ -2,7 +2,7 @@
 
 ---
 
-## Challenge 05 - Automated Governance Reporting (1hr)
+## Challenge 05 - Automated Governance Reporting (90mins)
 
 In this challenge you will be implementing [AzGovViz](https://github.com/JulianHayward/Azure-MG-Sub-Governance-Reporting) which is a PowerShell based script that iterates your Azure Tenant´s Management Group hierarchy down to Subscription level. It captures most relevant Azure governance capabilities such as Azure Policy, RBAC and Blueprints and a lot more.
 
