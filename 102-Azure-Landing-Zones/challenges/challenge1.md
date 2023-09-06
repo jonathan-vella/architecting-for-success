@@ -4,11 +4,21 @@
 
 ## Challenge 01 - Designing Azure Landing Zones (3hrs)
 
-## Abstract and learning objectives
-
 In this challenge, you will design an Azure Landing Zones architecture for Contoso. You will be working through the customer scenario and their particular requirements to produce a tailored architecture for their Azure Landing Zone deployment.
 
 ---
+
+## Challenge 01 - Success criteria
+
+1. Understand the customer's business requirements.
+2. Identify any potential gaps in the customer's requirements.
+3. Identify business and technical risks.
+4. Design a solution that meets the customer's requirements whilst mitigating any risks.
+5. Present the solution to the customer.
+
+---
+
+## Challenge 01 - In-depth guidance
 
 ## Step 1: Review the customer case study
 

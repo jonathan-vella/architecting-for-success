@@ -4,12 +4,9 @@
 
 ## Challenge 02 - Deploying Azure Landing Zones (1.5hrs)
 
-## Abstract and learning objectives
-
 In this challenge you will be deploying the Azure Landing Zones reference implementation located in this [repository](https://github.com/Azure/Enterprise-Scale) using the Azure Portal experience, which is the quickest way to deploy the ALZ conceptual architecture.
 Alternatively you can deploy the [ALZ Bicep Accelerator](https://github.com/Azure/ALZ-Bicep/wiki/Accelerator) using either GitHub Actins option Azure DevOps Pipelines.
 There's also a Terraform option which you can find [here](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/deploy-landing-zones-with-terraform) but this is out-of-scope for this challenge.
-
 
 ---
 
@@ -18,16 +15,4 @@ There's also a Terraform option which you can find [here](https://learn.microsof
 1. Plan and document the IP addressing for the Hub network. Customer will be leveraging at least Azure Firewall, Azure VPN Gateway, and Azure Bastion. In your plan, clearly document subnet names, whether the use of NSGs and / or UDRs is allowed by Azure, and the minimum recommended subnet size. You must include references to online documentation. You can either use the provided [template](/learning_path_modules/04_ALZ_Accelerator/sources/Azure%20Network%20Documentation%20Template.xlsx) or build your own.
 2. Document your design decisions related to AAD tenant, RBAC permissions, number of subscriptions, naming & tagging conventions, etc.
 3. Document your deployment workflow.
-4. Successfully deploy the reference implementation.
-
----
-
-## Challenge 03 - Success criteria
-
-1. Document and share with your coach what you believe should be the minimum requirements and level of information you need have at hand to deploy the ALZ accelerator. Think of tenants, priviliged identities, security contacts, IP addresses, etc.
-2. What will you use to help the customer easily create cost-related reports for each workload based on department, owner, and environment? And how will you apply it?
-3. How will you implement the customer's regulatory & compliance requirements? You must include links to relevant documentation which supports your approach.
-4. How are you going to make sure that M-Series and L-Series VMs can only be deployed in the SAP environments without impacting agility and scale?
-5. How will you ensure that "development environments and associated VNETs are not able to communicate with production"?
-
----
+4. Successfully deploy the reference implementation using either the Azure Portal experience or the ALZ Bicep Accelerator.

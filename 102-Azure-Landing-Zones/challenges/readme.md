@@ -38,7 +38,7 @@
 - All production VMs must be backed up, and some selected VMs in dev/test environments also need to be protected.
 - They require built-in platform regulatory compliance security checks and reporting for all production environments (PCI-DSS, ISO27001, CIS etc.)
   - ISO27001 for all environments except Sandbox subscriptions.
-  - PCI-DSS for the payment system.
+  - PCI-DSS for the SAP and payment system.
 - All Subnets must be protected with NSGs and cannot be disabled.
 - Azure Activity Logs for all Subscriptions & Diagnostic settings for all Azure Resources should be enabled automatically and sent to a centralized LAW.
 - TDE & Auditing should be enforced on all Azure SQL Databases.
