@@ -1,34 +1,32 @@
-# What the CAF
-
-# Module 04 - ALZ Accelerator Hackathon
-
----
-## Important Notice: As of May 2023, the Azure Portal experience (accelerator) of the ALZ Reference Implementation (RI), will not include the "Platform DevOps and automation" section anymore.
-## Challenge 02 - IaC with GitHub Actions (90mins)
-
-In this challenge you will be manually creating a CICD pipeline which will allow you to operate the Azure platform using [AzOps](https://github.com/Azure/AzOps) and [GitHub Actions](https://github.com/skills/hello-github-actions).
-
-This PowerShell module is rooted in the principle that everything in Azure is a resource and to operate at-scale, it should be managed declaratively to determine target goal state of the overall platform. Guidance for this challenge is located [here](https://github.com/azure/azops/wiki/github-actions).
-
-## Challenge 02 - Success Criteria
-
-1. Read all points in this challenge and using the concept of least privilige, identify the RBAC role and scope you must assign for the idenitity you will be using for AzOps. **Do not proceed before discussing your solution with your coach.**
-2. Transform your Azure into code. Configure AzOps and initiate the first Pull workflow.
-3. Validate AzOps by making sure that the Azure hierarchy that got created using ARM templates as part of the ALZ setup, such as management groups, subscription organization as well as policy definitions, policy assignments and role assignments are hydrated and organized into Git.
-4. Using GitHub, create a new [Policy Assignment](https://github.com/Azure/Enterprise-Scale/wiki/Deploying-ALZ-Platform-DevOps#operating-the-azure-platform-using-azops-infrastructure-as-code-with-github-actions) and validate the assignment thru the Azure Portal. **Do not update the Azure Policy assignment to Enforce!**
-5. Using GitHub, create a new Role Assignment on the "Sandbox" management group which grants members of the AAD group "Contoso Sandbox Contributors" contributor access at the management group level and validate the assignment thru the Azure Portal.
+# Architecting for Success - Azure Landing Zones
 
 ---
 
-## Challenge 02a - PaC with GitHub Actions
+## Challenge 02 - Deploying Azure Landing Zones (3hrs)
 
-In this challenge you will be using Policy-As-Code to modify a policy definition which is blocking you from creating the Azure Bastion Subnet.
+## Abstract and learning objectives
 
-## Challenge 02a - Success Criteria
+In this challenge you will be deploying the Azure Landing Zones reference implementation located in this [repository](https://github.com/Azure/Enterprise-Scale) using the Azure Portal experience, which is the quickest way to deploy the ALZ conceptual architecture.
+Alternatively you can deploy the [ALZ Bicep Accelerator](https://github.com/Azure/ALZ-Bicep/wiki/Accelerator) using either GitHub Actins option Azure DevOps Pipelines.
+There's also a Terraform option which you can find [here](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/deploy-landing-zones-with-terraform) but this is out-of-scope for this challenge.
 
-1. In your hub network, try to create the Azure Bastion Subnet. Azure Policy should block the operation. Read carefully the output of the error message.
-2. Using GitHub (or VS Code but not the Azure Portal) modify the policy which is enforcing the use of Network Security Groups. You are not allowed to change the policy effect. A deny is a deny. Hint: Find and read the Policy definition.
-3. You should be now be able to create the Azure Bastion Subnet (you don't need to deploy Azure Bastion).
 
 ---
 
+## Challenge 02 - Success criteria
+
+1. Plan and document the IP addressing for the Hub network. Customer will be leveraging at least Azure Firewall, Azure VPN Gateway, and Azure Bastion. In your plan, clearly document subnet names, whether the use of NSGs and / or UDRs is allowed by Azure, and the minimum recommended subnet size. You must include references to online documentation. You can either use the provided [template](/learning_path_modules/04_ALZ_Accelerator/sources/Azure%20Network%20Documentation%20Template.xlsx) or build your own.
+2. Document the deployment process by creating a high-level workflow including pre-requisites related to AAD permissions, min. number of subscriptions, subscription naming convention and renaming, etc.
+3. Deploy the reference implementation.
+
+---
+
+## Challenge 01a - Success criteria
+
+1. Document and share with your coach what you believe should be the minimum requirements and level of information you need have at hand to deploy the ALZ accelerator. Think of tenants, priviliged identities, security contacts, IP addresses, etc.
+2. What will you use to help the customer easily create cost-related reports for each workload based on department, owner, and environment? And how will you apply it?
+3. How will you implement the customer's regulatory & compliance requirements? You must include links to relevant documentation which supports your approach.
+4. How are you going to make sure that M-Series and L-Series VMs can only be deployed in the SAP environments without impacting agility and scale?
+5. How will you ensure that "development environments and associated VNETs are not able to communicate with production"?
+
+---
