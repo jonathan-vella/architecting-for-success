@@ -2,7 +2,7 @@
 
 ---
 
-## Challenge 06 - Azure Design Review (15mins)
+## Challenge 06 - Azure Design Review (30mins)
 
 In this challenge you will be doing an Azure design review to double-check that you are following best practices, or perhaps to evaluate the work of others.
 
