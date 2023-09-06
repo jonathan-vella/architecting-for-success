@@ -2,7 +2,7 @@
 
 ---
 
-## Challenge 02 - Deploying Azure Landing Zones (3hrs)
+## Challenge 02 - Deploying Azure Landing Zones (1.5hrs)
 
 ## Abstract and learning objectives
 
@@ -16,12 +16,13 @@ There's also a Terraform option which you can find [here](https://learn.microsof
 ## Challenge 02 - Success criteria
 
 1. Plan and document the IP addressing for the Hub network. Customer will be leveraging at least Azure Firewall, Azure VPN Gateway, and Azure Bastion. In your plan, clearly document subnet names, whether the use of NSGs and / or UDRs is allowed by Azure, and the minimum recommended subnet size. You must include references to online documentation. You can either use the provided [template](/learning_path_modules/04_ALZ_Accelerator/sources/Azure%20Network%20Documentation%20Template.xlsx) or build your own.
-2. Document the deployment process by creating a high-level workflow including pre-requisites related to AAD permissions, min. number of subscriptions, subscription naming convention and renaming, etc.
-3. Deploy the reference implementation.
+2. Document your design decisions related to AAD tenant, RBAC permissions, number of subscriptions, naming & tagging conventions, etc.
+3. Document your deployment workflow.
+4. Successfully deploy the reference implementation.
 
 ---
 
-## Challenge 01a - Success criteria
+## Challenge 03 - Success criteria
 
 1. Document and share with your coach what you believe should be the minimum requirements and level of information you need have at hand to deploy the ALZ accelerator. Think of tenants, priviliged identities, security contacts, IP addresses, etc.
 2. What will you use to help the customer easily create cost-related reports for each workload based on department, owner, and environment? And how will you apply it?
