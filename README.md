@@ -1,7 +1,6 @@
 # Architecting For Success
 >![Logo](/media/architecting-for-success.jpeg)
 
-
 Cloud adoption continues to increase rapidly, yielding an enormous migration and modernization opportunity as organizations continue their digital transformation. Migration alone is one of our greatest near-term opportunities to help customers meet their business goals. Many customers are looking to shift large parts of their IT spending to the cloud with infrastructure as a service (IaaS) seeing the biggest increase.  
 
 As customers migrate and modernize, they are not just looking for technology; they’re looking for trusted partners to help them navigate cloud complexities and opportunities. They need an expert to help them navigate these tough issues as they move toward hybrid, multi-cloud and edge environments, facing new complexities and opportunities.
