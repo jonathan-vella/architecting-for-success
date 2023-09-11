@@ -30,29 +30,28 @@ Please read this [customer case study](/102-azure-landing-zones/challenges/readm
 - Cloud Adoption and Well Architected Knowledge Refresh
 - Azure Landing Zones and the Azure Landing Zone conceptual architecture review
 - Contoso Corporation customer scenario review and discussion
-- [Challenge 01](./wds/student%20guide/wds%20student%20guide%20-%20azure%20landing%20zones.md) Azure Landing Zones Design
+- [Challenge 01](./wds/student%20guide/wds%20student%20guide%20-%20azure%20landing%20zones.md) Designing Azure Landing Zones (3hrs)
 
 ---
 
 ## 3-day Hackathon Agenda
 
-### Hackathon Day 1 (4hr)
+### Hackathon Day 1 (8hr)
 
 - Cloud Adoption and Well Architected Knowledge Refresh
 - Azure Landing Zones and the Azure Landing Zone conceptual architecture review
 - Contoso Corporation customer scenario review and discussion
 - The minified version of design areas, principles, considerations, and recommendations
-- [Challenge 01](./challenges/challenge1.md) Azure Landing Zones deployment
 
-### Hackathon Day 2 (7hr)
+### Hackathon Day 2 (6hr)
 
-- The minified version of design areas, principles, considerations, and recommendations (cont.)
-- [Challenge 01](./challenges/challenge1.md) Azure Landing Zones deployment (cont.)
-- [Challenge 02](./challenges/challenge2.md) IaC and PaC with GitHub actions
+- [Challenge 01](./challenges/challenge1.md) Designing Azure Landing Zones (3hrs)
+- [Challenge 02](./challenges/challenge2.md) Deploying Azure Landing Zones (1.5hrs)
+- [Challenge 03](./challenges/challenge3.md) Tailoring Azure Landing Zones (2hrs)
 
-### Hackathon Day 3 (7hr)
+### Hackathon Day 3 (6hr)
 
-- [Challenge 03](./challenges/challenge3.md) Azure VM and Azure SQL Database BCDR at scale
-- [Challenge 04](./challenges/challenge4.md) Documenting & Assessing ALZ
-- [Challenge 05](./challenges/challenge5.md) Assessing Landing Zones just like the FTA team!
-- [Challenge 06](./challenges/challenge6.md) Environment cleanup
+- [Challenge 04](./challenges/challenge4.md) BCDR at scale (2hrs)
+- [Challenge 05](./challenges/challenge5.md) Automated Governance Reporting (90mins)
+- [Challenge 06](./challenges/challenge6.md) Azure Design Review (1hr)
+- [Challenge 07](./challenges/challenge7.md) Environment cleanup (30mins)
