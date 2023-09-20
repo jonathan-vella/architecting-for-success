@@ -23,17 +23,18 @@ By the end of this unit, you will be able to:
 
 In this phase, **get all your ideas down on paper**. Once you've completed the whiteboarding session, your team will work together to refine and prioritize your recommendations.
 
----
+**Team lead guidance**
 
-### Part 1: Brainstorm solutions related to resiliency within a Well-Architected Framework
-
-Team lead guidance
 * This whiteboard will be completed collaboratively using the provided table.
 * Encourage all members to brainstorm and share their ideas on how to make the current architecture more resilient.
 * You may choose to start the discussion by level-setting with your team on the basics of resiliency by reviewing the provided resources.
 * Assign a timekeeper so your team gets through all of the topics before the end of the session.
 
-Overview
+---
+
+### Part 1: Brainstorm solutions related to resiliency within a Well-Architected Framework
+
+**Overview**
 
 The first step in this whiteboard will be to discuss resiliency. To do this, walk through the high-level architecture of how the customer's current architecture fits within the broader environment to determine internal and external dependencies, service-level agreements and service-level objectives (SLA/SLOs), and failure modes. Analyze how business continuity and disaster recovery requirements are being addressed by the workload architecture and operational strategies.
 
