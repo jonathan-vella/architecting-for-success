@@ -88,7 +88,7 @@ Internal IT knowledge / experience
     * <1s- Excellent
     * 2-3s- Optimal
     * 3-5s- Minimum
-    * >5a- Unacceptable
+    * > 5s- Unacceptable
 * Uptime of 99.5% with a one-hour maintenance window per week
 * Availability SLAs in BCDR scenarios (currently not met)
   * Recovery point objective of 30 minutes, recovery time objective of one hour
