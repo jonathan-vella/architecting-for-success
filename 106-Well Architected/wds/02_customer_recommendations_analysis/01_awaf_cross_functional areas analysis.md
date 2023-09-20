@@ -99,7 +99,7 @@ Refer to the resources section for more information about these topics.
 
 This brainstorming session focused on solutions related to resiliency. Next, you'll focus on performance and scale.
 
---
+---
 
 ### Part 2: Brainstorm solutions related to performance and scale within a Well-Architected Framework
 
