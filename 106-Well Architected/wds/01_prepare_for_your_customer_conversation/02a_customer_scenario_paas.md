@@ -6,7 +6,7 @@
 
 ---
 
-## Prepare for your customer conversation - Customer scenario: Adatum Deliveries (PaaS)
+## Customer scenario: Adatum Deliveries (PaaS)
 
 ### Part 1: Current state
 
