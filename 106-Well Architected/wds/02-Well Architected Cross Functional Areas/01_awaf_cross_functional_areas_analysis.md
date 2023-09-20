@@ -25,7 +25,7 @@ In this phase, **get all your ideas down on paper**. Once you've completed the w
 
 **Team lead guidance**
 
-* This whiteboard will be completed collaboratively using the provided table.
+* This whiteboard will be completed collaboratively using the [provided table](./02_whiteboard_table.md).
 * Encourage all members to brainstorm and share their ideas on how to make the current architecture more resilient.
 * You may choose to start the discussion by level-setting with your team on the basics of resiliency by reviewing the provided resources.
 * Assign a timekeeper so your team gets through all of the topics before the end of the session.
