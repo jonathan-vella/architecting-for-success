@@ -15,8 +15,9 @@ This unit contains a five-part whiteboarding exercise focused on key cross-funct
 **Objective**
 
 By the end of this unit, you will be able to:
-• Outline customer needs, business priorities, and key architectural characteristics given a realistic customer workload.
-• Conduct a cross-pillar analysis and determine key gaps in the workload's alignment with the Well-Architected Framework.
+
+* Outline customer needs, business priorities, and key architectural characteristics given a realistic customer workload.
+* Conduct a cross-pillar analysis and determine key gaps in the workload's alignment with the Well-Architected Framework.
 
 **Participant guidance**
 
