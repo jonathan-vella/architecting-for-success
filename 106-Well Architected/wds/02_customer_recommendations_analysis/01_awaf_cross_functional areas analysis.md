@@ -93,6 +93,7 @@ To help you answer the questions, consider the following characteristics that de
 * Failure mode analysis
 * Fault tolerance
 * Backup and recovery
+
 Refer to the resources section for more information about these topics.
 
 **Summary**
@@ -105,25 +106,24 @@ This brainstorming session focused on solutions related to resiliency. Next, you
 
 **Overview**
 
-Working with your team, brainstorm solutions related to performance and scale within a Well-Architected Framework.
-
-For this topic, participants will analyze performance and scalability requirements within the workload architecture and evaluate how they contribute to and are affected by the overall fault tolerance of the workload.
+Working with your team, brainstorm solutions related to performance and scale within a Well-Architected Framework. For this topic, participants will analyze performance and scalability requirements within the workload architecture and evaluate how they contribute to and are affected by the overall fault tolerance of the workload.
 
 **Resources**
 
 **Characteristics of performance and scale**
-Design efficiency [(design Azure applications for efficiency)](https://learn.microsoft.com/en-us/azure/architecture/framework/scalability/design-efficiency)
-Scalability [(design for scaling)](https://learn.microsoft.com/en-us/azure/architecture/framework/scalability/design-scale)
-Reactive
-Proactive
-Capacity [(plan for capacity)](https://learn.microsoft.com/en-us/azure/architecture/framework/scalability/design-capacity)
-Testing [(performance testing)](https://learn.microsoft.com/en-us/azure/architecture/framework/scalability/performance-test#establish-baselines)
-Baseline
-Load
-Stress
-Chaos engineering [(chaos engineering)](https://learn.microsoft.com/en-us/azure/architecture/framework/resiliency/chaos-engineering)
 
-Participant guidance
+* Design efficiency [(design Azure applications for efficiency)](https://learn.microsoft.com/en-us/azure/architecture/framework/scalability/design-efficiency)
+* Scalability [(design for scaling)](https://learn.microsoft.com/en-us/azure/architecture/framework/scalability/design-scale)
+  * Reactive
+  * Proactive
+  * Capacity [(plan for capacity)](https://learn.microsoft.com/en-us/azure/architecture/framework/scalability/design-capacity)
+* Testing [(performance testing)](https://learn.microsoft.com/en-us/azure/architecture/framework/scalability/performance-test#establish-baselines)
+  * Baseline
+  * Load
+  * Stress
+  * Chaos engineering [(chaos engineering)](https://learn.microsoft.com/en-us/azure/architecture/framework/resiliency/chaos-engineering)
+
+**Participant guidance**
 
 1. Brainstorm and analyze with your team the performance and scalability requirements within the workload architecture.
 2. Evaluate how they contribute to or are affected by the overall fault tolerance of the workload.
@@ -135,7 +135,7 @@ Participant guidance
    * What are the key scaling points within the architecture?
    * What are the scaling requirements for these points (auto or reactive, proactive)?
 
-Duration: 15 minutes
+**Duration**: 15 minutes
 
 **Participant steps**
 
@@ -150,6 +150,7 @@ To help you answer the questions, consider the following characteristics that de
 * Design efficiency
 * Scalability
 * Performance testing
+
 Refer to the resources section for more information about these topics.
 
 **Summary**
@@ -162,13 +163,12 @@ This topic focused on solutions related to performance and scale. Next, you'll f
 
 **Overview**
 
-Working with your team, brainstorm solutions related to security, governance, and identity within a Well-Architected Framework.
-
-For this topic, analyze with your team how security, governance, and identity requirements are being addressed by the workload architecture and operational strategies.
+Working with your team, brainstorm solutions related to security, governance, and identity within a Well-Architected Framework. For this topic, analyze with your team how security, governance, and identity requirements are being addressed by the workload architecture and operational strategies.
 
 **Resources**
 
 **Characteristics of security, governance, and identity**
+
 * Auditability [(auditing)](https://learn.microsoft.com/en-us/azure/architecture/framework/devops/auditing)
 * Governance [(governance, risk, and compliance)](https://learn.microsoft.com/en-us/azure/architecture/framework/security/design-governance)
   * Compliance
@@ -206,6 +206,7 @@ To help you answer the questions, consider the following characteristics that re
 * Governance
 * Identity and access management
 * Data protection
+
 Refer to the resources section for more information about these topics.
 
 **Summary**
@@ -223,13 +224,14 @@ Working with your team, brainstorm solutions related to DevOps within a Well-Arc
 **Resources**
 
 **Characteristics of DevOps**
+
 * Automation [(automation overview of goals, best practices, and types in Azure)](https://learn.microsoft.com/en-us/azure/architecture/framework/devops/automation-overview)
   * Repeatable infrastructure [(repeatable infrastructure)](https://learn.microsoft.com/en-us/azure/architecture/framework/devops/automation-infrastructure)
 * Configuration management [(external configuration store pattern)](https://learn.microsoft.com/en-us/azure/architecture/patterns/external-configuration-store)
 * Release engineering [(release engineering continuous deployment)](https://learn.microsoft.com/en-us/azure/architecture/framework/devops/release-engineering-cd)
 * Secrets management [(key and secret management in Azure)](https://learn.microsoft.com/en-us/azure/architecture/framework/security/design-storage-keys)
 
-Participant guidance
+**Participant guidance**
 
 1. Analyze with your team the automation and deployment strategies for the workload.
 2. Focusing on factors related to DevOps, share all ideas that come to mind for how the customer's current PaaS or IaaS architecture could be made more efficient.
@@ -256,9 +258,11 @@ To help you answer the questions, consider the following characteristics that re
 * Configuration management
 * Release engineering
 * Secrets management
+
 Refer to the resources section for more information about these topics.
 
-Summary
+**Summary**
+
 This topic focused on solutions related to DevOps. Next, you'll focus on observability.
 
 ---
@@ -272,6 +276,7 @@ Working with your team, brainstorm solutions related to observability within a W
 **Resources**
 
 **Characteristics of observability**
+
 * Monitoring [(monitoring for reliability)](https://learn.microsoft.com/en-us/azure/architecture/framework/resiliency/monitor-checklist)
   * Application [(monitor application health for reliability)](https://learn.microsoft.com/en-us/azure/architecture/framework/resiliency/monitoring)
   * Infrastructure [(infrastructure metrics and logs)](https://learn.microsoft.com/en-us/azure/architecture/framework/scalability/monitor-infrastructure)
@@ -310,6 +315,7 @@ To help you answer the questions, consider the following characteristics that de
 * Health modeling
 * Logging
 * L1 / L2 / L3 support
+
 Refer to the resources section for more information about these topics.
 
 **Summary**
