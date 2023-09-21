@@ -16,3 +16,5 @@ At the end of this unit, learners will be able to:
 **Overview**
 
 In this module, participants will discuss best practices around remediating and optimizing a Well-Architected Framework post-implementation.
+
+**Total Duration**: 45minutes

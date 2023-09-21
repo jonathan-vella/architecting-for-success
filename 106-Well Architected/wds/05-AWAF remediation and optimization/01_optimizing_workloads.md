@@ -22,7 +22,7 @@ By the end of this exercise, you will be able to:
 
 In this whiteboard activity, brainstorm with your team about best practices for refining and optimizing a Well-Architected Framework. The goal of this session is to document a list of strategies that you can use as a follow-up strategy with customers.
 
-**Duration**: 15 minutes
+**Duration**: 45 minutes
 
 **Participant guidance**
 

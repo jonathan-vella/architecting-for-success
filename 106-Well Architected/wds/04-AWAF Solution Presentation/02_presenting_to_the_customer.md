@@ -21,7 +21,7 @@ Be prepared to facilitate the activity as needed and assign a speaking order to 
 
 All team members must participate in the team presentation and should work together to assign roles and responsibilities and provide each other with feedback during the practice session.
 
-**Duration**: 20 minutes
+**Duration**: 15 minutes per team
 
 **Participant guidance**
 

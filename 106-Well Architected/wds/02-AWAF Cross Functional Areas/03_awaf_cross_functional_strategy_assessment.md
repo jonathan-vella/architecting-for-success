@@ -18,7 +18,7 @@ By the end of this unit, you will be able to:
 * Outline customer needs, business priorities, and key architectural characteristics given a realistic customer workload.
 * Conduct a cross-pillar analysis and determine key gaps in the workload's alignment with the Well-Architected Framework.
 
-Duration: 15 minutes
+Duration: 30 minutes
 
 **Participant guidance**
 

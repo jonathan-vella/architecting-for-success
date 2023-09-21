@@ -33,7 +33,7 @@ In this activity, you'll use the information provided in the customer scenario t
   * What is the business priority?
 * Document your answers.
   
-Duration: xx minutes
+**Duration**: 40 minutes
 
 ### Participant steps
 
@@ -47,9 +47,3 @@ Duration: xx minutes
 ### Summary
 
 During this session, you discussed the scenario, establishing the customer's goals and identifying notable challenges and areas of opportunity presented by their current architecture and desired outcomes. Next, you'll analyze the scenario in more depth, brainstorming solutions for five key cross-functional areas of focus.
-
----
-
-### Team notes area
-
-[This area is left blank for student use]
