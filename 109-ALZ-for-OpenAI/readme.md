@@ -8,10 +8,11 @@ This GitHub repository provides a challenge-based workshop which will allow you 
 
 In this workshop we will be using the [Azure Chat Solution Accelerator](https://github.com/microsoft/azurechat/tree/main) to deploy a private Azure OpenAI powered chatbot in your Azure Subscription, with a familiar user experience and the added capabilities of chatting over your data and files. The goal of this workshop to have an Azure OpenAI powered chatbot which is:
 
-- Private: Deployed in your Azure tenant, allowing you to isolate it to your Azure tenant.
+- Private: Deployed in your own Azure tenant.
+- Compliant: Data is stored only in the regions you choose.
 - Isolated: Network traffic can be fully isolated to your network.
 - Secure: Using built-in enterprise grade authentication security features.
-- Bonus: Able to connect your own internal data sources (plug and play) or integrate with other internal services (e.g., ServiceNow, etc).
+- **Bonus***: Able to connect your own internal data sources (plug and play) or integrate with other internal services (e.g., ServiceNow, etc).
 
 ## Architecture Scenarios
 
