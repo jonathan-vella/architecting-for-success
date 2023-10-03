@@ -2,7 +2,7 @@
 
 ![Azure AI Landing Zone](AIArchitecture.png "Azure AI Landing Zone")
 
-This GitHub repository provides a comprehensive guide to deploy an Azure AI Landing Zone—a specialized environment for empowering AI technologies, including advanced language models like GPT-4. The landing zone is designed to complement existing data management and data landing zones within your [cloud-scale data analytics](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/) platform, enabling you to unlock the true potential of AI.
+This GitHub repository provides a challenge-based workshop which will allow you to design an Azure AI Landing Zone — a specialized environment for securely empowering AI technologies, including advanced large language models like GPT-4. This landing zone will be designed to complement and integrate with existing data management and data landing zones within the [cloud-scale data analytics](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/) platform, enabling customers to unlock the true potential of AI.
 
 ## Azure Chat Solution Accelerator powered by Azure Open AI
 
