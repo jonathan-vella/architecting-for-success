@@ -1,0 +1,379 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "bicep",
+      "version": "0.10.61.36676",
+      "templateHash": "2073796445692807532"
+    }
+  },
+  "parameters": {
+    "resourceNameBase": {
+      "type": "string",
+      "defaultValue": "terrafirm",
+      "metadata": {
+        "description": "The prefix base used to name resources created."
+      }
+    }
+  },
+  "variables": {
+    "location": "[resourceGroup().location]",
+    "onpremNamePrefix": "[format('{0}-onprem-', parameters('resourceNameBase'))]",
+    "hubNamePrefix": "[format('{0}-hub-', parameters('resourceNameBase'))]",
+    "spokeNamePrefix": "[format('{0}-spoke-', parameters('resourceNameBase'))]",
+    "onpremWorkloadVMNamePrefix": "[format('{0}workload-', variables('onpremNamePrefix'))]",
+    "GitHubScriptRepo": "microsoft/MCW-Building-the-business-migration-case-with-Linux-and-OSS-DB-to-Azure",
+    "GitHubScriptRepoBranch": "main",
+    "GitHubScriptRepoBranchURL": "[format('https://raw.githubusercontent.com/{0}/{1}/Hands-on lab/resources/deployment/', variables('GitHubScriptRepo'), variables('GitHubScriptRepoBranch'))]",
+    "WorkloadInstallScriptFileName": "workload-install.sh",
+    "WorkloadInstallScriptURL": "[format('{0}onprem/{1}', variables('GitHubScriptRepoBranchURL'), variables('WorkloadInstallScriptFileName'))]",
+    "labUsername": "demouser",
+    "labPassword": "demo!pass123",
+    "tags": {
+      "purpose": "MCW"
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Network/virtualNetworks",
+      "apiVersion": "2020-11-01",
+      "name": "[format('{0}vnet', variables('onpremNamePrefix'))]",
+      "location": "[variables('location')]",
+      "tags": "[variables('tags')]",
+      "properties": {
+        "addressSpace": {
+          "addressPrefixes": [
+            "10.0.0.0/16"
+          ]
+        },
+        "subnets": [
+          {
+            "name": "default",
+            "properties": {
+              "addressPrefix": "10.0.0.0/24"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "Microsoft.Network/virtualNetworks",
+      "apiVersion": "2020-11-01",
+      "name": "[format('{0}vnet', variables('hubNamePrefix'))]",
+      "location": "[variables('location')]",
+      "tags": "[variables('tags')]",
+      "properties": {
+        "addressSpace": {
+          "addressPrefixes": [
+            "10.1.0.0/16"
+          ]
+        },
+        "subnets": [
+          {
+            "name": "hub",
+            "properties": {
+              "addressPrefix": "10.1.0.0/24"
+            }
+          },
+          {
+            "name": "AzureBastionSubnet",
+            "properties": {
+              "addressPrefix": "10.1.1.0/24"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "Microsoft.Network/virtualNetworks",
+      "apiVersion": "2020-11-01",
+      "name": "[format('{0}vnet', variables('spokeNamePrefix'))]",
+      "location": "[variables('location')]",
+      "tags": "[variables('tags')]",
+      "properties": {
+        "addressSpace": {
+          "addressPrefixes": [
+            "10.2.0.0/16"
+          ]
+        },
+        "subnets": [
+          {
+            "name": "default",
+            "properties": {
+              "addressPrefix": "10.2.0.0/24"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings",
+      "apiVersion": "2020-11-01",
+      "name": "[format('{0}/hub-onprem', format('{0}vnet', variables('hubNamePrefix')))]",
+      "properties": {
+        "remoteVirtualNetwork": {
+          "id": "[resourceId('Microsoft.Network/virtualNetworks', format('{0}vnet', variables('onpremNamePrefix')))]"
+        },
+        "allowVirtualNetworkAccess": true,
+        "allowForwardedTraffic": true,
+        "remoteAddressSpace": {
+          "addressPrefixes": [
+            "10.0.0.0/16"
+          ]
+        }
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.Network/virtualNetworks', format('{0}vnet', variables('hubNamePrefix')))]",
+        "[resourceId('Microsoft.Network/virtualNetworks', format('{0}vnet', variables('onpremNamePrefix')))]"
+      ]
+    },
+    {
+      "type": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings",
+      "apiVersion": "2020-11-01",
+      "name": "[format('{0}/onprem-hub', format('{0}vnet', variables('onpremNamePrefix')))]",
+      "properties": {
+        "remoteVirtualNetwork": {
+          "id": "[resourceId('Microsoft.Network/virtualNetworks', format('{0}vnet', variables('hubNamePrefix')))]"
+        },
+        "allowVirtualNetworkAccess": true,
+        "allowForwardedTraffic": true,
+        "remoteAddressSpace": {
+          "addressPrefixes": [
+            "10.1.0.0/16"
+          ]
+        }
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.Network/virtualNetworks', format('{0}vnet', variables('hubNamePrefix')))]",
+        "[resourceId('Microsoft.Network/virtualNetworks', format('{0}vnet', variables('onpremNamePrefix')))]"
+      ]
+    },
+    {
+      "type": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings",
+      "apiVersion": "2020-11-01",
+      "name": "[format('{0}/spoke-hub', format('{0}vnet', variables('spokeNamePrefix')))]",
+      "properties": {
+        "remoteVirtualNetwork": {
+          "id": "[resourceId('Microsoft.Network/virtualNetworks', format('{0}vnet', variables('hubNamePrefix')))]"
+        },
+        "allowVirtualNetworkAccess": true,
+        "allowForwardedTraffic": true,
+        "remoteAddressSpace": {
+          "addressPrefixes": [
+            "10.1.0.0/16"
+          ]
+        }
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.Network/virtualNetworks', format('{0}vnet', variables('hubNamePrefix')))]",
+        "[resourceId('Microsoft.Network/virtualNetworks', format('{0}vnet', variables('spokeNamePrefix')))]"
+      ]
+    },
+    {
+      "type": "Microsoft.Network/bastionHosts",
+      "apiVersion": "2020-11-01",
+      "name": "[format('{0}bastion', variables('hubNamePrefix'))]",
+      "location": "[variables('location')]",
+      "tags": "[variables('tags')]",
+      "sku": {
+        "name": "Standard"
+      },
+      "properties": {
+        "ipConfigurations": [
+          {
+            "name": "IpConf",
+            "properties": {
+              "privateIPAllocationMethod": "Dynamic",
+              "publicIPAddress": {
+                "id": "[resourceId('Microsoft.Network/publicIPAddresses', format('{0}bastion-pip', variables('hubNamePrefix')))]"
+              },
+              "subnet": {
+                "id": "[format('{0}/subnets/AzureBastionSubnet', resourceId('Microsoft.Network/virtualNetworks', format('{0}vnet', variables('hubNamePrefix'))))]"
+              }
+            }
+          }
+        ]
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.Network/publicIPAddresses', format('{0}bastion-pip', variables('hubNamePrefix')))]",
+        "[resourceId('Microsoft.Network/virtualNetworks', format('{0}vnet', variables('hubNamePrefix')))]"
+      ]
+    },
+    {
+      "type": "Microsoft.Network/publicIPAddresses",
+      "apiVersion": "2020-11-01",
+      "name": "[format('{0}bastion-pip', variables('hubNamePrefix'))]",
+      "location": "[variables('location')]",
+      "tags": "[variables('tags')]",
+      "sku": {
+        "name": "Standard",
+        "tier": "Regional"
+      },
+      "properties": {
+        "publicIPAddressVersion": "IPv4",
+        "publicIPAllocationMethod": "Static"
+      }
+    },
+    {
+      "type": "Microsoft.Network/networkInterfaces",
+      "apiVersion": "2021-03-01",
+      "name": "[format('{0}nic', variables('onpremWorkloadVMNamePrefix'))]",
+      "location": "[variables('location')]",
+      "tags": "[variables('tags')]",
+      "properties": {
+        "ipConfigurations": [
+          {
+            "name": "ipconfig1",
+            "properties": {
+              "publicIPAddress": {
+                "id": "[format('{0}', resourceId('Microsoft.Network/publicIPAddresses', format('{0}pip', variables('onpremWorkloadVMNamePrefix'))))]"
+              },
+              "subnet": {
+                "id": "[format('{0}/subnets/default', resourceId('Microsoft.Network/virtualNetworks', format('{0}vnet', variables('onpremNamePrefix'))))]"
+              },
+              "privateIPAllocationMethod": "Dynamic"
+            }
+          }
+        ],
+        "networkSecurityGroup": {
+          "id": "[resourceId('Microsoft.Network/networkSecurityGroups', format('{0}nsg', variables('onpremWorkloadVMNamePrefix')))]"
+        }
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.Network/virtualNetworks', format('{0}vnet', variables('onpremNamePrefix')))]",
+        "[resourceId('Microsoft.Network/networkSecurityGroups', format('{0}nsg', variables('onpremWorkloadVMNamePrefix')))]",
+        "[resourceId('Microsoft.Network/publicIPAddresses', format('{0}pip', variables('onpremWorkloadVMNamePrefix')))]"
+      ]
+    },
+    {
+      "type": "Microsoft.Network/publicIPAddresses",
+      "apiVersion": "2020-11-01",
+      "name": "[format('{0}pip', variables('onpremWorkloadVMNamePrefix'))]",
+      "location": "[variables('location')]",
+      "tags": "[variables('tags')]",
+      "sku": {
+        "name": "Standard",
+        "tier": "Regional"
+      },
+      "properties": {
+        "publicIPAddressVersion": "IPv4",
+        "publicIPAllocationMethod": "Static"
+      }
+    },
+    {
+      "type": "Microsoft.Network/networkSecurityGroups",
+      "apiVersion": "2019-02-01",
+      "name": "[format('{0}nsg', variables('onpremWorkloadVMNamePrefix'))]",
+      "location": "[variables('location')]",
+      "tags": "[variables('tags')]",
+      "properties": {
+        "securityRules": [
+          {
+            "name": "SSH",
+            "properties": {
+              "protocol": "TCP",
+              "sourcePortRange": "*",
+              "destinationPortRange": "22",
+              "sourceAddressPrefix": "*",
+              "destinationAddressPrefix": "*",
+              "access": "Allow",
+              "priority": 100,
+              "direction": "Inbound"
+            }
+          },
+          {
+            "name": "MySQL",
+            "properties": {
+              "protocol": "TCP",
+              "sourcePortRange": "*",
+              "destinationPortRange": "3306",
+              "sourceAddressPrefix": "*",
+              "destinationAddressPrefix": "*",
+              "access": "Allow",
+              "priority": 200,
+              "direction": "Inbound"
+            }
+          },
+          {
+            "name": "HTTP",
+            "properties": {
+              "protocol": "TCP",
+              "sourcePortRange": "*",
+              "destinationPortRange": "80",
+              "sourceAddressPrefix": "*",
+              "destinationAddressPrefix": "*",
+              "access": "Allow",
+              "priority": 300,
+              "direction": "Inbound"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "Microsoft.Compute/virtualMachines",
+      "apiVersion": "2021-07-01",
+      "name": "[format('{0}vm', variables('onpremWorkloadVMNamePrefix'))]",
+      "location": "[variables('location')]",
+      "tags": "[variables('tags')]",
+      "properties": {
+        "hardwareProfile": {
+          "vmSize": "Standard_D4s_v5"
+        },
+        "storageProfile": {
+          "osDisk": {
+            "osType": "Linux",
+            "createOption": "fromImage"
+          },
+          "imageReference": {
+            "publisher": "RedHat",
+            "offer": "RHEL",
+            "sku": "90-gen2",
+            "version": "latest"
+          }
+        },
+        "networkProfile": {
+          "networkInterfaces": [
+            {
+              "id": "[resourceId('Microsoft.Network/networkInterfaces', format('{0}nic', variables('onpremWorkloadVMNamePrefix')))]"
+            }
+          ]
+        },
+        "osProfile": {
+          "computerName": "[format('{0}vm', variables('onpremWorkloadVMNamePrefix'))]",
+          "adminUsername": "[variables('labUsername')]",
+          "adminPassword": "[variables('labPassword')]",
+          "linuxConfiguration": {
+            "disablePasswordAuthentication": false
+          }
+        }
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.Network/networkInterfaces', format('{0}nic', variables('onpremWorkloadVMNamePrefix')))]"
+      ]
+    },
+    {
+      "type": "Microsoft.Compute/virtualMachines/extensions",
+      "apiVersion": "2019-03-01",
+      "name": "[format('{0}/InstallScript', format('{0}vm', variables('onpremWorkloadVMNamePrefix')))]",
+      "location": "[variables('location')]",
+      "tags": "[variables('tags')]",
+      "properties": {
+        "publisher": "Microsoft.Azure.Extensions",
+        "type": "CustomScript",
+        "typeHandlerVersion": "2.1",
+        "autoUpgradeMinorVersion": true,
+        "settings": {
+          "fileUris": [
+            "[variables('WorkloadInstallScriptURL')]"
+          ],
+          "commandToExecute": "[format('sh {0}', variables('WorkloadInstallScriptFileName'))]"
+        }
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.Compute/virtualMachines', format('{0}vm', variables('onpremWorkloadVMNamePrefix')))]"
+      ]
+    }
+  ]
+}
