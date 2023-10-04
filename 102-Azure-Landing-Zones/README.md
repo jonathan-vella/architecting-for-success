@@ -30,7 +30,7 @@ Please read this [customer case study](./docs/contoso-alz-customer-scenario.md).
 - Cloud Adoption and Well Architected Knowledge Refresh
 - Azure Landing Zones and the Azure Landing Zone conceptual architecture review
 - Contoso Corporation customer scenario review and discussion
-- [Challenge 01](./wds/student%20guide/wds%20student%20guide%20-%20azure%20landing%20zones.md) Designing Azure Landing Zones (3hrs)
+- [Challenge 01](./challenges/challenge1.md) Designing Azure Landing Zones (3hrs)
 
 ---
 
