@@ -2,7 +2,9 @@
 
 ![Azure AI Landing Zone](AIArchitecture.png "Azure AI Landing Zone")
 
-This GitHub repository, which is based on the amazing work done by @FreddyAyala, provides a challenge-based workshop which will allow you to design an Azure AI Landing Zone — a tailored environment which will allow customers to accelerate their adoption of OpenAI services like GPT-4 and DALL-E. The landing zone can be designed to also complement and integrate with existing data management and data landing zones within the [cloud-scale data analytics](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/) platform, enabling customers to unlock the true potential of their data thru AI.
+This GitHub repository, which is based on the amazing work done by @FreddyAyala, provides a challenge-based workshop which will allow you to design an Azure AI Landing Zone — a tailored environment which will allow customers to accelerate their adoption of OpenAI services like GPT-4 and DALL-E.
+
+**Optionally** The landing zone can be designed to also complement and integrate with existing data management and data landing zones within the [cloud-scale data analytics](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/) platform, enabling customers to unlock the true potential of their data thru AI.
 
 ## Azure Chat Solution Accelerator powered by Azure Open AI
 
