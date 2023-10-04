@@ -12,4 +12,4 @@ You will be using this [repo](https://github.com/Azure/review-checklists) which 
 
 1. Use the Excel spreadsheet, import the latest Azure Landing Zone checklist, and explore the contents of the file.
 2. Review all checklist items with a "high" severity. Share your findings with your coach.
-3. Use the provided workbooks to dynamically verify whether the resources in your subsciption(s) are compliant with the checklist recommendations.
+3. Use the provided workbooks to dynamically verify whether the resources in your subscription(s) are compliant with the checklist recommendations.

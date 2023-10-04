@@ -13,4 +13,4 @@ In this challenge you will be implementing the [Azure Governance Visualizer](htt
 1. Take your time and read the [setup guide](https://github.com/Azure/Azure-Governance-Visualizer-Accelerator). And read the note above! If you need to create new identities and assign roles, do it now.
 2. Setup AzGovViz with GitHub Actions using OIDC.
 3. Publishing the AzGovViz HTML to an Azure Web App.
-4. 
+4. Explore how your Azure environment is represented in AzGovViz

@@ -8,7 +8,7 @@
 
 The ALZ reference implementations are based on the best practices and learnings of Microsoft teams from engagements with customers and partners. This knowledge represents the "80" side of the 80/20 rule. The various implementations take positions on technical decisions that are part of the architecture design process.
 
-Because not all use cases are the same, not all organizations can use an implementation approach in the exact way it was intended. In this challenge you will need to tailor the customer's landing zone to meet their [requirements](./readme.md).
+Because not all use cases are the same, not all organizations can use an implementation approach in the exact way it was intended. In this challenge you will need to tailor the customer's landing zone to meet their [requirements](./../docs/contoso-alz-customer-scenario.md).
 
 ## Challenge 03 - Success Criteria
 

@@ -37,7 +37,7 @@ Directions: With all participants in the session, the facilitator/SME presents a
 ### Infographic for common scenarios
 
 **Azure Landing Zones conceptual architecture**
-![For many organizations, the ALZ conceptual architecture below represents the destination in their cloud adoption journey. It's a mature, scaled-out target architecture intended to help organizations operate successful cloud environments that drive their business while maintaining best practices for security and governance.](/102-Azure-Landing-Zones/images/alz_accelerator.png)
+![For many organizations, the ALZ conceptual architecture below represents the destination in their cloud adoption journey. It's a mature, scaled-out target architecture intended to help organizations operate successful cloud environments that drive their business while maintaining best practices for security and governance.](./../images/alz_accelerator.png)
 
 ---
 

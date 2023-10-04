@@ -1,10 +1,10 @@
-# Architecting for Succes
+# Architecting for Success
 
 ## Strategy and Plan Hackathon
 
 ## Challenge 4 - Sell it to Contoso, and your coach! (45mins)
 
-In this challenge, each team will be presenting their business case to the *customer’s senior leadership team* to justify adopting Azure.  
+In this challenge, each team will be presenting their business case to the _customer’s senior leadership team_ to justify adopting Azure.  
 When building the presentation, don't forget to include:
 
 - Current state and desired future state

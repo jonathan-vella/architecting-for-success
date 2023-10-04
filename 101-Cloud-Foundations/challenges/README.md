@@ -4,7 +4,7 @@
 
 ## Customer Scenario - Contoso Land Surveying
 
-![Contoso Land Surveying](/101-Fundamentals/images/drones.jpg)
+![Contoso Land Surveying](./../images/drones.jpg)
 
 **Contoso Land Surveying** operates a global geology surveying business, where they deploy surveyors to carry out detailed land surveys for companies such as food producers, airports, oil companies, utilities, railway companies, ports authorities and other business which are reliant on infrastructure heavy. Surveys are carried out on dry land as well as underwater and in areas of variable terrain.
 
@@ -39,11 +39,9 @@ Contoso Land Surveying IT team have asked Microsoft and you (the partner) to hel
 
 The following information can you help you formulate a guestimate which you can use to demonstrate possible cost-savings. ROI, additional investments, etc.
 
+![IT spending as a percent of revenue](./../images/IT-spending-as-percent-of-revenue.png)
 
-
-![IT spending as a percent of revenue](/101-Fundamentals/images/IT-spending-as-percent-of-revenue.png)
-
-![IT spending per employee](/101-Fundamentals/images/IT-spending-per-employee.png)
+![IT spending per employee](./../images/IT-spending-per-employee.png)
 
 ### Estimate IT spend categories
 
@@ -90,5 +88,5 @@ Typically, these will be in this range:
 
 The migration complexities and efforts will result in an additional cost. This cost relies on an understanding of the current infrastructure (CAF "Plan" phase - Discover & Assess). For the purposes of this challenge, we can estimate the following:
 
-- 5-to-8 times the anticipated monthly ACR as the cost of migration.  This excludes cost for application re-work which will need to be factored in. This range will depend on lift-and-shift efforts compared to modernization efforts.
+- 5-to-8 times the anticipated monthly ACR as the cost of migration. This excludes cost for application re-work which will need to be factored in. This range will depend on lift-and-shift efforts compared to modernization efforts.
 - These numbers should always be validated with the partner supporting in the migration.
