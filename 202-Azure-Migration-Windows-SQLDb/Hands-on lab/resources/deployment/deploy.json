@@ -1,0 +1,1162 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "bicep",
+      "version": "0.10.61.36676",
+      "templateHash": "2490412900995803994"
+    }
+  },
+  "parameters": {
+    "resourceNameBase": {
+      "type": "string",
+      "defaultValue": "tailspin",
+      "metadata": {
+        "description": "The prefix base used to name resources created."
+      }
+    },
+    "azureAdUserId": {
+      "type": "string",
+      "metadata": {
+        "description": "The Id of the Azure AD User"
+      }
+    },
+    "azureAdUserLogin": {
+      "type": "string",
+      "metadata": {
+        "description": "The Login of the Azure AD User (ex: username@domain.onmicrosoft.com)"
+      }
+    }
+  },
+  "variables": {
+    "location": "northcentralus",
+    "onpremNamePrefix": "[format('{0}-onprem-', parameters('resourceNameBase'))]",
+    "hubNamePrefix": "[format('{0}-hub-', parameters('resourceNameBase'))]",
+    "spokeNamePrefix": "[format('{0}-spoke-', parameters('resourceNameBase'))]",
+    "sqlmiPrefix": "[format('{0}-sqlmi', parameters('resourceNameBase'))]",
+    "sqlmiStorageName": "[format('{0}sqlmistorage', parameters('resourceNameBase'))]",
+    "onpremSQLVMNamePrefix": "[format('{0}sql-', variables('onpremNamePrefix'))]",
+    "onpremHyperVHostVMNamePrefix": "[format('{0}hyperv-', variables('onpremNamePrefix'))]",
+    "GitHubScriptRepo": "microsoft/MCW-Building-the-business-migration-case-with-Windows-Server-and-SQL-Server",
+    "GitHubScriptRepoBranch": "main",
+    "GitHubScriptRepoBranchURL": "[format('https://raw.githubusercontent.com/{0}/{1}/Hands-on lab/resources/deployment/', variables('GitHubScriptRepo'), variables('GitHubScriptRepoBranch'))]",
+    "HyperVHostConfigArchiveFileName": "create-vm.zip",
+    "HyperVHostConfigArchiveScriptName": "create-vm.ps1",
+    "HyperVHostConfigURL": "[format('{0}onprem/{1}', variables('GitHubScriptRepoBranchURL'), variables('HyperVHostConfigArchiveFileName'))]",
+    "HyperVHostInstallHyperVScriptFolder": ".",
+    "HyperVHostInstallHyperVScriptFileName": "install-hyper-v.ps1",
+    "HyperVHostInstallHyperVURL": "[format('{0}onprem/{1}', variables('GitHubScriptRepoBranchURL'), variables('HyperVHostInstallHyperVScriptFileName'))]",
+    "SQLVMConfigFileName": "sql-vm-config.zip",
+    "SQLVMConfigScriptName": "sql-vm-config.ps1",
+    "SQLVMConfigURL": "[format('{0}onprem/{1}', variables('GitHubScriptRepoBranchURL'), variables('SQLVMConfigFileName'))]",
+    "labUsername": "demouser",
+    "labPassword": "demo!pass123",
+    "labSqlMIPassword": "demo!pass1234567",
+    "tags": {
+      "purpose": "MCW"
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Network/virtualNetworks",
+      "apiVersion": "2020-11-01",
+      "name": "[format('{0}vnet', variables('onpremNamePrefix'))]",
+      "location": "[variables('location')]",
+      "tags": "[variables('tags')]",
+      "properties": {
+        "addressSpace": {
+          "addressPrefixes": [
+            "10.0.0.0/16"
+          ]
+        },
+        "subnets": [
+          {
+            "name": "default",
+            "properties": {
+              "addressPrefix": "10.0.0.0/24"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "Microsoft.Network/virtualNetworks",
+      "apiVersion": "2020-11-01",
+      "name": "[format('{0}vnet', variables('hubNamePrefix'))]",
+      "location": "[variables('location')]",
+      "tags": "[variables('tags')]",
+      "properties": {
+        "addressSpace": {
+          "addressPrefixes": [
+            "10.1.0.0/16"
+          ]
+        },
+        "subnets": [
+          {
+            "name": "hub",
+            "properties": {
+              "addressPrefix": "10.1.0.0/24"
+            }
+          },
+          {
+            "name": "AzureBastionSubnet",
+            "properties": {
+              "addressPrefix": "10.1.1.0/24"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "Microsoft.Network/virtualNetworks",
+      "apiVersion": "2020-11-01",
+      "name": "[format('{0}vnet', variables('spokeNamePrefix'))]",
+      "location": "[variables('location')]",
+      "tags": "[variables('tags')]",
+      "properties": {
+        "addressSpace": {
+          "addressPrefixes": [
+            "10.2.0.0/16"
+          ]
+        },
+        "subnets": [
+          {
+            "name": "default",
+            "properties": {
+              "addressPrefix": "10.2.0.0/24"
+            }
+          },
+          {
+            "name": "AzureSQLMI",
+            "properties": {
+              "addressPrefix": "10.2.1.0/24",
+              "networkSecurityGroup": {
+                "id": "[resourceId('Microsoft.Network/networkSecurityGroups', format('{0}-nsg', variables('sqlmiPrefix')))]"
+              },
+              "routeTable": {
+                "id": "[resourceId('Microsoft.Network/routeTables', format('{0}-rt', variables('sqlmiPrefix')))]"
+              },
+              "delegations": [
+                {
+                  "name": "AzureSQLMI",
+                  "properties": {
+                    "serviceName": "Microsoft.Sql/managedInstances"
+                  },
+                  "type": "Microsoft.Network/virtualNetworks/subnets/delegations"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.Network/networkSecurityGroups', format('{0}-nsg', variables('sqlmiPrefix')))]",
+        "[resourceId('Microsoft.Network/routeTables', format('{0}-rt', variables('sqlmiPrefix')))]"
+      ]
+    },
+    {
+      "type": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings",
+      "apiVersion": "2020-11-01",
+      "name": "[format('{0}/hub-onprem', format('{0}vnet', variables('hubNamePrefix')))]",
+      "properties": {
+        "remoteVirtualNetwork": {
+          "id": "[resourceId('Microsoft.Network/virtualNetworks', format('{0}vnet', variables('onpremNamePrefix')))]"
+        },
+        "allowVirtualNetworkAccess": true,
+        "allowForwardedTraffic": true,
+        "remoteAddressSpace": {
+          "addressPrefixes": [
+            "10.0.0.0/16"
+          ]
+        }
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.Network/virtualNetworks', format('{0}vnet', variables('hubNamePrefix')))]",
+        "[resourceId('Microsoft.Network/virtualNetworks', format('{0}vnet', variables('onpremNamePrefix')))]"
+      ]
+    },
+    {
+      "type": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings",
+      "apiVersion": "2020-11-01",
+      "name": "[format('{0}/onprem-hub', format('{0}vnet', variables('onpremNamePrefix')))]",
+      "properties": {
+        "remoteVirtualNetwork": {
+          "id": "[resourceId('Microsoft.Network/virtualNetworks', format('{0}vnet', variables('hubNamePrefix')))]"
+        },
+        "allowVirtualNetworkAccess": true,
+        "allowForwardedTraffic": true,
+        "remoteAddressSpace": {
+          "addressPrefixes": [
+            "10.1.0.0/16"
+          ]
+        }
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.Network/virtualNetworks', format('{0}vnet', variables('hubNamePrefix')))]",
+        "[resourceId('Microsoft.Network/virtualNetworks', format('{0}vnet', variables('onpremNamePrefix')))]"
+      ]
+    },
+    {
+      "type": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings",
+      "apiVersion": "2020-11-01",
+      "name": "[format('{0}/spoke-hub', format('{0}vnet', variables('spokeNamePrefix')))]",
+      "properties": {
+        "remoteVirtualNetwork": {
+          "id": "[resourceId('Microsoft.Network/virtualNetworks', format('{0}vnet', variables('hubNamePrefix')))]"
+        },
+        "allowVirtualNetworkAccess": true,
+        "allowForwardedTraffic": true,
+        "remoteAddressSpace": {
+          "addressPrefixes": [
+            "10.1.0.0/16"
+          ]
+        }
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.Network/virtualNetworks', format('{0}vnet', variables('hubNamePrefix')))]",
+        "[resourceId('Microsoft.Network/virtualNetworks', format('{0}vnet', variables('spokeNamePrefix')))]"
+      ]
+    },
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2022-05-01",
+      "name": "[variables('sqlmiStorageName')]",
+      "location": "[variables('location')]",
+      "sku": {
+        "name": "Standard_RAGRS"
+      },
+      "kind": "StorageV2",
+      "properties": {
+        "accessTier": "Hot"
+      }
+    },
+    {
+      "type": "Microsoft.Storage/storageAccounts/blobServices/containers",
+      "apiVersion": "2022-05-01",
+      "name": "[format('{0}/default/sql-backup', variables('sqlmiStorageName'))]",
+      "properties": {
+        "publicAccess": "None"
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.Storage/storageAccounts', variables('sqlmiStorageName'))]"
+      ]
+    },
+    {
+      "type": "Microsoft.Sql/managedInstances",
+      "apiVersion": "2021-05-01-preview",
+      "name": "[variables('sqlmiPrefix')]",
+      "location": "[variables('location')]",
+      "sku": {
+        "name": "GP_Gen5",
+        "tier": "GeneralPurpose"
+      },
+      "identity": {
+        "type": "SystemAssigned"
+      },
+      "properties": {
+        "subnetId": "[format('{0}/subnets/AzureSQLMI', resourceId('Microsoft.Network/virtualNetworks', format('{0}vnet', variables('spokeNamePrefix'))))]",
+        "storageSizeInGB": 64,
+        "vCores": 8,
+        "licenseType": "LicenseIncluded",
+        "hardwareFamily": "Gen5",
+        "zoneRedundant": false,
+        "minimalTlsVersion": "1.2",
+        "requestedBackupStorageRedundancy": "Geo",
+        "administratorLogin": "[variables('labUsername')]",
+        "administratorLoginPassword": "[variables('labSqlMIPassword')]",
+        "administrators": {
+          "administratorType": "ActiveDirectory",
+          "principalType": "User",
+          "login": "[parameters('azureAdUserLogin')]",
+          "sid": "[parameters('azureAdUserId')]",
+          "tenantId": "[subscription().tenantId]",
+          "azureADOnlyAuthentication": false
+        }
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.Network/virtualNetworks', format('{0}vnet', variables('spokeNamePrefix')))]",
+        "[resourceId('Microsoft.Network/networkSecurityGroups', format('{0}-nsg', variables('sqlmiPrefix')))]"
+      ]
+    },
+    {
+      "type": "Microsoft.Network/routeTables",
+      "apiVersion": "2022-01-01",
+      "name": "[format('{0}-rt', variables('sqlmiPrefix'))]",
+      "location": "[variables('location')]",
+      "properties": {
+        "routes": [
+          {
+            "name": "SqlManagement_0",
+            "properties": {
+              "addressPrefix": "65.55.188.0/24",
+              "nextHopType": "Internet",
+              "hasBgpOverride": false
+            }
+          },
+          {
+            "name": "SqlManagement_1",
+            "properties": {
+              "addressPrefix": "207.68.190.32/27",
+              "nextHopType": "Internet",
+              "hasBgpOverride": false
+            }
+          },
+          {
+            "name": "SqlManagement_2",
+            "properties": {
+              "addressPrefix": "13.106.78.32/27",
+              "nextHopType": "Internet",
+              "hasBgpOverride": false
+            }
+          },
+          {
+            "name": "SqlManagement_3",
+            "properties": {
+              "addressPrefix": "13.106.174.32/27",
+              "nextHopType": "Internet",
+              "hasBgpOverride": false
+            }
+          },
+          {
+            "name": "SqlManagement_4",
+            "properties": {
+              "addressPrefix": "13.106.4.96/27",
+              "nextHopType": "Internet",
+              "hasBgpOverride": false
+            }
+          },
+          {
+            "name": "SqlManagement_5",
+            "properties": {
+              "addressPrefix": "104.214.108.80/32",
+              "nextHopType": "Internet",
+              "hasBgpOverride": false
+            }
+          },
+          {
+            "name": "SqlManagement_6",
+            "properties": {
+              "addressPrefix": "52.179.184.76/32",
+              "nextHopType": "Internet",
+              "hasBgpOverride": false
+            }
+          },
+          {
+            "name": "SqlManagement_7",
+            "properties": {
+              "addressPrefix": "52.187.116.202/32",
+              "nextHopType": "Internet",
+              "hasBgpOverride": false
+            }
+          },
+          {
+            "name": "SqlManagement_8",
+            "properties": {
+              "addressPrefix": "52.177.202.6/32",
+              "nextHopType": "Internet",
+              "hasBgpOverride": false
+            }
+          },
+          {
+            "name": "SqlManagement_9",
+            "properties": {
+              "addressPrefix": "23.98.55.75/32",
+              "nextHopType": "Internet",
+              "hasBgpOverride": false
+            }
+          },
+          {
+            "name": "SqlManagement_10",
+            "properties": {
+              "addressPrefix": "23.96.178.199/32",
+              "nextHopType": "Internet",
+              "hasBgpOverride": false
+            }
+          },
+          {
+            "name": "SqlManagement_11",
+            "properties": {
+              "addressPrefix": "52.162.107.128/27",
+              "nextHopType": "Internet",
+              "hasBgpOverride": false
+            }
+          },
+          {
+            "name": "SqlManagement_12",
+            "properties": {
+              "addressPrefix": "40.74.254.227/32",
+              "nextHopType": "Internet",
+              "hasBgpOverride": false
+            }
+          },
+          {
+            "name": "SqlManagement_13",
+            "properties": {
+              "addressPrefix": "23.96.185.63/32",
+              "nextHopType": "Internet",
+              "hasBgpOverride": false
+            }
+          },
+          {
+            "name": "SqlManagement_14",
+            "properties": {
+              "addressPrefix": "65.52.59.57/32",
+              "nextHopType": "Internet",
+              "hasBgpOverride": false
+            }
+          },
+          {
+            "name": "SqlManagement_15",
+            "properties": {
+              "addressPrefix": "168.62.244.242/32",
+              "nextHopType": "Internet",
+              "hasBgpOverride": false
+            }
+          },
+          {
+            "name": "Microsoft.Sql-managedInstances_UseOnly_subnet-10-2-1-0-24-to-vnetlocal",
+            "properties": {
+              "addressPrefix": "10.2.1.0/24",
+              "nextHopType": "VnetLocal",
+              "hasBgpOverride": false
+            }
+          },
+          {
+            "name": "Microsoft.Sql-managedInstances_UseOnly_mi-Storage",
+            "properties": {
+              "addressPrefix": "Storage",
+              "nextHopType": "Internet",
+              "hasBgpOverride": false
+            }
+          },
+          {
+            "name": "Microsoft.Sql-managedInstances_UseOnly_mi-SqlManagement",
+            "properties": {
+              "addressPrefix": "SqlManagement",
+              "nextHopType": "Internet",
+              "hasBgpOverride": false
+            }
+          },
+          {
+            "name": "Microsoft.Sql-managedInstances_UseOnly_mi-AzureMonitor",
+            "properties": {
+              "addressPrefix": "AzureMonitor",
+              "nextHopType": "Internet",
+              "hasBgpOverride": false
+            }
+          },
+          {
+            "name": "Microsoft.Sql-managedInstances_UseOnly_mi-CorpNetSaw",
+            "properties": {
+              "addressPrefix": "CorpNetSaw",
+              "nextHopType": "Internet",
+              "hasBgpOverride": false
+            }
+          },
+          {
+            "name": "Microsoft.Sql-managedInstances_UseOnly_mi-CorpNetPublic",
+            "properties": {
+              "addressPrefix": "CorpNetPublic",
+              "nextHopType": "Internet",
+              "hasBgpOverride": false
+            }
+          },
+          {
+            "name": "Microsoft.Sql-managedInstances_UseOnly_mi-AzureActiveDirectory",
+            "properties": {
+              "addressPrefix": "AzureActiveDirectory",
+              "nextHopType": "Internet",
+              "hasBgpOverride": false
+            }
+          },
+          {
+            "name": "Microsoft.Sql-managedInstances_UseOnly_mi-AzureCloud.northcentralus",
+            "properties": {
+              "addressPrefix": "AzureCloud.northcentralus",
+              "nextHopType": "Internet",
+              "hasBgpOverride": false
+            }
+          },
+          {
+            "name": "Microsoft.Sql-managedInstances_UseOnly_mi-AzureCloud.southcentralus",
+            "properties": {
+              "addressPrefix": "AzureCloud.southcentralus",
+              "nextHopType": "Internet",
+              "hasBgpOverride": false
+            }
+          },
+          {
+            "name": "Microsoft.Sql-managedInstances_UseOnly_mi-Storage.northcentralus",
+            "properties": {
+              "addressPrefix": "Storage.northcentralus",
+              "nextHopType": "Internet",
+              "hasBgpOverride": false
+            }
+          },
+          {
+            "name": "Microsoft.Sql-managedInstances_UseOnly_mi-Storage.southcentralus",
+            "properties": {
+              "addressPrefix": "Storage.southcentralus",
+              "nextHopType": "Internet",
+              "hasBgpOverride": false
+            }
+          },
+          {
+            "name": "Microsoft.Sql-managedInstances_UseOnly_mi-EventHub.northcentralus",
+            "properties": {
+              "addressPrefix": "EventHub.northcentralus",
+              "nextHopType": "Internet",
+              "hasBgpOverride": false
+            }
+          },
+          {
+            "name": "Microsoft.Sql-managedInstances_UseOnly_mi-EventHub.southcentralus",
+            "properties": {
+              "addressPrefix": "EventHub.southcentralus",
+              "nextHopType": "Internet",
+              "hasBgpOverride": false
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "Microsoft.Network/networkSecurityGroups",
+      "apiVersion": "2022-01-01",
+      "name": "[format('{0}-nsg', variables('sqlmiPrefix'))]",
+      "location": "[variables('location')]",
+      "properties": {
+        "securityRules": [
+          {
+            "name": "allow_tds_inbound",
+            "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+            "properties": {
+              "description": "Allow access to data via TDS",
+              "protocol": "Tcp",
+              "sourcePortRange": "*",
+              "destinationPortRange": "1433",
+              "sourceAddressPrefix": "VirtualNetwork",
+              "destinationAddressPrefix": "10.2.1.0/24",
+              "access": "Allow",
+              "priority": 1000,
+              "direction": "Inbound",
+              "sourcePortRanges": [],
+              "destinationPortRanges": [],
+              "sourceAddressPrefixes": [],
+              "destinationAddressPrefixes": []
+            }
+          },
+          {
+            "name": "allow_redirect_inbound",
+            "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+            "properties": {
+              "description": "Allow inbound TDS redirect traffic to Managed Instance inside the virtual network",
+              "protocol": "Tcp",
+              "sourcePortRange": "*",
+              "destinationPortRange": "11000-11999",
+              "sourceAddressPrefix": "VirtualNetwork",
+              "destinationAddressPrefix": "10.2.1.0/24",
+              "access": "Allow",
+              "priority": 1100,
+              "direction": "Inbound",
+              "sourcePortRanges": [],
+              "destinationPortRanges": [],
+              "sourceAddressPrefixes": [],
+              "destinationAddressPrefixes": []
+            }
+          },
+          {
+            "name": "allow_geodr_inbound",
+            "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+            "properties": {
+              "description": "Allow inbound GeoDR traffic inside the virtual network",
+              "protocol": "Tcp",
+              "sourcePortRange": "*",
+              "destinationPortRange": "5022",
+              "sourceAddressPrefix": "VirtualNetwork",
+              "destinationAddressPrefix": "10.2.1.0/24",
+              "access": "Allow",
+              "priority": 1200,
+              "direction": "Inbound",
+              "sourcePortRanges": [],
+              "destinationPortRanges": [],
+              "sourceAddressPrefixes": [],
+              "destinationAddressPrefixes": []
+            }
+          },
+          {
+            "name": "deny_all_inbound",
+            "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+            "properties": {
+              "description": "Deny all other inbound traffic",
+              "protocol": "*",
+              "sourcePortRange": "*",
+              "destinationPortRange": "*",
+              "sourceAddressPrefix": "*",
+              "destinationAddressPrefix": "*",
+              "access": "Deny",
+              "priority": 4096,
+              "direction": "Inbound",
+              "sourcePortRanges": [],
+              "destinationPortRanges": [],
+              "sourceAddressPrefixes": [],
+              "destinationAddressPrefixes": []
+            }
+          },
+          {
+            "name": "allow_linkedserver_outbound",
+            "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+            "properties": {
+              "description": "Allow outbound linked server traffic inside the virtual network",
+              "protocol": "Tcp",
+              "sourcePortRange": "*",
+              "destinationPortRange": "1433",
+              "sourceAddressPrefix": "10.2.1.0/24",
+              "destinationAddressPrefix": "VirtualNetwork",
+              "access": "Allow",
+              "priority": 1000,
+              "direction": "Outbound",
+              "sourcePortRanges": [],
+              "destinationPortRanges": [],
+              "sourceAddressPrefixes": [],
+              "destinationAddressPrefixes": []
+            }
+          },
+          {
+            "name": "allow_redirect_outbound",
+            "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+            "properties": {
+              "description": "Allow outbound TDS redirect traffic from Managed Instance inside the virtual network",
+              "protocol": "Tcp",
+              "sourcePortRange": "*",
+              "destinationPortRange": "11000-11999",
+              "sourceAddressPrefix": "10.2.1.0/24",
+              "destinationAddressPrefix": "VirtualNetwork",
+              "access": "Allow",
+              "priority": 1100,
+              "direction": "Outbound",
+              "sourcePortRanges": [],
+              "destinationPortRanges": [],
+              "sourceAddressPrefixes": [],
+              "destinationAddressPrefixes": []
+            }
+          },
+          {
+            "name": "allow_geodr_outbound",
+            "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+            "properties": {
+              "description": "Allow outbound GeoDR traffic inside the virtual network",
+              "protocol": "Tcp",
+              "sourcePortRange": "*",
+              "destinationPortRange": "5022",
+              "sourceAddressPrefix": "10.2.1.0/24",
+              "destinationAddressPrefix": "VirtualNetwork",
+              "access": "Allow",
+              "priority": 1200,
+              "direction": "Outbound",
+              "sourcePortRanges": [],
+              "destinationPortRanges": [],
+              "sourceAddressPrefixes": [],
+              "destinationAddressPrefixes": []
+            }
+          },
+          {
+            "name": "allow_privatelink_outbound",
+            "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+            "properties": {
+              "description": "Allow outbound Private Link traffic inside the virtual network",
+              "protocol": "Tcp",
+              "sourcePortRange": "*",
+              "destinationPortRange": "443",
+              "sourceAddressPrefix": "10.2.1.0/24",
+              "destinationAddressPrefix": "VirtualNetwork",
+              "access": "Allow",
+              "priority": 1300,
+              "direction": "Outbound",
+              "sourcePortRanges": [],
+              "destinationPortRanges": [],
+              "sourceAddressPrefixes": [],
+              "destinationAddressPrefixes": []
+            }
+          },
+          {
+            "name": "allow_azurecloud_outbound",
+            "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+            "properties": {
+              "description": "Allow outbound traffic to Azure Cloud, port 443",
+              "protocol": "Tcp",
+              "sourcePortRange": "*",
+              "destinationPortRange": "443",
+              "sourceAddressPrefix": "10.2.1.0/24",
+              "destinationAddressPrefix": "VirtualNetwork",
+              "access": "Allow",
+              "priority": 1400,
+              "direction": "Outbound",
+              "sourcePortRanges": [],
+              "destinationPortRanges": [],
+              "sourceAddressPrefixes": [],
+              "destinationAddressPrefixes": []
+            }
+          },
+          {
+            "name": "deny_all_outbound",
+            "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+            "properties": {
+              "description": "Deny all other outbound traffic",
+              "protocol": "*",
+              "sourcePortRange": "*",
+              "destinationPortRange": "*",
+              "sourceAddressPrefix": "*",
+              "destinationAddressPrefix": "*",
+              "access": "Deny",
+              "priority": 4096,
+              "direction": "Outbound",
+              "sourcePortRanges": [],
+              "destinationPortRanges": [],
+              "sourceAddressPrefixes": [],
+              "destinationAddressPrefixes": []
+            }
+          },
+          {
+            "name": "Microsoft.Sql-managedInstances_UseOnly_mi-sqlmgmt-in-10-2-1-0-24-v10",
+            "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+            "properties": {
+              "description": "Allow MI provisioning Control Plane Deployment and Authentication Service",
+              "protocol": "Tcp",
+              "sourcePortRange": "*",
+              "sourceAddressPrefix": "SqlManagement",
+              "destinationAddressPrefix": "10.2.1.0/24",
+              "access": "Allow",
+              "priority": 100,
+              "direction": "Inbound",
+              "sourcePortRanges": [],
+              "destinationPortRanges": [
+                "9000",
+                "9003",
+                "1438",
+                "1440",
+                "1452"
+              ],
+              "sourceAddressPrefixes": [],
+              "destinationAddressPrefixes": []
+            }
+          },
+          {
+            "name": "Microsoft.Sql-managedInstances_UseOnly_mi-corpsaw-in-10-2-1-0-24-v10",
+            "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+            "properties": {
+              "description": "Allow MI Supportability",
+              "protocol": "Tcp",
+              "sourcePortRange": "*",
+              "sourceAddressPrefix": "CorpNetSaw",
+              "destinationAddressPrefix": "10.2.1.0/24",
+              "access": "Allow",
+              "priority": 101,
+              "direction": "Inbound",
+              "sourcePortRanges": [],
+              "destinationPortRanges": [
+                "9000",
+                "9003",
+                "1440"
+              ],
+              "sourceAddressPrefixes": [],
+              "destinationAddressPrefixes": []
+            }
+          },
+          {
+            "name": "Microsoft.Sql-managedInstances_UseOnly_mi-corppublic-in-10-2-1-0-24-v10",
+            "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+            "properties": {
+              "description": "Allow MI Supportability through Corpnet ranges",
+              "protocol": "Tcp",
+              "sourcePortRange": "*",
+              "sourceAddressPrefix": "CorpNetPublic",
+              "destinationAddressPrefix": "10.2.1.0/24",
+              "access": "Allow",
+              "priority": 102,
+              "direction": "Inbound",
+              "sourcePortRanges": [],
+              "destinationPortRanges": [
+                "9000",
+                "9003"
+              ],
+              "sourceAddressPrefixes": [],
+              "destinationAddressPrefixes": []
+            }
+          },
+          {
+            "name": "Microsoft.Sql-managedInstances_UseOnly_mi-healthprobe-in-10-2-1-0-24-v10",
+            "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+            "properties": {
+              "description": "Allow Azure Load Balancer inbound traffic",
+              "protocol": "*",
+              "sourcePortRange": "*",
+              "destinationPortRange": "*",
+              "sourceAddressPrefix": "AzureLoadBalancer",
+              "destinationAddressPrefix": "10.2.1.0/24",
+              "access": "Allow",
+              "priority": 103,
+              "direction": "Inbound",
+              "sourcePortRanges": [],
+              "destinationPortRanges": [],
+              "sourceAddressPrefixes": [],
+              "destinationAddressPrefixes": []
+            }
+          },
+          {
+            "name": "Microsoft.Sql-managedInstances_UseOnly_mi-internal-in-10-2-1-0-24-v10",
+            "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+            "properties": {
+              "description": "Allow MI internal inbound traffic",
+              "protocol": "*",
+              "sourcePortRange": "*",
+              "destinationPortRange": "*",
+              "sourceAddressPrefix": "10.2.1.0/24",
+              "destinationAddressPrefix": "10.2.1.0/24",
+              "access": "Allow",
+              "priority": 104,
+              "direction": "Inbound",
+              "sourcePortRanges": [],
+              "destinationPortRanges": [],
+              "sourceAddressPrefixes": [],
+              "destinationAddressPrefixes": []
+            }
+          },
+          {
+            "name": "Microsoft.Sql-managedInstances_UseOnly_mi-services-out-10-2-1-0-24-v10",
+            "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+            "properties": {
+              "description": "Allow MI services outbound traffic over https",
+              "protocol": "Tcp",
+              "sourcePortRange": "*",
+              "sourceAddressPrefix": "10.2.1.0/24",
+              "destinationAddressPrefix": "AzureCloud",
+              "access": "Allow",
+              "priority": 100,
+              "direction": "Outbound",
+              "sourcePortRanges": [],
+              "destinationPortRanges": [
+                "443",
+                "12000"
+              ],
+              "sourceAddressPrefixes": [],
+              "destinationAddressPrefixes": []
+            }
+          },
+          {
+            "name": "Microsoft.Sql-managedInstances_UseOnly_mi-internal-out-10-2-1-0-24-v10",
+            "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+            "properties": {
+              "description": "Allow MI internal outbound traffic",
+              "protocol": "*",
+              "sourcePortRange": "*",
+              "destinationPortRange": "*",
+              "sourceAddressPrefix": "10.2.1.0/24",
+              "destinationAddressPrefix": "10.2.1.0/24",
+              "access": "Allow",
+              "priority": 101,
+              "direction": "Outbound",
+              "sourcePortRanges": [],
+              "destinationPortRanges": [],
+              "sourceAddressPrefixes": [],
+              "destinationAddressPrefixes": []
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "Microsoft.Network/bastionHosts",
+      "apiVersion": "2020-11-01",
+      "name": "[format('{0}bastion', variables('hubNamePrefix'))]",
+      "location": "[variables('location')]",
+      "tags": "[variables('tags')]",
+      "sku": {
+        "name": "Basic"
+      },
+      "properties": {
+        "ipConfigurations": [
+          {
+            "name": "IpConf",
+            "properties": {
+              "privateIPAllocationMethod": "Dynamic",
+              "publicIPAddress": {
+                "id": "[resourceId('Microsoft.Network/publicIPAddresses', format('{0}bastion-pip', variables('hubNamePrefix')))]"
+              },
+              "subnet": {
+                "id": "[format('{0}/subnets/AzureBastionSubnet', resourceId('Microsoft.Network/virtualNetworks', format('{0}vnet', variables('hubNamePrefix'))))]"
+              }
+            }
+          }
+        ]
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.Network/publicIPAddresses', format('{0}bastion-pip', variables('hubNamePrefix')))]",
+        "[resourceId('Microsoft.Network/virtualNetworks', format('{0}vnet', variables('hubNamePrefix')))]"
+      ]
+    },
+    {
+      "type": "Microsoft.Network/publicIPAddresses",
+      "apiVersion": "2020-11-01",
+      "name": "[format('{0}bastion-pip', variables('hubNamePrefix'))]",
+      "location": "[variables('location')]",
+      "tags": "[variables('tags')]",
+      "sku": {
+        "name": "Standard",
+        "tier": "Regional"
+      },
+      "properties": {
+        "publicIPAddressVersion": "IPv4",
+        "publicIPAllocationMethod": "Static"
+      }
+    },
+    {
+      "type": "Microsoft.Network/networkInterfaces",
+      "apiVersion": "2021-03-01",
+      "name": "[format('{0}nic', variables('onpremHyperVHostVMNamePrefix'))]",
+      "location": "[variables('location')]",
+      "tags": "[variables('tags')]",
+      "properties": {
+        "ipConfigurations": [
+          {
+            "name": "ipconfig1",
+            "properties": {
+              "subnet": {
+                "id": "[format('{0}/subnets/default', resourceId('Microsoft.Network/virtualNetworks', format('{0}vnet', variables('onpremNamePrefix'))))]"
+              },
+              "privateIPAllocationMethod": "Dynamic"
+            }
+          }
+        ],
+        "networkSecurityGroup": {
+          "id": "[resourceId('Microsoft.Network/networkSecurityGroups', format('{0}nsg', variables('onpremHyperVHostVMNamePrefix')))]"
+        }
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.Network/networkSecurityGroups', format('{0}nsg', variables('onpremHyperVHostVMNamePrefix')))]",
+        "[resourceId('Microsoft.Network/virtualNetworks', format('{0}vnet', variables('onpremNamePrefix')))]"
+      ]
+    },
+    {
+      "type": "Microsoft.Network/networkSecurityGroups",
+      "apiVersion": "2019-02-01",
+      "name": "[format('{0}nsg', variables('onpremHyperVHostVMNamePrefix'))]",
+      "location": "[variables('location')]",
+      "tags": "[variables('tags')]",
+      "properties": {
+        "securityRules": [
+          {
+            "name": "RDP",
+            "properties": {
+              "protocol": "TCP",
+              "sourcePortRange": "*",
+              "destinationPortRange": "3389",
+              "sourceAddressPrefix": "*",
+              "destinationAddressPrefix": "*",
+              "access": "Allow",
+              "priority": 100,
+              "direction": "Inbound"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "Microsoft.Compute/virtualMachines",
+      "apiVersion": "2021-07-01",
+      "name": "[format('{0}vm', variables('onpremHyperVHostVMNamePrefix'))]",
+      "location": "[variables('location')]",
+      "tags": "[variables('tags')]",
+      "properties": {
+        "hardwareProfile": {
+          "vmSize": "Standard_D4s_v5"
+        },
+        "storageProfile": {
+          "osDisk": {
+            "createOption": "fromImage"
+          },
+          "imageReference": {
+            "publisher": "MicrosoftWindowsServer",
+            "offer": "WindowsServer",
+            "sku": "2019-datacenter-gensecond",
+            "version": "latest"
+          }
+        },
+        "networkProfile": {
+          "networkInterfaces": [
+            {
+              "id": "[resourceId('Microsoft.Network/networkInterfaces', format('{0}nic', variables('onpremHyperVHostVMNamePrefix')))]"
+            }
+          ]
+        },
+        "osProfile": {
+          "computerName": "WinServer",
+          "adminUsername": "[variables('labUsername')]",
+          "adminPassword": "[variables('labPassword')]"
+        }
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.Network/networkInterfaces', format('{0}nic', variables('onpremHyperVHostVMNamePrefix')))]"
+      ]
+    },
+    {
+      "type": "Microsoft.Compute/virtualMachines/extensions",
+      "apiVersion": "2017-12-01",
+      "name": "[format('{0}/InstallHyperV', format('{0}vm', variables('onpremHyperVHostVMNamePrefix')))]",
+      "location": "[variables('location')]",
+      "tags": "[variables('tags')]",
+      "properties": {
+        "publisher": "Microsoft.Compute",
+        "type": "CustomScriptExtension",
+        "typeHandlerVersion": "1.4",
+        "autoUpgradeMinorVersion": true,
+        "settings": {
+          "fileUris": [
+            "[variables('HyperVHostInstallHyperVURL')]"
+          ],
+          "commandToExecute": "[format('powershell -ExecutionPolicy Unrestricted -File {0}/{1}', variables('HyperVHostInstallHyperVScriptFolder'), variables('HyperVHostInstallHyperVScriptFileName'))]"
+        }
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.Compute/virtualMachines', format('{0}vm', variables('onpremHyperVHostVMNamePrefix')))]"
+      ]
+    },
+    {
+      "type": "Microsoft.Compute/virtualMachines/extensions",
+      "apiVersion": "2017-12-01",
+      "name": "[format('{0}/CreateWinServerVM', format('{0}vm', variables('onpremHyperVHostVMNamePrefix')))]",
+      "location": "[variables('location')]",
+      "tags": "[variables('tags')]",
+      "properties": {
+        "publisher": "Microsoft.Powershell",
+        "type": "DSC",
+        "typeHandlerVersion": "2.9",
+        "autoUpgradeMinorVersion": true,
+        "settings": {
+          "configuration": {
+            "url": "[variables('HyperVHostConfigURL')]",
+            "script": "[variables('HyperVHostConfigArchiveScriptName')]",
+            "function": "Main"
+          }
+        }
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.Compute/virtualMachines', format('{0}vm', variables('onpremHyperVHostVMNamePrefix')))]",
+        "[resourceId('Microsoft.Compute/virtualMachines/extensions', split(format('{0}/InstallHyperV', format('{0}vm', variables('onpremHyperVHostVMNamePrefix'))), '/')[0], split(format('{0}/InstallHyperV', format('{0}vm', variables('onpremHyperVHostVMNamePrefix'))), '/')[1])]"
+      ]
+    },
+    {
+      "type": "Microsoft.Network/networkInterfaces",
+      "apiVersion": "2021-03-01",
+      "name": "[format('{0}nic', variables('onpremSQLVMNamePrefix'))]",
+      "location": "[variables('location')]",
+      "tags": "[variables('tags')]",
+      "properties": {
+        "ipConfigurations": [
+          {
+            "name": "ipconfig1",
+            "properties": {
+              "subnet": {
+                "id": "[format('{0}/subnets/default', resourceId('Microsoft.Network/virtualNetworks', format('{0}vnet', variables('onpremNamePrefix'))))]"
+              },
+              "privateIPAllocationMethod": "Dynamic"
+            }
+          }
+        ],
+        "networkSecurityGroup": {
+          "id": "[resourceId('Microsoft.Network/networkSecurityGroups', format('{0}nsg', variables('onpremSQLVMNamePrefix')))]"
+        }
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.Network/networkSecurityGroups', format('{0}nsg', variables('onpremSQLVMNamePrefix')))]",
+        "[resourceId('Microsoft.Network/virtualNetworks', format('{0}vnet', variables('onpremNamePrefix')))]"
+      ]
+    },
+    {
+      "type": "Microsoft.Network/networkSecurityGroups",
+      "apiVersion": "2019-02-01",
+      "name": "[format('{0}nsg', variables('onpremSQLVMNamePrefix'))]",
+      "location": "[variables('location')]",
+      "tags": "[variables('tags')]",
+      "properties": {
+        "securityRules": [
+          {
+            "name": "RDP",
+            "properties": {
+              "protocol": "TCP",
+              "sourcePortRange": "*",
+              "destinationPortRange": "3389",
+              "sourceAddressPrefix": "*",
+              "destinationAddressPrefix": "*",
+              "access": "Allow",
+              "priority": 100,
+              "direction": "Inbound"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "Microsoft.Compute/virtualMachines",
+      "apiVersion": "2021-07-01",
+      "name": "[format('{0}vm', variables('onpremSQLVMNamePrefix'))]",
+      "location": "[variables('location')]",
+      "tags": "[variables('tags')]",
+      "properties": {
+        "hardwareProfile": {
+          "vmSize": "Standard_D4s_v5"
+        },
+        "storageProfile": {
+          "osDisk": {
+            "createOption": "fromImage"
+          },
+          "imageReference": {
+            "publisher": "MicrosoftSQLServer",
+            "offer": "SQL2012SP4-WS2012R2",
+            "sku": "Standard",
+            "version": "latest"
+          }
+        },
+        "networkProfile": {
+          "networkInterfaces": [
+            {
+              "id": "[resourceId('Microsoft.Network/networkInterfaces', format('{0}nic', variables('onpremSQLVMNamePrefix')))]"
+            }
+          ]
+        },
+        "osProfile": {
+          "computerName": "SQLServer",
+          "adminUsername": "[variables('labUsername')]",
+          "adminPassword": "[variables('labPassword')]"
+        }
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.Network/networkInterfaces', format('{0}nic', variables('onpremSQLVMNamePrefix')))]"
+      ]
+    },
+    {
+      "type": "Microsoft.Compute/virtualMachines/extensions",
+      "apiVersion": "2017-12-01",
+      "name": "[format('{0}/SQLVMConfig', format('{0}vm', variables('onpremSQLVMNamePrefix')))]",
+      "location": "[variables('location')]",
+      "tags": "[variables('tags')]",
+      "properties": {
+        "publisher": "Microsoft.Powershell",
+        "type": "DSC",
+        "typeHandlerVersion": "2.9",
+        "autoUpgradeMinorVersion": true,
+        "settings": {
+          "configuration": {
+            "url": "[variables('SQLVMConfigURL')]",
+            "script": "[variables('SQLVMConfigScriptName')]",
+            "function": "Main"
+          }
+        }
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.Compute/virtualMachines', format('{0}vm', variables('onpremSQLVMNamePrefix')))]"
+      ]
+    }
+  ]
+}
