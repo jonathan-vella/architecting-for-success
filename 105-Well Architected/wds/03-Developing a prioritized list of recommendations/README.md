@@ -11,7 +11,8 @@
 **Objective**
 
 By the end of this unit, you will be able to:
-* Develop a prioritized list of recommendations and next steps.
+
+- Develop a prioritized list of recommendations and next steps.
 
 **Overview**
 

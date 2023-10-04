@@ -28,17 +28,20 @@ Participants will engage in a team exercise to refine their list of potential so
 In this exercise, participants will assess priorities to create an actionable plan using the observation chart. Consider the following questions to draft your solution:
 
 Findings/requirements
-* What are the most important recommendations?
-* Are those recommendations immediately actionable?
+
+- What are the most important recommendations?
+- Are those recommendations immediately actionable?
 
 Issues identified
-* What are the biggest concerns for the customer?  
-* Are the recommendations aligned with the business objectives?
-* Do you have an architecture diagram for the mid- and long-term proposals?
+
+- What are the biggest concerns for the customer?
+- Are the recommendations aligned with the business objectives?
+- Do you have an architecture diagram for the mid- and long-term proposals?
 
 Recommendations for taking action
-* What customer needs should be prioritized, maintaining a WAF five-pillars holistic perspective?
-* How will you measure the success of the recommendations?
+
+- What customer needs should be prioritized, maintaining a WAF five-pillars holistic perspective?
+- How will you measure the success of the recommendations?
 
 When you are assigning priority to an action step, you should determine whether it is:
 
