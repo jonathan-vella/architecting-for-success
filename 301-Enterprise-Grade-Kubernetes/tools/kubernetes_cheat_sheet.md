@@ -1,24 +1,8 @@
----
-title: kubectl Cheat Sheet
-reviewers:
-- erictune
-- krousey
-- clove
-content_type: concept
-weight: 10 # highlight it
-card:
-  name: tasks
-  weight: 10
----
-
-<!-- overview -->
+# kubectl Cheat Sheet
 
 This page contains a list of commonly used `kubectl` commands and flags.
 
-{{< note >}}
-These instructions are for Kubernetes v{{< skew currentVersion >}}. To check the version, use the `kubectl version` command.
-{{< /note >}}
-<!-- body -->
+./ These instructions are for Kubernetes v{{< skew currentVersion >}}. To check the version, use the `kubectl version` command.
 
 ## Kubectl autocomplete
 
@@ -48,14 +32,14 @@ echo '[[ $commands[kubectl] ]] && source <(kubectl completion zsh)' >> ~/.zshrc 
 Require kubectl version 1.23 or above.
 
 ```bash
-echo 'kubectl completion fish | source' >> ~/.config/fish/config.fish  # add kubectl autocompletion permanently to your fish shell 
+echo 'kubectl completion fish | source' >> ~/.config/fish/config.fish  # add kubectl autocompletion permanently to your fish shell
 ```
 
 ### A note on `--all-namespaces`
 
 Appending `--all-namespaces` happens frequently enough that you should be aware of the shorthand for `--all-namespaces`:
 
-```kubectl -A```
+`kubectl -A`
 
 ## Kubectl context and configuration
 
@@ -364,6 +348,7 @@ kubectl exec my-pod -c my-container -- ls /         # Run command in existing po
 kubectl top pod POD_NAME --containers               # Show metrics for a given pod and its containers
 kubectl top pod POD_NAME --sort-by=cpu              # Show metrics for a given pod and sort it by 'cpu' or 'memory'
 ```
+
 ## Copying files and directories to and from containers
 
 ```bash
@@ -372,6 +357,7 @@ kubectl cp /tmp/foo my-pod:/tmp/bar -c my-container    # Copy /tmp/foo local fil
 kubectl cp /tmp/foo my-namespace/my-pod:/tmp/bar       # Copy /tmp/foo local file to /tmp/bar in a remote pod in namespace my-namespace
 kubectl cp my-namespace/my-pod:/tmp/foo /tmp/bar       # Copy /tmp/foo from a remote pod to /tmp/bar locally
 ```
+
 {{< note >}}
 `kubectl cp` requires that the 'tar' binary is present in your container image. If 'tar' is not present, `kubectl cp` will fail.
 For advanced use cases, such as symlinks, wildcard expansion or file mode preservation consider using `kubectl exec`.
@@ -382,8 +368,8 @@ tar cf - /tmp/foo | kubectl exec -i -n my-namespace my-pod -- tar xf - -C /tmp/b
 kubectl exec -n my-namespace my-pod -- tar cf - /tmp/foo | tar xf - -C /tmp/bar    # Copy /tmp/foo from a remote pod to /tmp/bar locally
 ```
 
-
 ## Interacting with Deployments and Services
+
 ```bash
 kubectl logs deploy/my-deployment                         # dump Pod logs for a Deployment (single-container case)
 kubectl logs deploy/my-deployment -c my-container         # dump Pod logs for a Deployment (multi-container case)
@@ -436,18 +422,18 @@ kubectl api-resources --api-group=extensions # All resources in the "extensions"
 
 To output details to your terminal window in a specific format, add the `-o` (or `--output`) flag to a supported `kubectl` command.
 
-Output format | Description
---------------| -----------
-`-o=custom-columns=<spec>` | Print a table using a comma separated list of custom columns
-`-o=custom-columns-file=<filename>` | Print a table using the custom columns template in the `<filename>` file
-`-o=go-template=<template>`     | Print the fields defined in a [golang template](https://pkg.go.dev/text/template)
-`-o=go-template-file=<filename>` | Print the fields defined by the [golang template](https://pkg.go.dev/text/template) in the `<filename>` file
-`-o=json`     | Output a JSON formatted API object
-`-o=jsonpath=<template>` | Print the fields defined in a [jsonpath](/docs/reference/kubectl/jsonpath) expression
-`-o=jsonpath-file=<filename>` | Print the fields defined by the [jsonpath](/docs/reference/kubectl/jsonpath) expression in the `<filename>` file
-`-o=name`     | Print only the resource name and nothing else
-`-o=wide`     | Output in the plain-text format with any additional information, and for pods, the node name is included
-`-o=yaml`     | Output a YAML formatted API object
+| Output format                       | Description                                                                                                      |
+| ----------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| `-o=custom-columns=<spec>`          | Print a table using a comma separated list of custom columns                                                     |
+| `-o=custom-columns-file=<filename>` | Print a table using the custom columns template in the `<filename>` file                                         |
+| `-o=go-template=<template>`         | Print the fields defined in a [golang template](https://pkg.go.dev/text/template)                                |
+| `-o=go-template-file=<filename>`    | Print the fields defined by the [golang template](https://pkg.go.dev/text/template) in the `<filename>` file     |
+| `-o=json`                           | Output a JSON formatted API object                                                                               |
+| `-o=jsonpath=<template>`            | Print the fields defined in a [jsonpath](/docs/reference/kubectl/jsonpath) expression                            |
+| `-o=jsonpath-file=<filename>`       | Print the fields defined by the [jsonpath](/docs/reference/kubectl/jsonpath) expression in the `<filename>` file |
+| `-o=name`                           | Print only the resource name and nothing else                                                                    |
+| `-o=wide`                           | Output in the plain-text format with any additional information, and for pods, the node name is included         |
+| `-o=yaml`                           | Output a YAML formatted API object                                                                               |
 
 Examples using `-o=custom-columns`:
 
@@ -471,25 +457,25 @@ More examples in the kubectl [reference documentation](/docs/reference/kubectl/#
 
 Kubectl verbosity is controlled with the `-v` or `--v` flags followed by an integer representing the log level. General Kubernetes logging conventions and the associated log levels are described [here](https://github.com/kubernetes/community/blob/master/contributors/devel/sig-instrumentation/logging.md).
 
-Verbosity | Description
---------------| -----------
-`--v=0` | Generally useful for this to *always* be visible to a cluster operator.
-`--v=1` | A reasonable default log level if you don't want verbosity.
-`--v=2` | Useful steady state information about the service and important log messages that may correlate to significant changes in the system. This is the recommended default log level for most systems.
-`--v=3` | Extended information about changes.
-`--v=4` | Debug level verbosity.
-`--v=5` | Trace level verbosity.
-`--v=6` | Display requested resources.
-`--v=7` | Display HTTP request headers.
-`--v=8` | Display HTTP request contents.
-`--v=9` | Display HTTP request contents without truncation of contents.
+| Verbosity | Description                                                                                                                                                                                       |
+| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `--v=0`   | Generally useful for this to _always_ be visible to a cluster operator.                                                                                                                           |
+| `--v=1`   | A reasonable default log level if you don't want verbosity.                                                                                                                                       |
+| `--v=2`   | Useful steady state information about the service and important log messages that may correlate to significant changes in the system. This is the recommended default log level for most systems. |
+| `--v=3`   | Extended information about changes.                                                                                                                                                               |
+| `--v=4`   | Debug level verbosity.                                                                                                                                                                            |
+| `--v=5`   | Trace level verbosity.                                                                                                                                                                            |
+| `--v=6`   | Display requested resources.                                                                                                                                                                      |
+| `--v=7`   | Display HTTP request headers.                                                                                                                                                                     |
+| `--v=8`   | Display HTTP request contents.                                                                                                                                                                    |
+| `--v=9`   | Display HTTP request contents without truncation of contents.                                                                                                                                     |
 
-## {{% heading "whatsnext" %}}
+## What's next
 
-* Read the [kubectl overview](/docs/reference/kubectl/) and learn about [JsonPath](/docs/reference/kubectl/jsonpath).
+- Read the [kubectl overview](/docs/reference/kubectl/) and learn about [JsonPath](/docs/reference/kubectl/jsonpath).
 
-* See [kubectl](/docs/reference/kubectl/kubectl/) options.
+- See [kubectl](/docs/reference/kubectl/kubectl/) options.
 
-* Also read [kubectl Usage Conventions](/docs/reference/kubectl/conventions/) to understand how to use kubectl in reusable scripts.
+- Also read [kubectl Usage Conventions](/docs/reference/kubectl/conventions/) to understand how to use kubectl in reusable scripts.
 
-* See more community [kubectl cheatsheets](https://github.com/dennyzhang/cheatsheet-kubernetes-A4).
+- See more community [kubectl cheatsheets](https://github.com/dennyzhang/cheatsheet-kubernetes-A4).
