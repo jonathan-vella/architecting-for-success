@@ -69,6 +69,8 @@ When designing your solution, consider the following:
 - How can you mitigate the risk of cost overruns?
 - How can you help Sarah's business scale up as it grows?
 - How can you help Sarah's business avoid issues related to scalability, performance, and compliance?
+- Sarah's determined that governance is a must-have, however she wants to avoid governance becoming a bottleneck. How can you help Sarah's business achieve this?
+- Time-to-market is important to Sarah. If you had to build a prototype to demonstrate the solution, how long would it take?
 
 ---
 
