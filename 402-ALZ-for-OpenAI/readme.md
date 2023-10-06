@@ -21,13 +21,9 @@ Customers exploring Azure OpenAI services like GPT-4 and DALL-E have the followi
 
 ---
 
-## Architecture Scenarios
+## Whiteboard Design Session
 
----
-
-### Scenario 1: Connect privately to App Service and OpenAI services
-### Scenario 2: Securely expose App Service to the internet with Application Gateway and WAF
-### Scenario 3: Multi-Region Chatbot with Azure Front Door
+The whiteboard design session is based on a fictitious customer called InnovateWear. InnovateWear is a clothing manufacturer that is looking to use AI to improve their customer experience. They want to use Azure OpenAI services to build a chatbot that will help customers find the right clothing for them. You can find the customer story [here](./docs/innovatewear-alz-for-ai-customer-scenario.md).
 
 ---
 
