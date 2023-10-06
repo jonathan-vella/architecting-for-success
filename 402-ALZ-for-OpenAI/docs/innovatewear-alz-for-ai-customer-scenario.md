@@ -28,14 +28,14 @@ But wait! Not everything is sunshine and rainbows:
 
 Sarah wants to ensure that her business has a robust governance framework in place to manage AI systems effectively. At first she wants to **start small**, but she wants to be able to scale up as her business grows. Sarah did her homework and has created a shopping list of risks which she wants to avoid as much as possible so that InnovateWear’s AI journey is a success. She also wants to ensure that her business is prepared to handle any unexpected challenges that may arise. Her immediate concerns are:
 
-* Cost Management: Without effective cost management, she strongly believes that her Azure bill will spiral out of control. Azure OpenAI Services, while powerful, will accrue costs based on usage.
-* Data Sovereignty: When using Azure OpenAI Services, data may reside in data centers across different regions or countries. This raises concerns about data sovereignty. Sarah wants to ensure that her data complies with local regulations and doesn’t leave specific jurisdictions.
-* Connectivity: Communication between retail systems and Azure OpenAI Services occurs over networks (e.g., the internet).
+* **Cost Management**: Without effective cost management, she strongly believes that her Azure bill will spiral out of control. Azure OpenAI Services, while powerful, will accrue costs based on usage.
+* **Data Sovereignty**: When using Azure OpenAI Services, data may reside in data centers across different regions or countries. This raises concerns about data sovereignty. Sarah wants to ensure that her data complies with local regulations and doesn’t leave specific jurisdictions.
+* **Connectivity**: Communication between retail systems and Azure OpenAI Services occurs over networks (e.g., the internet).
   * Unsecured communication channels can expose data to interception or tampering. What could you do to protect Sarah's data in transit?
   * Sarah's business relies on a stable internet connection to interact with Azure OpenAI Services. Downtime or slow connectivity can disrupt operations. How can you ensure that Sarah's business is always connected to Azure OpenAI Services?
-* Security: AI models like GPT-4 process vast amounts of data. If not secured properly, this data could be vulnerable to breaches or unauthorized access. Sara wants to protect her data from malicious actors.
-* Resource Consistency: Without consistent resource management, Sarah might might face issues related to scalability, performance, and compliance.
-* Time to Market: Accelerating deployment without proper testing or validation can lead to unforeseen issues and lack of governance. This might allow the bypass of governance controls, risking compliance and security.
+* **Security**: AI models like GPT-4 process vast amounts of data. If not secured properly, this data could be vulnerable to breaches or unauthorized access. Sara wants to protect her data from malicious actors.
+* **Reliability**: Without consistent resource management, Sarah might might face issues related to scalability, performance, and compliance.
+* **Time to Market**: Accelerating deployment without proper testing or validation can lead to unforeseen issues and lack of governance. This might allow the bypass of governance controls, risking compliance and security.
 
 ---
 

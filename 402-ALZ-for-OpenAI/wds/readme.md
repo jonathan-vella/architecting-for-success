@@ -52,10 +52,10 @@ Sarah is asking you to design a solution that addresses her concerns. She wants 
 
 Your solution must be based on a governance-driven approach, and must include all of the following:
 
-1. An Azure Landing Zone architecture design
-2. A high-level architecture diagram of Azure OpenAI Services and other supporting services
-3. A network architecture design
-4. A list of the required Azure Policy policies or initiatives including scope assignments
+1. An Azure Landing Zone architecture design.
+2. A high-level architecture diagram of Azure OpenAI Services and all other supporting services.
+3. A network architecture design which is secure and resilient.
+4. A list of the required Azure Policy policies or initiatives including scope assignments.
 
 When designing your solution, consider the following:
 
