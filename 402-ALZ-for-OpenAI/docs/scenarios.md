@@ -2,7 +2,7 @@
 
 ## Scenario 1: Secure Communication to Azure App Service via Private Link
 
-![Azure AI Landing Zone](AILZScenario2.png "Azure AI Landing Zone")
+![Azure AI Landing Zone](./../images/scenario-01.png "Azure AI Landing Zone")
 
 In this scenario, the user deploys the [Azure Landing Zone conceptual architecture](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/#azure-landing-zone-architecture) to ensure a well-organized and secure Azure environment. The architecture includes the following components and steps:
 
@@ -20,7 +20,7 @@ In this scenario, the user deploys the [Azure Landing Zone conceptual architectu
 
 ## Scenario 2: Securely Exposing the Application with Application Gateway and WAF
 
-![Azure AI Landing Zone](AILZScenario1.png "Azure AI Landing Zone")
+![Azure AI Landing Zone](./../images/scenario-02.png "Azure AI Landing Zone")
 
 In this scenario, you build upon the architecture from the first scenario to securely expose your application to external users. The key components and steps are as follows:
 

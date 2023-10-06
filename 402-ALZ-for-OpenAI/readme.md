@@ -1,6 +1,6 @@
 # Azure Landing Zones for OpenAI (works in progress)
 
-![Azure AI Landing Zone](AIArchitecture.png "Azure AI Landing Zone")
+![Azure AI Landing Zone](./images/AIArchitecture.png "Azure AI Landing Zone")
 
 This GitHub repository (which is based on the amazing work done by @FreddyAyala) provides a challenge-based workshop which will allow you to design an Azure AI Landing Zone — a tailored environment which will allow customers to accelerate their adoption of OpenAI services like GPT-4 and DALL-E.
 
