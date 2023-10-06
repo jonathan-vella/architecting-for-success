@@ -23,7 +23,7 @@ Customers exploring Azure OpenAI services like GPT-4 and DALL-E have the followi
 
 ## Whiteboard Design Session
 
-The whiteboard design session is based on a fictitious customer called InnovateWear. InnovateWear is a clothing manufacturer that is looking to use AI to improve their customer experience. They want to use Azure OpenAI services to build a chatbot that will help customers find the right clothing for them. You can find the customer story [here](./docs/innovatewear-alz-for-ai-customer-scenario.md).
+The [whiteboard design session](./wds/readme.md) is based on a fictitious customer called InnovateWear. InnovateWear is a clothing manufacturer that is looking to use AI to improve their customer experience. They want to use Azure OpenAI services to build a chatbot that will help customers find the right clothing for them. You can find the customer story [here](./docs/innovatewear-alz-for-ai-customer-scenario.md).
 
 ---
 
