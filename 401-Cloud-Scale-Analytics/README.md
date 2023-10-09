@@ -1,6 +1,6 @@
 # Architecting for Success
 
-# 105 - Cloud Scale Analytics
+## 105 - Cloud Scale Analytics
 
 ---
 
@@ -16,6 +16,8 @@ Cloud-scale analytics has the following goals:
 * Provide an ecosystem of data products, rather than a singular data warehouse that might not best fit your data scenario
 * Drive a default approach to enforce data governance and security
 * Drive teams to consistently prioritize business outcomes instead of focusing just on the underlying technology.
+
+![Cloud Scale Analytics](./images/csa-landing-zones.png)
 
 Cloud-scale analytics builds upon Microsoft's cloud adoption framework and requires understanding of landing zones. If you don't already have an implementation of Azure landing zones, consult your cloud teams about how to meet prerequisites.
 
