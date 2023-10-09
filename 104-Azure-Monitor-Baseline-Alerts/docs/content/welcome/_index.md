@@ -1,12 +1,10 @@
-# Azure Monitor Baseline Alerts (AMBA)
+---
+title: Welcome
+weight: 0
+---
 
-[![Average time to resolve an issue](http://isitmaintained.com/badge/resolution/azure/azure-monitor-baseline-alerts.svg)](http://isitmaintained.com/project/azure/azure-monitor-baseline-alerts "Average time to resolve an issue")
-[![Percentage of issues still open](http://isitmaintained.com/badge/open/azure/azure-monitor-baseline-alerts.svg)](http://isitmaintained.com/project/azure/azure-monitor-baseline-alerts "Percentage of issues still open")
-
-
-> **_NOTE:_**  Please check out our the [AMBA GitHub Pages](https://azure.github.io/azure-monitor-baseline-alerts/welcome) site for more interactive access to the content in this repo.
-
-Welcome to the **Azure Monitor Baseline Alerts (AMBA)** repo!  The purpose of this site is to provide best practice guidance around key alerts metrics and their thresholds.
+---
+Welcome to the Azure Monitor Baseline Alerts (AMBA) site!  The purpose of this site is to provide best practice guidance around key alerts metrics and their thresholds.
 
 This sites is broken down into two main sections:
 1. **Services:** This section provides guidance for individual Azure services.  For each service, there is a list of key alert metrics and the recommended thresholds.
@@ -14,6 +12,7 @@ This sites is broken down into two main sections:
 2. **Patterns / Scenarios:** This section provides guidance for common patterns / scenarios (like Azure Landing Zones), as well as policy definition and initiatives for deploying the alerts in your environment.
 
 ## Why is configuring alerts important?
+---
 When deploying Azure resources, it is crucial to configure alerts to ensure the health, performance, and security of your resources. By setting up alerts, you can proactively monitor your resources and take timely actions to address any issues that may arise.
 
 Here are the key reasons why configuring alerts is important:
@@ -28,25 +27,6 @@ Here are the key reasons why configuring alerts is important:
 
 5. **Proactive capacity planning**: Alerts provide valuable information for capacity planning and scaling your resources. By monitoring resource utilization trends over time, you can identify patterns and forecast future resource requirements. This helps you avoid performance bottlenecks and ensure a smooth user experience.
 
-
-## Contributing
-
-This project welcomes contributions and suggestions.  Most contributions require you to agree to a
-Contributor License Agreement (CLA) declaring that you have the right to, and actually do, grant us
-the rights to use your contribution. For details, visit https://cla.opensource.microsoft.com.
-
-When you submit a pull request, a CLA bot will automatically determine whether you need to provide
-a CLA and decorate the PR appropriately (e.g., status check, comment). Simply follow the instructions
-provided by the bot. You will only need to do this once across all repos using our CLA.
-
-This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
-For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or
-contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
-
-## Trademarks
-
-This project may contain trademarks or logos for projects, products, or services. Authorized use of Microsoft
-trademarks or logos is subject to and must follow
-[Microsoft's Trademark & Brand Guidelines](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general).
-Use of Microsoft trademarks or logos in modified versions of this project must not cause confusion or imply Microsoft sponsorship.
-Any use of third-party trademarks or logos are subject to those third-party's policies.
+{{< hint type=tip >}}
+Please review and leave issues on things you find, via [GitHub Issues](https://github.com/Azure/azure-monitor-baseline-alerts/issues)
+{{< /hint >}}
