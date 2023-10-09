@@ -1,6 +1,8 @@
 # Architecting For Success
 
-# Cloud Scale Analytics Whiteboard Design Session
+## Cloud Scale Analytics Whiteboard Design Session
+
+---
 
 ## Contoso Corporation
 
@@ -15,6 +17,8 @@
 - They have a separate payment service which is subject to PCI-DSS.
 - They have a MPLS connection between both DCs; some warehouses and disti. centers also act as internet breakout points for their shops.
 - They are already using Microsoft 365 services.
+
+---
 
 ### Technical Details
 
@@ -31,6 +35,8 @@
 - Reporting is done leveraging Power BI Report Server. Models are hosted on a SQL Server Tabular Analysis Server that is built daily from Teradata using SSIS packages.
 - They are using Spark to consume their Streaming data sources from a Kafka cluster (mostly clickstream data from their online retail sites). Data is then fed to the Datawarehouse for analytics.
 
+---
+
 ### Requirements
 
 - They have a license renewal for their Teradata Datawarehouse coming up in the next 6 months and would like to migrate this workload to the Cloud. Migration should happen within 3 months and would like to run parallel workloads to ensure correct reporting and minimize the migration downtime.
@@ -42,8 +48,8 @@
 - They require separate Production, Staging & Development environments for security, agility and cost purposes. But they do not want to have development environments and associated VNETs to be able to communicate with production. Also, developers must granted "unrestricted" access to development environments at scale with minimal administrative overhead. No access should be granted to Test or Prod environments to developers.
 - Production data must be backed up in a reliable way and protected against a regional failure. Dev/Test only need protection against localized failures.
 - They require built-in platform regulatory compliance security checks and reporting for all production environments (PCI-DSS, ISO27001, CIS etc.)
-    - ISO27001 for all environments except Sandbox subscriptions.
-    - PCI-DSS for the payment system and associated data stores.
+  - ISO27001 for all environments except Sandbox subscriptions.
+  - PCI-DSS for the payment system and associated data stores.
 - All Subnets must be protected with NSGs and cannot be disabled.
 - Azure Activity Logs for all Subscriptions & Diagnostic Settings for all Azure Resources should be enabled automatically and sent to a centralized LAW.
 - For any VMs used, Azure Monitor VM Insights should be enabled and any required agents automatically installed.
