@@ -14,4 +14,5 @@ You can use the content in this repository to:
 * Migrate and modernize apps, data, and infrastructure using proven cloud migration tools and patterns.
 * Accelerate the adoption of solutions based on Azure OpenAI.
 
+>![Learning Path structureLogo](/media/lerning-path-structure.png)
 In short, this repository enables partners to help customers move with confidence with the right mix of skilling and resources to facilitate migration, modernization, and innovation with Azure OpenAI.
