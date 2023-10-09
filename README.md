@@ -12,5 +12,6 @@ You can use the content in this repository to:
 * Apply best practices based on the proven Microsoft Cloud Adoption Framework for Azure and Well-Architected Framework at every stage of our customers' cloud adoption journey.
 * Understand how to assess environments and planning migrations, including cloud economics guidance, and landing zone build-out support.
 * Migrate and modernize apps, data, and infrastructure using proven cloud migration tools and patterns.
+* Accelerate the adoption of solutions based on Azure OpenAI.
 
 In a nutshell, this repository enables partners to help customers move with confidence with the right mix of skilling and resources to facilitate migration and modernization.
