@@ -2,7 +2,7 @@
 
 ---
 
-## 106 - Microsoft Azure Well Architected Workshop
+## 105 - Azure Well Architected Workshop
 
 ---
 
