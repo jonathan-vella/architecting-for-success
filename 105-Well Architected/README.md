@@ -41,7 +41,8 @@ Our customers do not think of their needs and goals in terms of pillars. Rather,
 
 ---
 
-### An iterative approach 
+### An iterative approach
+
 It's also important to recognize that implementing a Well-Architected Framework requires an iterative approach, as described in the workflow diagram.
 
 > ![Well-Architected Framework workflow](./images/waf_workflow.png)
