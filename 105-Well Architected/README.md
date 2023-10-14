@@ -45,6 +45,6 @@ Our customers do not think of their needs and goals in terms of pillars. Rather,
 
 It's also important to recognize that implementing a Well-Architected Framework requires an iterative approach, as described in the workflow diagram.
 
-> ![Well-Architected Framework workflow](./../images/waf_workflow.png)
+> ![Well-Architected Framework workflow](./images/waf_workflow.png)
 
 This workshop is primarily focused on phases one, two, and three, in which you Discover the customer's needs, Analyze to identify potential solutions, and Prioritize—or conduct triage to determine what needs to be implemented first. We will also discuss the optimization that occurs post-implementation to further enhance and refine the customer's architecture.
