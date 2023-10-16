@@ -40,7 +40,7 @@ Being a Solutions Architect means being responsible for the design and implement
 
 **Participant steps**
 
-1. Choose your desired topic and take a couple of minutes to prepare your presentation.
+1. Choose your desired topic and take a couple of minutes to prepare your solution design.
 2. All team members will take turns presenting their topics. Plan to speak for about two to three minutes.
 3. Listen to your teammates' presentations.
 4. Provide each other with constructive feedback and coaching.
