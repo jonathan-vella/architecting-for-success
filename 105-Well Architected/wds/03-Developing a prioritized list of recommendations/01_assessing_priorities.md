@@ -21,7 +21,7 @@ Team lead guidance
 
 Participants will engage in a team exercise to refine their list of potential solutions by prioritizing for impact and alignment with the customer's business objectives. They will also complete an observation chart summarizing their recommendations to prepare for the customer presentation.
 
-**Duration**: 45minutes
+**Duration**: 90minutes
 
 **Participant guidance**
 
@@ -61,3 +61,5 @@ Keep in mind that some goals will have to be met in phases and that certain solu
 **Summary**
 
 In this exercise, participants refined their ideas, identifying the most urgent and actionable solutions, while also considering the long-term plan for the customer's architecture.
+
+In the next exercise you will prepare for your customer conversation by first translating your recommendations into one or more solution architecture diagrams.

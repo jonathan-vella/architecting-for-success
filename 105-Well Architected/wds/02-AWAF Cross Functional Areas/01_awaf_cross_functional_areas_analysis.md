@@ -77,7 +77,7 @@ The first step in this whiteboard will be to discuss resiliency. To do this, wal
    * How does the architecture align to a BCDR strategy that meets those requirements?
    * Does the architecture allow for automated and routine testing of the BCDR strategy?
 
-**Duration**: 20 minutes
+**Duration**: 30 minutes
 
 **Participant steps**
 
@@ -135,7 +135,7 @@ Working with your team, brainstorm solutions related to performance and scale wi
    * What are the key scaling points within the architecture?
    * What are the scaling requirements for these points (auto or reactive, proactive)?
 
-**Duration**: 20 minutes
+**Duration**: 30 minutes
 
 **Participant steps**
 
@@ -190,7 +190,7 @@ Working with your team, brainstorm solutions related to security, governance, an
    * What are the functional and nonfunctional requirements for identity (internal and external) relative to the workload, and how does the architecture align with those requirements?
    * What governance policies are in place that would affect the design and security of the workload architecture?
 
-**Duration**: 20 minutes
+**Duration**: 30 minutes
 
 **Participant Steps**
 
@@ -242,7 +242,7 @@ Working with your team, brainstorm solutions related to DevOps within a Well-Arc
    * Do these pipelines include automated tests, code scanning, and/or security scanning?
    * Are there any approval gates within the pipelines?
 
-**Duration**: 20 minutes
+**Duration**: 30 minutes
 
 **Participant steps**
 
@@ -298,7 +298,7 @@ Working with your team, brainstorm solutions related to observability within a W
    * What tools will be leveraged for capturing, monitoring, and alerting on the telemetry?
    * Are there any external dependencies that require access to this telemetry?
 
-**Duration**: 20 minutes
+**Duration**: 30 minutes
 
 **Participant steps**
 

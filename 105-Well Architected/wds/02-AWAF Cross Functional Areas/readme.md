@@ -22,4 +22,4 @@ The goal of this session is to ensure that the solutions your team develops are 
 
 After completing the whiteboard, you'll also complete a discussion activity to help you identify key themes and important takeaways from your whiteboard session before moving on to the prioritization phase of today's workshop.
 
-**Total Duration**: 2.5hours
+**Total Duration**: 3hours

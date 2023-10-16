@@ -54,3 +54,5 @@ This workshop is primarily focused on phases one, two, and three, in which you:
 * Prioritize—or conduct triage to determine what needs to be implemented first
 
 We will also discuss the optimization that occurs post-implementation to further enhance and refine the customer's architecture.
+
+**Total Duration**: 90 minutes

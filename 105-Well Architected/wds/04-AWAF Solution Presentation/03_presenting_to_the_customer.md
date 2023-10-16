@@ -21,7 +21,7 @@ Be prepared to facilitate the activity as needed and assign a speaking order to 
 
 All team members must participate in the team presentation and should work together to assign roles and responsibilities and provide each other with feedback during the practice session.
 
-**Duration**: 15 minutes per team
+**Duration**: 20minutes per team
 
 **Participant guidance**
 
@@ -32,10 +32,10 @@ The coach will act as a customer.
 **Participant steps**
 
 1. Go back to the Team channel and verify that all team members are present.
-2. Time is limited. Assign an observer who will keep track of the customer conversations and feedback sessions and ensure that all teams stay within the timeframes (ten minutes for each conversation presentation and five minutes for feedback).
+2. Time is limited. Assign an observer who will keep track of the customer conversations and feedback sessions and ensure that all teams stay within the timeframes (20 minutes for each conversation presentation and five minutes for feedback).
 3. Deliver customer conversations (in pairs) to the team.
-   * [Pair 1: 10-minute customer conversation. Pairs 2, 3, and 4: listen + 5-minute feedback.]  
-   * [Pair 2: 10-minute customer conversation. Pairs 1, 3 and 4: listen + 5-minute feedback.]  
+   * [Pair 1: 20-minute customer conversation. Pairs 2, 3, and 4: listen + 5-minute feedback.]  
+   * [Pair 2: 20-minute customer conversation. Pairs 1, 3 and 4: listen + 5-minute feedback.]  
    * [Pair 3: 10-minute customer conversation. Pairs 1, 2 and 4: listen + 5-minute feedback.]  
    * [Pair 4: 10-minute customer conversation. Pairs 1, 2 and 3: listen + 5-minute feedback.]
 4. Team members should provide feedback to each participant and should include:

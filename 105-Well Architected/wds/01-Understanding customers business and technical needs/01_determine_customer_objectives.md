@@ -33,7 +33,7 @@ In this activity, you'll use the information provided in the customer scenario t
   * What is the business priority?
 * Document your answers.
   
-**Duration**: 40 minutes
+**Duration**: 90 minutes
 
 ### Participant steps
 

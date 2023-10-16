@@ -23,7 +23,7 @@ By the end of this exercise, you will be able to:
 
 Your team will now practice as if you were delivering a pitch to the customer. The findings and recommendations for each cross-functional area should be presented by one of the team members. One person should also take on the role of wrapping up and summarizing the recommendations in a holistic way.
 
-**Duration:** 30 minutes
+**Duration:** 1hr 15min
 
 **Participant guidance**
 

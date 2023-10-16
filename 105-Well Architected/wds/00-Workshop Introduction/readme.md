@@ -8,7 +8,7 @@
 
 ## Workshop Introduction
 
-At the end of the workshop, participants will be able to:
+At the end of this 2-day workshop, participants will be able to:
 
 * Outline customer needs, business priorities, and key architectural characteristics given a realistic customer workload.
 * Conduct a cross-pillar analysis and determine key gaps in the workload's alignment with the Well-Architected Framework.
