@@ -6,7 +6,9 @@
 
 ### Workshop Introduction
 
-The Well-Architected Framework (WAF) mindset focuses on overall workload health, highlighting the full picture of the customer's architecture, and the importance of an iterative, five-pillar approach.​ Working within a Well-Architected Framework requires a shift away from narrow, siloed solutions and toward holistic, integrative approaches to solving a customer's infrastructure as a service (IaaS) challenges. At the end of the workshop, participants will be able to:
+The Well-Architected Framework (WAF) mindset focuses on overall workload health, highlighting the full picture of the customer's architecture, and the importance of an iterative, five-pillar approach.​ Working within a Well-Architected Framework requires a shift away from narrow, siloed solutions and toward holistic, integrative approaches to solving a customer's infrastructure as a service (IaaS) challenges.
+
+At the end of this 2-day workshop, participants will be able to:
 
 * Outline customer needs, business priorities, and key architectural characteristics given a realistic customer workload.
 * Conduct a cross-pillar analysis and determine key gaps in the workload's alignment with the Well-Architected Framework.
