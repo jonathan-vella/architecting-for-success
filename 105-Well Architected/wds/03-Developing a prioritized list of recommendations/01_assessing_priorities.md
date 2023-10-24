@@ -11,9 +11,11 @@
 **Objective**
 
 By the end of this module, you will be able to:
+
 • Develop a prioritized list of recommendations and next steps.
 
 Team lead guidance
+
 • Assign a timekeeper and instruct them to provide a warning when time is running out.
 • Encourage all members to share their ideas.
 
@@ -53,6 +55,7 @@ When you are assigning priority to an action step, you should determine whether 
 
 1. In this exercise, discuss the provided questions with your team.
 2. Use the results of your brainstorming sessions to complete the observation chart, assigning a level of priority to each solution.
+3. Remember that anything you propose must be aligned to one or more objectives supported by a business and / or technical needs which can be actioned & measured.
 
 **Tips**
 
