@@ -21,7 +21,7 @@ By the end of this exercise, you will be able to:
 
 **Overview**
 
-Your team will now practice as if you were delivering a pitch to the customer. The findings and recommendations for each cross-functional area should be presented by one of the team members. One person should also take on the role of wrapping up and summarizing the recommendations in a holistic way.
+Your team will now design one or more solution architecture diagrams which will delivered as part of your pitch to the customer. The key findings and recommendations for each cross-functional area should be represented in your diagrams. One person should also take on the role of summarizing the solution diagrams in a holistic way.
 
 **Duration:** 1hr 15minutes
 
@@ -40,10 +40,11 @@ Being a Solutions Architect means being responsible for the design and implement
 
 **Participant steps**
 
-1. Choose your desired topic and take a couple of minutes to prepare your solution design.
-2. All team members will take turns presenting their topics. Plan to speak for about two to three minutes.
-3. Listen to your teammates' presentations.
-4. Provide each other with constructive feedback and coaching.
+1. Starting from the current architecture, identify and highlight key gaps vs. customer objectives.
+2. Based on the information you captured during the workshop, create solution diagrams where each diagram represents a phase (Po, P1, P2).
+3. Present your solution to the coach.
+5. Listen to your teammates' presentations.
+6. Provide each other with constructive feedback and coaching.
 
 **Tips**
 
