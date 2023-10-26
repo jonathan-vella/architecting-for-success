@@ -11,6 +11,7 @@
 **Objective**
 
 By the end of this unit, you will be able to:
+* Design reference architectures which are based on an interative approach and aliged with both customer's needs and priorities
 * Practice proactive customer conversations around the Well-Architected Framework.
 
 **Overview**
