@@ -13,7 +13,7 @@ In this whiteboard design session, you will learn to design a Cloud Scale Analyt
 **Outcome**
 Analyze your customer's needs.
 
-Timeframe: 15 minutes
+Timeframe: 30 minutes
 
 Directions: With all participants in the session, the facilitator/SME presents an overview of the customer case study along with technical tips.
 
@@ -26,14 +26,14 @@ Directions: With all participants in the session, the facilitator/SME presents a
 ### Infographic for common scenarios
 
 **Azure Synapse Landing Zone conceptual architecture**
-![For many organizations, the ALZ conceptual architecture below represents the destination in their cloud adoption journey. It's a mature, scaled-out target architecture intended to help organizations operate successful cloud environments that drive their business while maintaining best practices for security and governance.](/105-Cloud-Scale-Analytics/images/azure-synapse-landing-zone.png)
+![For many organizations, the ALZ conceptual architecture below represents the destination in their cloud adoption journey. It's a mature, scaled-out target architecture intended to help organizations operate successful cloud environments that drive their business while maintaining best practices for security and governance.](./../images/azure-synapse-landing-zone.png)
 
 ## Step 2: Design a proof of concept solution
 
 **Outcome**
-Design a solution and prepare to present the solution to the target customer audience in a 10-minute chalk-talk format.
+Design a solution and prepare to present the solution to the target customer audience in a 15-minute chalk-talk format.
 
-Timeframe: 30 minutes
+Timeframe: 90 minutes
 
 Your design must include all of the following:
 
@@ -57,7 +57,7 @@ When designing your solution, consider the following:
 **Outcome**
 Present a solution to the target customer audience in a 10-minute chalk-talk format.
 
-Timeframe: 10 minutes
+Timeframe: 30 minutes
 
 **Presentation**
 Directions:
