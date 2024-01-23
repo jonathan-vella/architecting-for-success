@@ -7,14 +7,15 @@
 ### Company background & information
 
 - They are a localized brand focusing on wholesale, distribution and retail having their HQ in Athens with warehouses, distribution centres & shops located across the entire Greek territory.
-- The CEO demands that no data is stored outside of the EU.
-- Due to COVID-19 they are looking to migrate all workloads to Microsoft Azure.
+- The CEO demands that no data is stored outside of the European Union.
+- COVID-19 motivated Contoso to embark on a cloud-first journey.
 - They are currently hosting all of their workloads on VMware vSphere and have 2 main sites - Athens (Prod DC) and Thessaloniki (DR DC)
-- Circa 75 VMs for Prod, less than 20 for Dev / Test.
+- They have circa 75 VMs for Prod, less than 20 for Dev / Test, and ~20Tb of data across multiple sources.
 - COVID-19 triggered a heavy investment in their online presence which is now one of the key revenue stream for the business.
 - They have a separate payment service which is subject to PCI-DSS.
 - They have a MPLS connection between both DCs; some warehouses and disti. centers also act as internet breakout points for their shops.
 - They are already using Microsoft 365 services.
+- They are very curious about how they could possibly monetize their data.
 
 ### Technical details
 
