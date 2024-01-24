@@ -37,7 +37,7 @@ Contoso Land Surveying IT team have asked Microsoft and you (the partner) to hel
 
 ## Financials
 
-The following information can you help you formulate a guestimate which you can use to demonstrate possible cost-savings. ROI, additional investments, etc.
+The following information can you help you formulate a guesstimate which you can use to demonstrate possible cost-savings. ROI, additional investments, etc.
 
 ![IT spending as a percent of revenue](./../images/IT-spending-as-percent-of-revenue.png)
 
