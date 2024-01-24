@@ -55,7 +55,7 @@ Your design must include all of the following:
 3. A list of the required Azure Policy (built-in & custom) policies or initiatives including scope assignments
 4. A list of RBAC assignment
 5. A network topology
-6. IP addressing planning icluding number of virtual networks required, subnet names & size, NSGs, and UDRs.
+6. IP addressing planning including number of virtual networks required, subnet names & size, NSGs, and UDRs.
 
 When designing your solution, consider the following:
 

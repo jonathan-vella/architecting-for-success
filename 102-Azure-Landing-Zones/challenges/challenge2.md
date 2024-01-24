@@ -12,7 +12,10 @@ There's also a Terraform option which you can find [here](https://learn.microsof
 
 ## Challenge 02 - Success criteria
 
-1. Plan and document the IP addressing for the Hub network. Customer will be leveraging at least Azure Firewall, Azure VPN Gateway, and Azure Bastion. In your plan, clearly document subnet names, whether the use of NSGs and / or UDRs is allowed by Azure, and the minimum recommended subnet size. You must include references to online documentation. You can either use the provided [template](./../docs/Azure%20Network%20Documentation%20Template.xlsx) or build your own.
+1. Plan and document the IP addressing for the Hub network. Customer will be leveraging at least Azure Firewall, Azure VPN Gateway, and Azure Bastion. In your plan, clearly document subnet names, whether the use of NSGs and / or UDRs is allowed by Azure, and the minimum recommended subnet size. You must include references to online documentation to support your design decisions. You can either use the provided [template](./../docs/Azure%20Network%20Documentation%20Template.xlsx) or build your own.
 2. Document your design decisions related to AAD tenant, RBAC permissions, number of subscriptions, naming & tagging conventions, etc.
 3. Document your deployment workflow.
 4. Successfully deploy the reference implementation using either the Azure Portal experience or the ALZ Bicep Accelerator.
+
+> [!TIP]
+> You can use this 

@@ -20,7 +20,9 @@ Using a [policy-driven](https://learn.microsoft.com/en-us/azure/cloud-adoption-f
 4. Allow the use of M-Series and L-Series VMs only for the SAP production environment without impacting agility and scale.
 5. Ensure that "development environments and associated VNETs are not able to communicate with production".
 6. Grant developers access to development environments at scale and with minimal administrative effort.
-7. Minimize the risk and impact of cryptojacking.
+7. Minimize the risk and impact of cryptojacking. 
+   > [!TIP]
+   > You might find a sample Azure Policy [here](https://github.com/jonathan-vella/azure-landing-zones/tree/main/Az%20Policy%20Definitions).
 
 ---
 

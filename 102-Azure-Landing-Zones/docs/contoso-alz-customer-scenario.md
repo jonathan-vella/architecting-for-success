@@ -1,6 +1,4 @@
-# What the CAF
-
-# ALZ Accelerator Customer Scenario
+# Architecting for Success - Azure Landing Zones
 
 ## Contoso Corporation
 
@@ -46,3 +44,7 @@
 - Azure Monitor VM Insights should be enabled on all VMs and any required agents automatically installed.
 - No Public IP Addresses are allowed in the environment except for core network functionality, sandbox environments, and online applications.
 - They should receive alerts related to abnornmal consumption, cost overruns, etc.
+
+> [!Tip]
+> You can use this [helper script](./../scripts/create-vnet-with-nsg.md) to create Azure Virtual Networks.
+> ]

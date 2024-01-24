@@ -10,7 +10,8 @@
 
 In the first part of this challenge you will auto-enable backup on VM creation using Azure Policy. Remember that the customer's requirement is to have "all **production** VMs backed up, and **some** selected VMs in dev/test environments" to be protected at least on a weekly basis. Your solution must clearly address all of these requirements whilst minimizing management tasks and limiting the blast radius during incidents which require the use of Azure Backup.
 
->You can deploy the Azure VM and Azure SQL Db in the same region as your Hub network. Use this helper script to create [Azure Virtual Networks](./../scripts/create-vnet-with-nsg.md). And remember that Azure Policy assignments can take up to 30 minutes to take effect!
+> [!TIP]
+> You can deploy the Azure VM and Azure SQL Db in the same region as your Hub network. Use this helper script to create [Azure Virtual Networks](./../scripts/create-vnet-with-nsg.md). And remember that Azure Policy assignments can take up to 30 minutes to take effect!
 
 ## Challenge 04a - Success Criteria
 
@@ -34,3 +35,7 @@ In the second part of this challenge you will be creating a custom Azure Policy 
 1. Create an Azure Policy definition which can support the auditing and / or configuration of Azure SQL Database PITR. You can use the code located [here](https://raw.githubusercontent.com/jonathan-vella/scripts-and-policies/master/Azure%20Policy/Deploy%20Azure%20SQL%20DB%20ShortTerm%20Backup.json) to create this policy or write your own.
 2. Create the required Azure Policy assignments and perhaps exclude some others.
 3. Create an Azure SQL Database and monitor the impact of the Azure Policy in scope for this challenge.
+
+## References
+
+[Auto-Enable Backup on VM Creation using Azure Policy](https://learn.microsoft.com/en-us/azure/backup/backup-azure-auto-enable-backup)
