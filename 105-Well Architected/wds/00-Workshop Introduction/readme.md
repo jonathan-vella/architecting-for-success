@@ -34,5 +34,5 @@ Day | Time | Session | Type
  Day 2 | 1415-1530 | Getting ready to present to customer | Team
  Day 2 | 1530-1545 | Break |
  Day 2 | 1545-1630 | Present recommendations to customer | Team
- Day 1 | 1630-1730 | Optimizing the customer's workload | Team
- Day 1 | 1730-1745 | Wrap-up and next steps | General
+ Day 2 | 1630-1730 | Optimizing the customer's workload | Team
+ Day 2 | 1730-1745 | Wrap-up and next steps | General
