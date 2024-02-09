@@ -50,11 +50,11 @@ Timeframe: 2hours
 
 Your design must include all of the following:
 
-1. Details about minimum requirements and information you need have at hand to deploy ALZ accelerator. Think of tenants, subscriptions, privileged identities, security contacts, IP addresses, etc.
-2. A management group hierarchy including subscription organization
-3. A list of the required Azure Policy (built-in & custom) policies or initiatives including scope assignments
-4. A list of RBAC assignment
-5. A network topology
+1. Details about minimum requirements and information you need have at hand to deploy the ALZ accelerator. Think of tenants, subscriptions, privileged identities, security contacts, IP addresses, etc.
+2. A management group hierarchy including subscription organization.
+3. A list of the required Azure Policy (built-in & custom) policies or initiatives including scope assignments.
+4. A list of RBAC assignments.
+5. A network topology.
 6. IP addressing planning including number of virtual networks required, subnet names & size, NSGs, and UDRs.
 
 When designing your solution, consider the following:
@@ -79,13 +79,8 @@ Timeframe: 15 minutes
 Directions:
 
 1. Pair with another team.
-
 2. One group is the Microsoft team, the other is the customer.
-
 3. The Microsoft team presents their proposed solution to the customer.
-
 4. The customer is expected to make one objections.
-
 5. The Microsoft team responds to the objection.
-
 6. The customer team gives feedback to the Microsoft team.
