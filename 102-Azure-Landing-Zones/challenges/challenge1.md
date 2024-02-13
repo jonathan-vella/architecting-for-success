@@ -46,7 +46,7 @@ Directions: With all participants in the session, the facilitator/SME presents a
 **Outcome**
 Design a solution and prepare to present the solution to the target customer audience in a 15-minute chalk-talk format.
 
-Timeframe: 2hours
+Timeframe: 1.5hours
 
 Your design must include all of the following:
 
