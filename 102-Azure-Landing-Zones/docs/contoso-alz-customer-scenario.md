@@ -6,22 +6,21 @@
 
 - Contoso is a family-owned business that has been operating since 1978. It has a loyal customer base and a strong reputation in the Greek market. They focus on wholesale, distribution and retail having their HQ in Athens with warehouses, distribution centres & shops located across the entire territory.
 - The CEO is concerned about the data privacy and security regulations in the EU, such as GDPR and ePrivacy Directive. He wants to ensure that Contoso complies with these laws and does not risk any fines or penalties.
-- Contoso’s cloud-first journey started in 2020, when the COVID-19 pandemic disrupted their traditional business model and forced them to adapt to the changing customer behavior and expectations. They decided to migrate a core application to Azure.
-- When they embarked on their cloud-first journey, Azure Landing were not a priority, but now they are since they are looking to scale their cloud operations and ensure that they are reliable, secure, compliant, and cost-effective.
-- COVID-19 triggered a heavy investment in their online presence which is now one of the key revenue streams for the business. This workload is hosted in Azure, and the resilience and performance of this workload are key to Contoso.
+- Contoso’s cloud-first journey started in 2020, when the COVID-19 pandemic disrupted their traditional business model and forced them to adapt to the changing customer behavior and expectations. They decided to migrate a payment processing application to Azure.
+- When they embarked on their cloud-first journey, Azure Landing Zones were not a priority, but now they are since they are looking to scale their cloud operations and ensure that they are reliable, secure, compliant, and cost-effective.
 - The CEO understands that over time they have accumulated a significant amount of date and is very curious about how Contoso could possibly monetize their data.
-- Sales and marketing teams have been exploring how they can use AI to improve customer experience and increase sales.
+- Sales and marketing teams are currently exploring how they can use AI to improve customer experience and increase sales.
 - The inventory management team is also looking at how they can use IoT and AI to improve their stock management.
 
 ### Business goals
 
-- They want to ensure that their cloud operations are reliable, secure, compliant, and cost-effective. They also want to ensure that they can scale their cloud operations as they grow.
 - They want to accelerate their cloud migration and reduce business & migration risks.
+ They want to ensure that their cloud operations are reliable, secure, and compliant. They also want to ensure that they can scale their cloud operations as they grow.
 - Optimize cloud costs and governance by establishing budgets, policies, and controls.
 - Be in a position to innovate and grow their business by leveraging cloud solutions whilst minimizing rework and technical debt.
 - They want to ensure that they are compliant with the EU data privacy and security regulations, such as GDPR and ePrivacy Directive.
 - They want to ensure that their online presence is resilient and performs well to meet customer expectations.
-- They want to ensure that their inventory management is efficient and effective by leveraging IoT and AI.
+- They want to ensure that in the future their inventory management is efficient and effective by leveraging IoT and AI.
 - They want to ensure that their sales and marketing teams can use AI to improve customer experience and increase sales.
 
 ### Technical details
