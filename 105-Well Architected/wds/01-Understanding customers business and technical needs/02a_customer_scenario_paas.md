@@ -16,7 +16,7 @@ Business model, geography, and size
 * Logistics company providing next-day delivery services across the European Union
 * The company is subject to the General Data Protection Regulation (GDPR)
 * Headquartered in Paris, France
-* Manages an international fleet of planes, tracks, and delivery vehicles
+* Manages an international fleet of planes, trains, and delivery vehicles
 
 Technology landscape
 * An on-premises datacenter (headquarters)
