@@ -8,6 +8,9 @@ A: Adatum Deliveries is a logistics company that provides next-day delivery serv
 **Q: Where is Adatum Deliveries headquartered?**  
 A: Adatum Deliveries is headquartered in Paris, France.
 
+**Q: What are the regulatory and compliance requirements of Adatum Deliveries?**  
+A: Compliance with GDPR is mandatory.
+
 **Q: What is the technology landscape of Adatum Deliveries?**  
 A: Adatum Deliveries has an on-premises datacenter at their headquarters and a custom Azure-hosted delivery platform called SmartDelivery. SmartDelivery provides services to schedule, track, and fulfill deliveries and serves as a backend for client apps.
 
@@ -27,11 +30,11 @@ A: Adatum Deliveries has expert knowledge of on-premises workloads and some expe
 
 ## Current Workload
 
-**Q: How many Azure subscriptions are in use for this workload?**  
-A: The current workload and all environments (Production & Non-production) are deployed in a single shared subscription..
-
 **Q: What is the current workload of Adatum Deliveries?**  
 A: The current workload of Adatum Deliveries is SmartDelivery, which is their first and only cloud-native app onboarded to Azure. It is owned by the dedicated SmartDelivery development team and consists of a container-based backend and a web API-based front end.
+
+**Q: How many Azure subscriptions are in use for this workload?**  
+A: The current workload and all environments (Production & Non-production) are deployed in a single shared subscription.
 
 **Q: What is the architecture of the current workload?**  
 A: The current workload architecture is microservices-based, with containerized backend APIs hosted on an Azure Kubernetes Service (AKS) cluster. The web APIs for client access are deployed in an App Service Environment (ASE). The delivery data is stored in a Cosmos DB account with locally redundant backups.
