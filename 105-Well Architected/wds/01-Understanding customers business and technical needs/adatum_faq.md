@@ -27,6 +27,9 @@ A: Adatum Deliveries has expert knowledge of on-premises workloads and some expe
 
 ## Current Workload
 
+**Q: How many Azure subscriptions are in use for this workload?**  
+A: The current workload and all environments (Production & Non-production) are deployed in a single shared subscription..
+
 **Q: What is the current workload of Adatum Deliveries?**  
 A: The current workload of Adatum Deliveries is SmartDelivery, which is their first and only cloud-native app onboarded to Azure. It is owned by the dedicated SmartDelivery development team and consists of a container-based backend and a web API-based front end.
 
