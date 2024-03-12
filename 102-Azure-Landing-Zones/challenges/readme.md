@@ -4,7 +4,7 @@
 
 ### Challenges
 
-- [Challenge 01](./challenges/challenge1.md) Designing Azure Landing Zones (3hrs)
+- [Challenge 01](./challenge1.md) Designing Azure Landing Zones (3hrs)
 - [Challenge 02](./challenges/challenge2.md) Deploying Azure Landing Zones (1.5hrs)
 - [Challenge 03](./challenges/challenge3.md) Tailoring Azure Landing Zones (2hrs)
 - [Challenge 04](./challenges/challenge4.md) BCDR at scale (2hrs)
