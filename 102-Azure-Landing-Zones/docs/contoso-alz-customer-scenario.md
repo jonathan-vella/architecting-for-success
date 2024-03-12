@@ -25,29 +25,32 @@
 
 - Workloads are currently hosted on VMware vSphere with two main sites in Athens (Prod DC) and Thessaloniki (DR DC).
 - They have approximately 75 VMs for Prod, less than 20 for Dev & Test, and ~20Tb of data across multiple sources.
-- A separate payment service, subject to PCI-DSS, is hosted on Azure VMs.
-- MPLS connection exists between DCs, with some warehouses and distribution centers acting as internet breakout points.
-- Microsoft 365 services are used, but there are gaps in identity security posture.
+- Some of these VMs are running SAP HANA, with a total of 4TB of RAM and 100TB of storage. The SAP landscape includes a primary and secondary application server, a primary and secondary database server, and a file server. The SAP landscape is critical to the business and requires high availability and disaster recovery.
+- A S2S connection exist between the on-premises DC in Athens and Azure.
+- A payment service, subject to PCI-DSS, is hosted on Azure VMs.
+- A SQL Server 2019 Enterprise Edition is used for the CRM system; this CRM system is used by both SAP and the payment service. There have been prolonged performance issues between the payment service and the CRM system.
+- A MPLS connection exists between DCs, with some warehouses and distribution centers acting as internet breakout points.
+- Microsoft 365 services are used, but there are gaps in the identity security posture.
 - Two Azure subscriptions are in use: one for production workloads and another for developer sandbox connected to the production network.
-- On-premises AD DS domain is synchronized to AAD.
+- On-premises AD DS domain is synchronized to Entra ID
 - Network team has expertise in Cisco, Checkpoint, and F5.
 - Limited expertise and experience with IaC and DevOps.
 - Dedicated 10.0.0.0/16 IP address space for Azure networks.
 
 ### Requirements
 
-- Identify existing Azure resources that are not zone resilient.
-- Migrate SAP production landscape to Azure within 6 weeks.
-- Easily generate cost-related reports for each workload based on department, owner, and environment.
-- Minimize on-premises footprint and replace MPLS with a cloud-based approach.
-- Enable local internet breakout from all sites to improve SaaS application performance and reduce WAN load.
-- Ability to deny certain Azure Resources and Services, such as restricting M-Series or L-Series VMs except for SAP environments.
+- Migrate the SAP production landscape to Azure within 6 weeks.
+- Optimize the performance of the payment service when reading records from the CRM system.
+- Block the ability to create resources outside of the EU.
+- Identify existing Azure resources which are not zone resilient.
+- Easily generate cost-related reports for each workload and application based on department and environment.
+- Implement a cost avoidance solution which will restrict the use of M-Series VMs and Machine Learning services.
+- Minimize on-premises footprint and replace MPLS with a cloud-based approach. Enable local internet breakout from all sites to improve SaaS application performance and reduce WAN load.
 - Separate Production, Staging, and Development environments with restricted communication between them.
+- Enforce the filtering of network traffic between Azure resources in an Azure virtual network.
 - Backup all production VMs and selected VMs in dev & test environments.
-- Built-in platform regulatory compliance security checks and reporting for all production environments.
-- NSGs to protect all subnets, which cannot be disabled.
-- Enable Azure Activity Logs and Diagnostic settings for all Azure Resources in a centralized workspace.
-- Enforce auditing on all Azure SQL Databases.
-- Ensure observability of all resources with minimal effort.
-- Restrict Public IP Addresses to core network functionality, sandbox environments, and online applications.
-- Receive alerts for abnormal consumption, cost overruns, etc.
+- Implement built-in platform regulatory compliance security checks and reporting for all production environment (PCI-DSS and GDPR).
+- Implement observability of all resources across all environments with minimal effort.
+- Restrict Public IP Addresses to core network functionality only.
+- Receive cost-related alerts for abnormal consumption, cost overruns,  etc.
+- Receive alerts related to the health, performance, and security of all platform resources.
