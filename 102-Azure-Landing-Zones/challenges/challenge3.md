@@ -15,12 +15,14 @@ Because not all use cases are the same, not all organizations can use an impleme
 Using a [policy-driven](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/enterprise-scale/dine-guidance) governance approach, you must:
 
 1. Implement regional restrictions which require that all resources can only be deployed in the EU.
-2. Enforce the use of tagging to create cost-related reports for each workload based on department, owner, and environment.
+2. Enforce the use of tagging to create cost-related reports for each workload based on workload, application, department, owner, criticality, classification, and environment.
 3. Implement ISO 27001 compliance security checks and reporting for all production environments except Sandbox subscriptions & PCI-DSS for the payment system.
-4. Allow the use of M-Series and L-Series VMs only for the SAP production environment without impacting agility and scale.
-5. Ensure that "development environments and associated VNETs are not able to communicate with production".
-6. Grant developers access to development environments at scale and with minimal administrative effort.
-7. Minimize the risk and impact of cryptojacking. 
+4. Allow the use of M-Series VMs only for the SAP production environment without impacting agility and scale.
+5. Deny the use of Machine Learning services across all environments to minimize the risk and impact of cryptojacking.
+6. Ensure that "development environments and associated VNETs are not able to communicate with production".
+7. Ensure that resources under the "Online" management group cannot establish cross-subscription inter-vnet communications.
+8. Grant developers access to development environments at scale and with minimal administrative effort.
+9.  
    > [!TIP]
    > You might find a sample Azure Policy [here](https://github.com/jonathan-vella/azure-landing-zones/tree/main/Az%20Policy%20Definitions).
 
