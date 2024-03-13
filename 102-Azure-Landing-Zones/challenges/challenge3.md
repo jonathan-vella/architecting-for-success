@@ -24,7 +24,7 @@ Using a [policy-driven](https://learn.microsoft.com/en-us/azure/cloud-adoption-f
 8. Grant developers access to development environments at scale and with minimal administrative effort.
     
 > [!TIP]
-> You might find a sample Azure Policy [here](https://github.com/jonathan-vella/azure-landing-zones/tree/main/Az%20Policy%20Definitions).
+> Explore the Azure Policy examples in this [folder](https://github.com/jonathan-vella/azure-landing-zones/tree/main/Az%20Policy%20Definitions).
 
 ---
 

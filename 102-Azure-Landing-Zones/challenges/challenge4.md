@@ -11,7 +11,7 @@
 In the first part of this challenge you will auto-enable backup on VM creation using Azure Policy. Remember that the customer's requirement is to have "all **production** VMs backed up, and **some** selected VMs in dev/test environments" to be protected at least on a weekly basis. Your solution must clearly address all of these requirements whilst minimizing management tasks and limiting the blast radius during incidents which require the use of Azure Backup.
 
 > [!TIP]
-> You can deploy the Azure VM and Azure SQL Db in the same region as your Hub network. Use this helper script to create [Azure Virtual Networks](./../scripts/create-vnet-with-nsg.md). And remember that Azure Policy assignments can take up to 30 minutes to take effect!
+> Use the helper scripts located [here](./../scripts) to create Resource Groups with Tags and VNETs with NSGs. And remember that Azure Policy assignments can take up to 30 minutes to take effect!
 
 ## Challenge 04a - Success Criteria
 
