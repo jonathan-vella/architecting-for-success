@@ -33,3 +33,5 @@ Using a [policy-driven](https://learn.microsoft.com/en-us/azure/cloud-adoption-f
 
 - [Tailoring Azure Landing Zones](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/tailoring-alz)
 - [Common Azure Policy examples](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/manage/azure-server-management/common-policies)
+- [Azure Policy definitions for Tags](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/tag-policies)
+- 
