@@ -22,7 +22,7 @@ Using a [policy-driven](https://learn.microsoft.com/en-us/azure/cloud-adoption-f
 6. Ensure that "development environments and associated VNETs are not able to communicate with production".
 7. Ensure that resources under the "Online" management group cannot establish cross-subscription inter-vnet communications.
 8. Grant developers access to development environments at scale and with minimal administrative effort.
-9.  
+    
    > [!TIP]
    > You might find a sample Azure Policy [here](https://github.com/jonathan-vella/azure-landing-zones/tree/main/Az%20Policy%20Definitions).
 
