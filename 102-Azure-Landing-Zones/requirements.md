@@ -35,6 +35,6 @@ To avoid any delays with downloading or installing tooling, have the following r
 
 - [Microsoft Cloud Adoption Framework for Azure module on MS Learn](https://learn.microsoft.com/en-us/training/modules/microsoft-cloud-adoption-framework-for-azure/) (50min)
 - [Introduction to the Microsoft Azure Well-Architected Framework](https://learn.microsoft.com/en-us/training/modules/azure-well-architected-introduction/) (1hr)
-- [Fundamental knowledge of Azure Networking]((https://learn.microsoft.com/en-us/training/paths/intro-to-azure-network-foundation-services/) (5hr)
+- [Fundamental knowledge of Azure Networking](https://learn.microsoft.com/en-us/training/paths/intro-to-azure-network-foundation-services/) (5hr)
 - View [Azure Master Class v2 Mod. 3 Governance](https://www.youtube.com/watch?v=mluS8ovuBKg) (2hrs)
 - View [Azure Landing Zones Overview](https://www.youtube.com/watch?v=eLSjnF6Crlw) (45min)
