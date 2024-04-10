@@ -15,3 +15,4 @@ To effectively implement this framework, developers need to have knowledge and s
 * Microsoft Certified: Azure DevOps Engineer Expert
 
 These certifications can help developers gain a deeper understanding of cloud computing, architecture design, security, and cost optimization, which are essential for implementing the Well-Architected framework.
+Attendees are expected to complete the 7hr [Build great solutions with the Microsoft Azure Well-Architected Framework learning path](https://learn.microsoft.com/en-us/training/paths/azure-well-architected-framework/) prior to attending this workshop.
