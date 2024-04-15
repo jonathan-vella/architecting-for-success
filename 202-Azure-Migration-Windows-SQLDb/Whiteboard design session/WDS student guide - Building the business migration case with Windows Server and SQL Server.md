@@ -28,16 +28,17 @@ Microsoft and the trademarks listed at https://www.microsoft.com/en-us/legal/int
 <!-- TOC -->
 
 - [Building the business migration case with Windows Server and SQL Server](#building-the-business-migration-case-with-windows-server-and-sql-server)
-    - [Abstract and learning objectives](#abstract-and-learning-objectives)
-    - [Step 1: Review the customer case study](#step-1-review-the-customer-case-study)
-        - [Customer situation](#customer-situation)
-        - [Customer needs](#customer-needs)
-        - [Customer objections](#customer-objections)
-        - [Infographic for common scenarios](#infographic-for-common-scenarios)
-    - [Step 2: Design a proof of concept solution](#step-2-design-a-proof-of-concept-solution)
-    - [Step 3: Present the solution](#step-3-present-the-solution)
-    - [Wrap-up](#wrap-up)
-    - [Additional references](#additional-references)
+  - [Abstract and learning objectives](#abstract-and-learning-objectives)
+  - [Step 1: Review the customer case study](#step-1-review-the-customer-case-study)
+    - [Customer situation](#customer-situation)
+    - [Customer needs](#customer-needs)
+    - [First workload information](#first-workload-information)
+    - [Customer objections](#customer-objections)
+    - [Infographic for common scenarios](#infographic-for-common-scenarios)
+  - [Step 2: Design a proof of concept solution](#step-2-design-a-proof-of-concept-solution)
+  - [Step 3: Present the solution](#step-3-present-the-solution)
+  - [Wrap-up](#wrap-up)
+  - [Additional references](#additional-references)
 
 <!-- /TOC -->
 
@@ -122,21 +123,27 @@ In preparations for their cloud adoption journey, Tailspin has already worked wi
 
 4. With Windows Server 2012 and Windows Server 2012 R2 extended support ending October 10, 2023, the new Azure VMs will need to be deployed using a newer version of Windows Server.
 
+### First workload information
+
+- Not mission critical, but still important for the customer’s day-2-day business operations
+- N-tier application - .Net Web Front End, API Tier, Data Tier, Auth tier ADDS, ADFS with claims provider trust)
+- Session state is handled by cookies
+- There is no caching implemented
+- Product images and datasheets are stored in a file shares
+- The workload processes and stores customer data
+- RTO is 60mins; RPO is 5min
+- There are separate production and non-production environments
+
 ### Customer objections
 
 1. It appears there are multiple options for hosting SQL databases in Azure. What's the best option to ensure compatibility?
-
 2. What kind of downtime will be incurred when migrating the Windows Server and SQL Server workloads to Azure?
-
 3. What are the options to roll back to the on-premises VMs if the migration fails?
-
 4. What's the best way to handle managing all our VMs across on-premises and Azure? We do have workloads that will not be migrated to Azure.
-
-5. Tailspin has negotiated an Enterprise Agreement (EA) with Microsoft for their Azure consumption. What can you do to ensure estimates reflect our EA discount?
-
-6. Securing and monitoring our on-premises workloads is extremely important. What options does Azure offer to extend this into the cloud?
-
-7. Would there be further savings from the use of PaaS services?
+5. Securing and monitoring our on-premises workloads is extremely important. What options does Azure offer to extend this into the cloud?
+6. What are our options for backup and disaster recovery for the migrated workloads?
+7. What are our options for authentication and authorization for the migrated workloads?
+8. Would there be further savings from the use of PaaS services?
 
 ### Infographic for common scenarios
 
@@ -156,7 +163,7 @@ Timeframe: 60 minutes
 
 **Business needs**
 
-Directions:  With your team, answer the following questions and be prepared to present your solution to others:
+Directions: With your team, answer the following questions and be prepared to present your solution to others:
 
 1. Who will you present this solution to? Who is your target customer audience? Who are the decision-makers?
 
@@ -186,11 +193,11 @@ _Pricing_
 
 1. What is the estimated cost for the workloads after being migrated to Azure?
 
-    - Be sure to cover all aspects of the design, including the primary site, DR solution, backup solution, and monitoring costs
+   - Be sure to cover all aspects of the design, including the primary site, DR solution, backup solution, and monitoring costs
 
-    - What's the best option for hosting the SQL Server workloads?
+   - What's the best option for hosting the SQL Server workloads?
 
-    - Have you included all appropriate cost-saving measures?
+   - Have you included all appropriate cost-saving measures?
 
 **Prepare**
 
@@ -238,13 +245,13 @@ Directions: Reconvene with the larger group to hear the facilitator/SME share th
 
 ## Additional references
 
-|    |            |
-|----------|:-------------:|
-| **Description** | **Links** |
-| Microsoft Azure Reference Architectures| <https://docs.microsoft.com/azure/guidance/guidance-architecture> |
-| Hub-spoke network topology in Azure | <https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke> |
+|                                                  |                                                                                                        |
+| ------------------------------------------------ | :----------------------------------------------------------------------------------------------------: |
+| **Description**                                  |                                               **Links**                                                |
+| Microsoft Azure Reference Architectures          |                   <https://docs.microsoft.com/azure/guidance/guidance-architecture>                    |
+| Hub-spoke network topology in Azure              |  <https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke>   |
 | Extend an on-premises network using ExpressRoute | <https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/expressroute> |
-| Azure Arc overview | <https://docs.microsoft.com/azure/azure-arc/overview> |
-| What is Azure SQL Managed Instance? | <https://docs.microsoft.com/en-us/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview> |
-| Azure Database Migration Service | <https://azure.microsoft.com/products/database-migration/#overview> |
-| Overview of Data Migration Assistant | <https://docs.microsoft.com/sql/dma/dma-overview> |
+| Azure Arc overview                               |                         <https://docs.microsoft.com/azure/azure-arc/overview>                          |
+| What is Azure SQL Managed Instance?              | <https://docs.microsoft.com/en-us/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview> |
+| Azure Database Migration Service                 |                  <https://azure.microsoft.com/products/database-migration/#overview>                   |
+| Overview of Data Migration Assistant             |                           <https://docs.microsoft.com/sql/dma/dma-overview>                            |
