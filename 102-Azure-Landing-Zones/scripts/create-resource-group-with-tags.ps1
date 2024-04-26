@@ -3,10 +3,10 @@
 # Define variables
 $name = "rg-<unique>"
 $location = "eastus"
-$tags = "@{environment=dev; costcenter=shared; workload=aks-demo; owner=jonathan}"
+$tags = @{environment= "dev"; costcenter= "shared"; workload="aks-demo"; owner="jonathan"}
 
 # Create a Resource Group with Tags
-New-AzResourceGroup -Name $name -Location $locationlocation> -Tag $tags
+New-AzResourceGroup -Name $name -Location $location -Tag $tags
 
 # Add a new set of tags to a resource group, use:
 $newtags = @{"Dept"="Finance"; "Status"="Normal"}
