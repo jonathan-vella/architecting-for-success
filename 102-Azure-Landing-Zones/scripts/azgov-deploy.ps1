@@ -1,4 +1,5 @@
 # AzGovViz Accelerator Deployment via PowerShell
+# Source https://github.com/Azure/Azure-Governance-Visualizer-Accelerator
 
 # Define variables
 $MicrosoftGraphAppId = "00000003-0000-0000-c000-000000000000"
