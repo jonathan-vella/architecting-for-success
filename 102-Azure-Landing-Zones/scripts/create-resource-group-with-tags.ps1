@@ -1,9 +1,9 @@
 # Create Azure Resource Group with Tags
 
 # Define variables
-name = "rg-<unique>"
-location = "eastus"
-tags = "@{environment=dev; costcenter=shared; workload=aks-demo; owner=jonathan}"
+$name = "rg-<unique>"
+$location = "eastus"
+$tags = "@{environment=dev; costcenter=shared; workload=aks-demo; owner=jonathan}"
 
 # Create a Resource Group with Tags
 New-AzResourceGroup -Name $name -Location $locationlocation> -Tag $tags
