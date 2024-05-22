@@ -1,30 +1,46 @@
 # AzGovViz Accelerator Deployment via PowerShell
 # Source https://github.com/Azure/Azure-Governance-Visualizer-Accelerator
+##--------------------------------------------------##
 
-# Define variables
+# Required PowerShell Modules:
+- https://docs.microsoft.com/en-us/powershell/azure/install-az-ps?view=azps-6.4.0
+- Install-Module -Name Az 
+- Specifically 'Az.Accounts', 'Az.Resources' & 'Az.ResourceGraph' if you need to limit what is installed
+
+##--------------------------------------------------##
+
+# Install the GitHub CLI
+winget install --id GitHub.cli
+# Restart the PowerShell session
+exit
+
+##--------------------------------------------------##
+
+# Define environment variables
 $MicrosoftGraphAppId = "00000003-0000-0000-c000-000000000000"
 $AzGovVizAppName = "<App registration name that will be used to run AzGovViz>"
-$managementGroupId = "<managementGroupId>" # Management Group ID where the AzGovViz service principal will have access to
-$tenantId = "<Microsoft Entra tenant ID>" # Microsoft Entra tenant ID
+$managementGroupId = "<managementGroupId>" # The Management Group ID where the AzGovViz service principal will have access to
+$tenantId = "<Microsoft Entra tenant ID>" # The Microsoft Entra tenant ID
 $subscriptionId = "<Subscription Id>" # Subscription ID where the AzGovViz Web App will be created
-
-# Define variables for GitHub
-$directoryToCloneAccelerator = "<Local directory to clone the Accelerator's repository>"
-$GitHubOrg = "<GitHub organization to use>"
-$GitHubRepository = "Azure-Governance-Visualizer"
-
-# Define variables for the Azure Web App
-$webAppName = "<Azure Web App name to publish AzGovViz>" # 2-60 Alphanumeric, hyphens and Unicode characters. Can't start or end with hyphen. A web site must have a globally unique name.
-$WebApplicationAppName = "<App registration name that will be used to add Microsoft Entra ID-based authentication to the web app>"
 
 # Define variables for the App Service Resource group
 # Modify the following variables with the appropriate values for your environment including tags.
 $resourceGroupName = "Name of the resource group where the Azure Web App will be created>"
 $location = "<Azure Region for the Azure Web App>"
-$tags = @{environment= "dev"; costcenter= "shared"; workload="aks-demo"; owner="jonathan"}
+$tags = @{environment= "alz"; costcenter= "shared"; workload="azgov"; owner="jonathan"}
+
+# Define variables for the Azure Web App
+$webAppName = "<Azure Web App name to publish AzGovViz>" # 2-60 Alphanumeric, hyphens and Unicode characters. Can't start or end with hyphen. A web site must have a globally unique name.
+$WebApplicationAppName = "<App registration name that will be used to add Microsoft Entra ID-based authentication to the web app>"
+
+# Define GitHub variables
+$directoryToCloneAccelerator = "<Local directory to clone the Accelerator's repository>"
+$GitHubOrg = "<GitHub organization to use>"
+$GitHubRepository = "Azure-Governance-Visualizer"
+
+##--------------------------------------------------##
 
 # Use PowerShell to create the service principal
-
 $module = Get-Module -Name "AzAPICall" -ListAvailable
 if ($module) {
   Update-Module -Name "AzAPICall" -Force
@@ -32,6 +48,8 @@ if ($module) {
   Install-Module -Name AzAPICall
 }
 Connect-AzAccount
+
+##--------------------------------------------------##
 
 # Install AzAPICall and connect to Azure
 $parameters4AzAPICallModule = @{
@@ -43,6 +61,8 @@ $parameters4AzAPICallModule = @{
   }
   
   $azAPICallConf = initAzAPICall @parameters4AzAPICallModule
+
+##--------------------------------------------------##
 
 # Get Microsoft Graph permissions role IDs and the create app registration
 $apiEndPoint = $azAPICallConf['azAPIEndpointUrls'].MicrosoftGraph
@@ -106,14 +126,15 @@ do {
 
 Write-host "AzGovViz service principal created successfully."
 
+##--------------------------------------------------##
+
 # Grant admin consent using the Microsoft Entra admin center.
+Write-host "AzGovViz service principal created successfully."
+
+##--------------------------------------------------##
 
 # Login to your GitHub account.
 # Create a private repository from the accelerator template
-
-$directoryToCloneAccelerator = "<Local directory to clone the Accelerator's repository>"
-$GitHubOrg = "<GitHub organization to use>"
-$GitHubRepository = "Azure-Governance-Visualizer"
 
 ### Create a new repository from template
 gh repo create $GitHubRepository --template Azure/Azure-Governance-Visualizer-Accelerator --private
