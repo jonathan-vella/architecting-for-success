@@ -1,5 +1,8 @@
-# AzGovViz Accelerator Deployment via PowerShell
-# Source https://github.com/Azure/Azure-Governance-Visualizer-Accelerator
+# Azure Governance Visualizer Accelerator Automation Scrtip
+### Source https://github.com/Azure/Azure-Governance-Visualizer-Accelerator
+
+```powershell
+
 ##--------------------------------------------------##
 
 # Required PowerShell Modules:
@@ -281,3 +284,5 @@ gh variable set 'WEB_APP_NAME' -b $webAppName
 gh api -X PUT /repos/$GitHubOrg/$GitHubRepository/actions/permissions/workflow -F can_approve_pull_request_reviews=true
 
 ##--------------------------------------------------##
+
+```
