@@ -134,12 +134,12 @@ do {
   $AzGovVizAppId = (AzAPICall -method GET -uri "$($azAPICallConf['azAPIEndpointUrls'].MicrosoftGraph)/v1.0/applications/$AzGovVizAppObjectId" -AzAPICallConfiguration $azAPICallConf -listenOn 'Content' -consistencyLevel  'eventual' -skipOnErrorCode 404).appId
 } until ($null -ne $AzGovVizAppId)
 
-Write-host "AzGovViz service principal created successfully."
+Write-host "AzGovViz service principal created successfully." -ForegroundColor Yellow
 
 ##--------------------------------------------------##
 
 # Grant admin consent using the Microsoft Entra admin center.
-Write-host "Grant admin consent using the Microsoft Entra admin center and then proceed with the next steps."
+Write-host "Grant admin consent using the Microsoft Entra admin center and then proceed with the next steps." -ForegroundColor Yellow
 
 ##--------------------------------------------------##
 
