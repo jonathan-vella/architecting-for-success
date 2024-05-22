@@ -9,10 +9,20 @@
 
 ##--------------------------------------------------##
 
-# Install the GitHub CLI
-winget install --id GitHub.cli
-# Restart the PowerShell session
-exit
+# Required GitHub CLI:
+- winget install --id GitHub.cli
+# Restart the PowerShell session:
+- exit
+
+##--------------------------------------------------##
+
+# Check for pre-reqs
+#winget list Microsoft.PowerShell
+#Requires -Modules @{ ModuleName="Az.Accounts"; ModuleVersion="2.5.2" }
+#Requires -Modules @{ ModuleName="Az.Resources"; ModuleVersion="4.3.0" }
+#Requires -Modules @{ ModuleName="Az.ResourceGraph"; ModuleVersion="0.7.7" }
+#Requires -Modules @{ ModuleName="Az.Security"; ModuleVersion="1.3.0" }
+#winget list GitHub.cli
 
 ##--------------------------------------------------##
 
@@ -129,7 +139,7 @@ Write-host "AzGovViz service principal created successfully."
 ##--------------------------------------------------##
 
 # Grant admin consent using the Microsoft Entra admin center.
-Write-host "AzGovViz service principal created successfully."
+Write-host "Grant admin consent using the Microsoft Entra admin center and then proceed with the next steps."
 
 ##--------------------------------------------------##
 
@@ -157,14 +167,17 @@ $body = @"
 }
 "@
 
-
 AzAPICall -method POST -body $body -uri "$($azAPICallConf['azAPIEndpointUrls'].MicrosoftGraph)/v1.0/applications/$AzGovVizAppObjectId/federatedIdentityCredentials" -AzAPICallConfiguration $azAPICallConf -listenOn 'Content' -consistencyLevel 'eventual'
+
+##--------------------------------------------------##
 
 # Grant permissions in Azure for the AzGovViz service principal created in the first step
 New-AzRoleAssignment `
 -ApplicationId $AzGovVizAppId `
 -RoleDefinitionName "Reader" `
 -Scope /providers/Microsoft.Management/managementGroups/$managementGroupId
+
+##--------------------------------------------------##
 
 # Create a Microsoft Entra application for user authentication to the Azure Web App that will host AzGovViz
 # 2-60 Alphanumeric, hyphens and Unicode characters. Can't start or end with hyphen. A web site must have a globally unique name.
@@ -196,6 +209,8 @@ do {
 
 Write-host "Azure Web App app registration created successfully."
 
+##--------------------------------------------------##
+
 # Add an API scope for the Web App
 $body = @"
 {
@@ -218,6 +233,8 @@ $body = @"
 
 AzAPICall -method PATCH -body $body -uri "$($azAPICallConf['azAPIEndpointUrls'].MicrosoftGraph)/v1.0/applications/$webAppSPObjectId" -AzAPICallConfiguration $azAPICallConf -listenOn 'Content' -consistencyLevel 'eventual'
 
+##--------------------------------------------------##
+
 # Generate client secret
 $body = @"
 {
@@ -229,12 +246,15 @@ $body = @"
 
 $webAppSPAppSecret = (AzAPICall -method POST -body $body -uri "$($azAPICallConf['azAPIEndpointUrls'].MicrosoftGraph)/v1.0/applications/$webAppSPObjectId/addPassword" -AzAPICallConfiguration $azAPICallConf -listenOn 'Content' -consistencyLevel 'eventual').secretText
 
-# Create a resource group and assign necessary RBAC roles
+##--------------------------------------------------##
 
+# Create a resource group and assign necessary RBAC roles
 Select-AzSubscription -SubscriptionId $subscriptionId
 New-AzResourceGroup -Name $resourceGroupName -Location $location -Tag $tags
 New-AzRoleAssignment -ApplicationId $AzGovVizAppId -RoleDefinitionName "Web Plan Contributor" -ResourceGroupName $resourceGroupName
 New-AzRoleAssignment -ApplicationId $AzGovVizAppId -RoleDefinitionName "WebSite Contributor" -ResourceGroupName $resourceGroupName
+
+##--------------------------------------------------##
 
 # Create the GitHub secrets, variables, and permissions
 $subscriptionId = $subscriptionId
@@ -255,5 +275,9 @@ gh secret set 'MANAGEMENT_GROUP_ID' -b $managementGroupId
 gh variable set 'RESOURCE_GROUP_NAME' -b $resourceGroupName
 gh variable set 'WEB_APP_NAME' -b $webAppName
 
+##--------------------------------------------------##
+
 # Configure GitHub actions permissions
 gh api -X PUT /repos/$GitHubOrg/$GitHubRepository/actions/permissions/workflow -F can_approve_pull_request_reviews=true
+
+##--------------------------------------------------##
