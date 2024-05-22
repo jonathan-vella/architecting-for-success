@@ -23,7 +23,7 @@ Using a [policy-driven](https://learn.microsoft.com/en-us/azure/cloud-adoption-f
 7. Ensure that "development environments and associated VNETs are not able to communicate with production".
 8. Ensure that resources under the "Online" management group cannot establish cross-subscription inter-vnet communications.
 9. Grant developers access to development environments at scale and with minimal administrative effort.
-10. Create cost management alerts for budget (set value at $1000), forecast (80%) and anomalies.
+10. Create cost management alerts for budget (set value at $1000 and alerts from 75%-125%), forecast (75-125%) and anomalies.
     
 > [!TIP]
 > Explore the Azure Policy examples in this [folder](https://github.com/jonathan-vella/azure-landing-zones/tree/main/Az%20Policy%20Definitions).
