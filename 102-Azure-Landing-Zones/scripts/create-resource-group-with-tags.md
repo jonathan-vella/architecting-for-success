@@ -21,8 +21,8 @@ New-AzResourceGroup -Name $name -Location $location -Tag $tags
 ```powershell
 # Add a new set of tags to a resource group, use:
 $newtags = @{"Dept"="Finance"; "Status"="Normal"}
-$resourceGroup = Get-AzResourceGroup -Name demoGroup
-New-AzTag -ResourceId $resourceGroup.ResourceId -tag $newtagse
+$resourceGroup = Get-AzResourceGroup -Name $name
+New-AzTag -ResourceId $resourceGroup.ResourceId -tag $newtags
 ```
 
 ## Script
@@ -30,7 +30,7 @@ New-AzTag -ResourceId $resourceGroup.ResourceId -tag $newtagse
 ```powershell
 # Update the tags for a resource group, use:
 $updatedtags = @{"CostCenter"="00123"; "Environment"="Production"}
-$resourceGroup = Get-AzResourceGroup -Name demoGroup
+$resourceGroup = Get-AzResourceGroup -Name $name
 Update-AzTag -ResourceId $resourceGroup.ResourceId -Tag $updatedtags -Operation Merge
 ```
 
