@@ -1,4 +1,4 @@
-# Azure Governance Visualizer Accelerator Automation Scrtip
+# Azure Governance Visualizer Accelerator Automation Script
 ### Source https://github.com/Azure/Azure-Governance-Visualizer-Accelerator
 
 ```powershell
