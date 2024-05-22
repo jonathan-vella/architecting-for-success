@@ -19,10 +19,11 @@ Using a [policy-driven](https://learn.microsoft.com/en-us/azure/cloud-adoption-f
 3. Implement ISO 27001 compliance security checks and reporting for all production environments except Sandbox subscriptions & PCI-DSS for the payment system.
 4. Allow the use of M-Series VMs only for the SAP production environment without impacting agility and scale.
 5. Deny the use of Machine Learning services across all environments to minimize the risk and impact of cryptojacking.
-6. Ensure that "development environments and associated VNETs are not able to communicate with production".
-7. Ensure that resources under the "Online" management group cannot establish cross-subscription inter-vnet communications.
-8. Grant developers access to development environments at scale and with minimal administrative effort.
-9. Create cost management alerts for budget, forecast and anomalies.
+6. Deny the use of Private DNS Zones in the Landing Zones Management Group.
+7. Ensure that "development environments and associated VNETs are not able to communicate with production".
+8. Ensure that resources under the "Online" management group cannot establish cross-subscription inter-vnet communications.
+9. Grant developers access to development environments at scale and with minimal administrative effort.
+10. Create cost management alerts for budget, forecast and anomalies.
     
 > [!TIP]
 > Explore the Azure Policy examples in this [folder](https://github.com/jonathan-vella/azure-landing-zones/tree/main/Az%20Policy%20Definitions).
