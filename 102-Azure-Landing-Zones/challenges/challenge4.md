@@ -8,8 +8,7 @@
 
 ## Challenge 04a - Azure VM Backup at scale (1hr 15mins)
 
-But I am in the cloud, why do I need BCDR? Because shite happens.
-In the first part of this challenge you will auto-enable backup and DR on VM creation using Azure Policy. Regarding backup, remember that the customer's requirement is to have "all **production** VMs backed up, and **some** selected VMs in dev/test environments" to be protected at least on a **weekly basis**. Your solution must clearly address all of these requirements whilst minimizing management tasks and limiting the blast radius during incidents which require the use of Azure Backup and Azure Site Recovery.
+But I am in the cloud, why do I need BCDR? Because shit happens. With that clarified we can proceed with the challenge. In the first part of this challenge you will auto-enable backup and DR on VM creation using Azure Policy. Regarding backup, remember that the customer's requirement is to have "all **production** VMs backed up, and **some** selected VMs in dev/test environments" to be protected at least on a **weekly basis**. Your solution must clearly address all of these requirements whilst minimizing management tasks and limiting the blast radius during incidents which require the use of Azure Backup and Azure Site Recovery.
 
 > [!TIP]
 > Use the helper scripts located [here](./../scripts) to create Resource Groups with Tags and VNETs with NSGs. And remember that Azure Policy assignments can take up to 30 minutes to take effect!
