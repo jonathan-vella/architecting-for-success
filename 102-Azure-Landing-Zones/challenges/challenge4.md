@@ -33,7 +33,7 @@ In the second part of this challenge you will be creating a custom Azure Policy 
 
 1. Create an Azure Policy definition which can support the auditing and / or configuration of Azure SQL Database PITR. You can use the code located [here](https://raw.githubusercontent.com/jonathan-vella/azure-landing-zones/main/Az%20Policy%20Definitions/Configure%20Azure%20SQL%20PITR/Deploy%20Azure%20SQL%20DB%20ShortTerm%20Backup.json) to create this policy or write your own.
 2. Create the required Azure Policy assignments.
-3. Create an Azure SQL Database (use the Adventureowrks Database) and monitor the impact of the Azure Policy in scope for this challenge.
+3. Create an Azure SQL Database (use the Adventureworks Database) and monitor the impact of the Azure Policy in scope for this challenge.
 
 ## References
 
