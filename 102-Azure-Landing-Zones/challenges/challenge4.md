@@ -42,6 +42,7 @@ In the second part of this challenge you will be creating a custom Azure Policy 
 
 ## References
 
+- [Policies included in Azure Landing Zones reference implementations](https://github.com/Azure/Enterprise-Scale/wiki/ALZ-Policies)
 - [Auto-Enable Backup on VM Creation using Azure Policy](https://learn.microsoft.com/en-us/azure/backup/backup-azure-auto-enable-backup)
 - [Use Azure Policy to set up Azure Site Recovery](https://learn.microsoft.com/en-us/azure/site-recovery/azure-to-azure-how-to-enable-policy)
 - [Automated backups in Azure SQL Database](https://learn.microsoft.com/en-us/azure/azure-sql/database/automated-backups-overview?view=azuresql)
