@@ -15,10 +15,15 @@ But I am in the cloud, why do I need BCDR? Because shit happens. With that clari
 
 ## Challenge 04a - Success Criteria
 
-1. Think before you act. Assess the existing Azure Policy assignments. Do you need to change anything? And which Azure Policy for Azure Backup are you going to use meet the customer's requirement?
-2. Configure Azure Backup (e.g., vault, policy, etc.)
-3. Use Azure Policy to auto-enable backup on VM creation but to also audit for non-compliance
-4. Use Azure Policy to auto-enable DR on VM creation but to also audit for non-compliance
+1. Think before you act:
+   - Under which Management Group is your subscription nested?
+   - Which are the Azure Policy impacting your subscription?
+   - Will some of these Azure Policy assignment make this challenge more difficult to complete?
+   - Do you need to change anything?
+   - And which Azure Policy for Azure Backup are you going to use meet the customer's requirement?
+3. Configure Azure Backup (e.g., vault, policy, etc.)
+4. Use Azure Policy to auto-enable backup on VM creation but to also audit for non-compliance
+5. Use Azure Policy to auto-enable DR on VM creation but to also audit for non-compliance
 6. Deploy an Azure VM and make sure that the VM is enabled for BCDR (Azure Backup and Azure Site Recovery) via Azure Policy
 7. In the Azure Portal, have a look at your VM's blade and note what else the VM has been automatically onboarded into (e.g., VMInsights, MDfC, etc.).
 8. Be able to answer these 2 questions: At which scope can these policies be applied? And what are you doing to clearly and easily identify "all **production** VMs backed up, and **some** selected VMs in dev/test environments"?
