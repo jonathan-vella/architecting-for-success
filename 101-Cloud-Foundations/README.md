@@ -6,7 +6,7 @@
 
 ### Overview
 
-This module is designed to provide a high-level overview of the Microsoft Cloud Adoption Framework for Azure. It will cover the basics of the Cloud Adoption Framework and the five disciplines of the Well Architected Framework.
+This module is designed to provide a high-level overview of the Microsoft Cloud Adoption Framework for Azure. It will cover the basics of the Cloud Adoption Framework and the five disciplines of the Well Architected Framework. Requirements for this module are documented [here](requirements.md).
 
 ---
 
@@ -16,7 +16,7 @@ This module is designed to provide a high-level overview of the Microsoft Cloud 
 
 The Microsoft Cloud Adoption Framework for Azure is a full lifecycle framework that enables cloud architects, IT professionals, and business decision makers to achieve their cloud adoption goals. It provides best practices, documentation, and tools that help you create and implement business and technology strategies for the cloud.
 
-Following best practices for the Cloud Adoption Framework allows your organization to better align business and technical strategies and ensure success. Watch the following video to learn more.
+Following best practices for the Cloud Adoption Framework allows your organization to better align business and technical strategies and ensure success. Watch this [video](https://www.microsoft.com/en-us/videoplayer/embed/RE4tyzr?postJsllMsg=true) to learn more.
 
 The Cloud Adoption Framework brings together cloud adoption best practices from Microsoft employees, partners, and customers. The framework provides tools, guidance, and narratives. The tools it includes help you shape your technology, business, and people strategies to achieve the best business outcomes possible through your cloud adoption effort. Use the following table to review the guidance for each methodology.
 
