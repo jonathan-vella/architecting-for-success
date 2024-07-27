@@ -147,6 +147,8 @@ Write-host "Grant admin consent using the Microsoft Entra admin center and then 
 ##--------------------------------------------------##
 
 # Login to your GitHub account.
+gh auth login
+
 # Create a private repository from the accelerator template
 
 ### Create a new repository from template
