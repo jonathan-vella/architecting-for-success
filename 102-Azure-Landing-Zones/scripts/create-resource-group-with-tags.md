@@ -20,7 +20,7 @@ New-AzResourceGroup -Name $name -Location $location -Tag $tags
 
 ```powershell
 # Add a new set of tags to a resource group, use:
-$newtags = @{"Dept"="Finance"; "Status"="Normal"} # Note: This variable must also include all of the tags which are being enforced by Azure Policy.
+$newtags = @{"dept"="finance"; "status"="normal"} # Note: This variable must also include all of the tags which are being enforced by Azure Policy.
 $resourceGroup = Get-AzResourceGroup -Name $name
 New-AzTag -ResourceId $resourceGroup.ResourceId -tag $newtags
 ```
@@ -29,7 +29,7 @@ New-AzTag -ResourceId $resourceGroup.ResourceId -tag $newtags
 
 ```powershell
 # Update the tags for a resource group, use:
-$updatedtags = @{"CostCenter"="00123"; "Environment"="Production"}
+$updatedtags = @{"costcenter"="00123"; "environment"="production"}
 $resourceGroup = Get-AzResourceGroup -Name $name
 Update-AzTag -ResourceId $resourceGroup.ResourceId -Tag $updatedtags -Operation Merge
 ```
