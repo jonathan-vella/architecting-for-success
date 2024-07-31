@@ -6,12 +6,15 @@ This script creates an Azure Resource Group with tags. The script uses the `New-
 # Declare your variables
 $name = "rg-lab-neu-001"
 $location = "northeurope"
+$subscription = "corp"
 $tags = @{environment= "dev"; costcenter= "shared"; workload="aks-demo"; application="demo"; owner="jonathan"; classification="pci"}
 ```
 
 ## Script
 
 ```powershell
+# Set Context
+set-azcontext -Subscription $subscription
 # Create a Resource Group with Tags
 New-AzResourceGroup -Name $name -Location $location -Tag $tags
 ```
