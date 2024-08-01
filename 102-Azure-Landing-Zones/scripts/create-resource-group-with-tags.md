@@ -1,17 +1,20 @@
 # Create an Azure Resource Group with Tags
 
-This script creates an Azure Resource Group with tags. The script uses the `New-AzResourceGroup` cmdlet to create the resource group and the `-Tags` parameter to assign tags to the resource group.
+This PowerShell script creates an Azure Resource Group with tags. The script uses the `New-AzResourceGroup` cmdlet to create the resource group and the `-Tags` parameter to assign tags to the resource group.
 
 ```powershell
 # Declare your variables
-$name = "rg-<unique>"
-$location = "eastus"
-$tags = @{environment= "dev"; costcenter= "shared"; workload="aks-demo"; owner="jonathan"}
+$name = "rg-lab-neu-001"
+$location = "northeurope"
+$subscription = "corp"
+$tags = @{environment= "dev"; costcenter= "shared"; workload="aks-demo"; application="demo"; owner="jonathan"; classification="pci"}
 ```
 
 ## Script
 
 ```powershell
+# Set Context
+set-azcontext -Subscription $subscription
 # Create a Resource Group with Tags
 New-AzResourceGroup -Name $name -Location $location -Tag $tags
 ```
