@@ -2,40 +2,47 @@
 
 ## Contoso Corporation
 
-### Company background & information
+### Executive summary
 
-- Contoso is a family-owned business that has been operating since 1978. They focus on wholesale, distribution, and retail, with their headquarters in Athens and locations across Greece.
-- The CEO is concerned about data privacy and security regulations in the EU, such as GDPR and ePrivacy Directive. Compliance is a top priority.
-- Contoso started their cloud journey in 2020, migrating a payment processing application to Azure due to the COVID-19 pandemic.
-- Azure Landing Zones are now a priority as Contoso aims to scale their cloud operations and ensure reliability, security, compliance, and cost-effectiveness.
-- The CEO is interested in monetizing their data and exploring AI for customer experience improvement and increased sales.
-- The inventory management team is exploring IoT and AI for stock management improvement.
+Contoso, a family-owned business established in 1978, specializes in wholesale, distribution, and retail. Headquartered in Athens, with locations across Greece, they embarked on their cloud journey in 2020 by migrating a payment processing application to Azure due to the COVID-19 pandemic. The CEO envisions modernizing their IT infrastructure and leveraging cloud technologies to drive business growth and innovation.
+
+While the IT team is enthusiastic about this cloud journey, they lack expertise in cloud technologies and best practices. They seek guidance to accelerate cloud adoption, ensuring a reliable, secure, and compliant environment. Additionally, they aim to optimize costs and leverage AI to enhance customer experience and boost sales. The CEO prioritizes compliance with EU data privacy and security regulations, such as GDPR and the ePrivacy Directive.
+
+The IT team focuses on migrating workloads to Azure, optimizing costs, and ensuring high availability and disaster recovery. They seek guidance on designing and implementing an **Azure OpenAI-ready cloud environment** that meets their business and technical requirements. They are interested in best practices, reference architectures, and automation to accelerate cloud adoption, as well as guidance on monitoring, managing, and securing their cloud environment.
 
 ### Business goals
 
-- Accelerate cloud migration, reduce risks, and ensure reliable, secure, and compliant cloud operations.
-- Optimize cloud costs and governance through budgets, policies, and controls.
-- Leverage cloud solutions for innovation and business growth while minimizing rework and technical debt.
-- Ensure compliance with EU data privacy and security regulations.
-- Ensure resilient and high-performing online presence.
-- Improve inventory management efficiency with IoT and AI.
-- Use AI to enhance customer experience and increase sales.
+Contoso aims to achieve the following business goals:
+
+- Speed up the transition to the cloud while minimizing risks.
+- Utilize AI to improve customer experience and boost sales.
+- Manage and reduce cloud-related costs effectively.
+- Use cloud-based solutions to drive innovation and business growth.
+- Comply with EU data privacy and security regulations.
+- Maintain a reliable and high-performing online presence.
+- Enhance the payment service’s performance when accessing CRM records.
+- Reduce reliance on on-premises infrastructure and switch to a cloud-based network.
+- Improve SaaS application performance and reduce network load by enabling local internet access from all sites.
+- Keep Production, Staging, and Development environments separate with limited communication between them.
+- Control network traffic between Azure resources within a virtual network.
 
 ### Technical details
 
-- Workloads are currently hosted on VMware vSphere with two main sites in Athens (Prod DC) and Thessaloniki (DR DC).
-- They have approximately 75 VMs for Prod, less than 20 for Dev & Test, and ~20Tb of data across multiple sources.
-- Some of these VMs are running SAP HANA, with a total of 4TB of RAM and 100TB of storage. The SAP landscape includes a primary and secondary application server, a primary and secondary database server, and a file server. The SAP landscape is critical to the business and requires high availability and disaster recovery.
-- A S2S connection exist between the on-premises DC in Athens and Azure.
-- A payment service, subject to PCI-DSS, is hosted on Azure VMs.
-- A SQL Server 2019 Enterprise Edition is used for the CRM system; this CRM system is used by both SAP and the payment service. There have been prolonged performance issues between the payment service and the CRM system.
-- A MPLS connection exists between DCs, with some warehouses and distribution centers acting as internet breakout points.
-- Microsoft 365 services are used, but there are gaps in the identity security posture.
-- Two Azure subscriptions are in use: one for production workloads and another for developer sandbox connected to the production network.
-- On-premises AD DS domain is synchronized to Entra ID
-- Network team has expertise in Cisco, Checkpoint, and F5.
-- Limited expertise and experience with IaC and DevOps.
-- Dedicated 10.0.0.0/16 IP address space for Azure networks.
+- Contoso operates a traditional hybrid data center (DC) environment, comprising physical, virtual servers and Azure virtual machines.
+- Their infrastructure includes a mix of Windows and Linux servers, some of which run legacy applications.
+- Workloads are hosted on VMware vSphere, with primary sites in Athens (Production DC) and Thessaloniki (Disaster Recovery DC).
+- The environment consists of approximately 75 VMs for production, fewer than 20 for development and testing, and around 20TB of data from various sources.
+- Several VMs run SAP HANA, utilizing a total of 4TB of RAM and 100TB of storage. The SAP landscape includes primary and secondary application servers, primary and secondary database servers, and a file server, all of which are critical and require high availability and disaster recovery.
+- A site-to-site (S2S) connection links the on-premises DC in Athens to Azure.
+- A payment service, compliant with PCI-DSS, is hosted on Azure VMs.
+- The CRM system, used by both SAP and the payment service, runs on SQL Server 2019 Enterprise Edition. There have been ongoing performance issues between the payment service and the CRM system.
+- An MPLS connection exists between DCs, with some warehouses and distribution centers serving as internet breakout points.
+- Microsoft 365 services are in use, though there are gaps in the identity security posture.
+- Two Azure subscriptions are utilized: one for production workloads and another for a developer sandbox connected to the production network.
+- The on-premises Active Directory Domain Services (AD DS) domain is synchronized with Entra ID.
+- The network team has expertise in Cisco, Checkpoint, and F5 technologies.
+- There is limited expertise and experience with Infrastructure as Code (IaC) and DevOps practices.
+- A dedicated 10.0.0.0/16 IP address space is allocated for Azure networks.
 
 ### Requirements
 
