@@ -1,77 +1,72 @@
-# Contoso ALZ Customer Scenario FAQ
+# Architecting for Success: AI-Ready Azure Landing Zones
 
-## Current Setup
+## Contoso Azure Landing Zones - FAQ
 
-**Q: How many VMs does Contoso ALZ have for Prod, Dev & Test, and how much data do they have?**  
-A: They have approximately 75 VMs for Prod, less than 20 for Dev & Test, and ~20Tb of data across multiple sources.
+## General Information
 
-**Q: What is the setup of the SAP landscape?**  
-A: Some of these VMs are running SAP HANA, with a total of 4TB of RAM and 100TB of storage. The SAP landscape includes a primary and secondary application server, a primary and secondary database server, and a file server.
+### What is the primary goal of Contoso's Azure Landing Zones project?
+The primary goal is to securely and efficiently host Azure OpenAI related workloads, reduce on-premises infrastructure, and replace MPLS with a cloud-based solution. This includes enhancing SaaS application performance, decreasing WAN load, and ensuring compliance with regulatory standards.
 
-**Q: What is the connection between the on-premises DC in Athens and Azure?**  
-A: A S2S connection exists between the on-premises DC in Athens and Azure.
+## Technical Details
 
-**Q: What is the setup of the payment service and CRM system?**  
-A: A payment service, subject to PCI-DSS, is hosted on Azure VMs. A SQL Server 2019 Enterprise Edition is used for the CRM system; this CRM system is used by both SAP and the payment service.
+### What type of environment does Contoso operate?
+Contoso operates a traditional hybrid data center environment, comprising physical and virtual servers, as well as Azure virtual machines. The infrastructure includes a mix of Windows and Linux servers, some of which run legacy applications.
 
-**Q: What is the connection between DCs?**  
-A: A MPLS connection exists between DCs, with some warehouses and distribution centers acting as internet breakout points.
+### How many VMs and how much data does Contoso manage?
+Contoso manages approximately 75 VMs for production, fewer than 20 for development and testing, and around 20TB of data from various sources.
 
-**Q: What Microsoft services are used?**  
-A: Microsoft 365 services are used, but there are gaps in the identity security posture.
+### What critical applications are running on Contoso's VMs?
+Some VMs run SAP HANA, utilizing a total of 4TB of RAM and 100TB of storage. The SAP landscape includes primary and secondary application servers, primary and secondary database servers, and a file server, all of which are critical and require high availability and disaster recovery.
 
-**Q: How many Azure subscriptions are in use?**  
-A: Two Azure subscriptions are in use: one for production workloads and another for developer sandbox connected to the production network.
+### What connectivity exists between Contoso's on-premises and Azure environments?
+A site-to-site (S2S) connection links the on-premises data center in Athens to Azure. Additionally, an MPLS connection exists between data centers, with some warehouses and distribution centers serving as internet breakout points.
 
-**Q: What is the expertise of the network team?**  
-A: Network team has expertise in Cisco, Checkpoint, and F5.
-
-**Q: What is the expertise and experience with IaC and DevOps?**  
-A: There is limited expertise and experience with IaC and DevOps.
+### What are the current challenges with Contoso's CRM system?
+The CRM system, used by both SAP and the payment service, runs on SQL Server 2019 Enterprise Edition. There have been ongoing performance issues between the payment service and the CRM system.
 
 ## Requirements
 
-**Q: What is the timeline for migrating the SAP production landscape to Azure?**  
-A: The SAP production landscape needs to be migrated to Azure within 6 weeks.
+### What are the key requirements for Contoso's Azure environment?
+- Securely host Azure OpenAI related workloads.
+- Reduce on-premises infrastructure and replace MPLS with a cloud-based solution.
+- Enforce policies to restrict resource creation to EU regions only.
+- Detect and report on Azure resources lacking zone resilience.
+- Isolate Production, Staging, and Development environments with restricted inter-environment communication.
+- Apply network traffic filtering between Azure resources within an Azure virtual network.
+- Ensure backup of all production VMs and selected VMs in development and test environments.
+- Implement built-in platform regulatory compliance checks and reporting for all production environments, adhering to PCI-DSS and GDPR standards.
+- Establish comprehensive observability across all resources and environments with minimal configuration effort.
+- Limit Public IP Addresses to core network functionalities only.
+- Configure alerts for abnormal consumption, cost overruns, and other cost-related anomalies.
+- Set up alerts for the health, performance, and security status of all platform resources.
+- Facilitate the generation of cost-related reports for each workload and application, categorized by department and environment.
+- Implement a cost management solution to restrict the use of M-Series VMs, OpenAI, and Machine Learning services.
+- Execute the migration of the SAP production landscape to Azure within a 6-week timeframe.
+- Enhance the performance of the payment service by optimizing CRM system record retrieval.
+- Implement a solution to monitor and manage the performance of the payment service and CRM system.
 
-**Q: What is the requirement for the performance of the payment service?**  
-A: The performance of the payment service when reading records from the CRM system needs to be optimized.
+## Security and Compliance
 
-**Q: What is the requirement for creating resources?**  
-A: The ability to create resources outside of the EU needs to be blocked.
+### How does Contoso ensure compliance with regulatory standards?
+Contoso implements built-in platform regulatory compliance checks and reporting for all production environments, adhering to PCI-DSS and GDPR standards.
 
-**Q: What is the requirement for Azure resources?**  
-A: Existing Azure resources which are not zone resilient need to be identified.
+### What measures are taken to secure network traffic within Azure?
+Network traffic filtering is applied between Azure resources within an Azure virtual network. Additionally, policies are enforced to restrict resource creation to EU regions only.
 
-**Q: What is the requirement for cost-related reports?**  
-A: Cost-related reports for each workload and application based on department and environment need to be easily generated.
+## Cost Management
 
-**Q: What is the requirement for a cost avoidance solution?**  
-A: A cost avoidance solution which will restrict the use of M-Series VMs and Machine Learning services needs to be implemented.
+### How does Contoso manage and optimize cloud costs?
+Contoso uses a cost management solution to restrict the use of M-Series VMs, OpenAI, and Machine Learning services. Alerts are configured for abnormal consumption, cost overruns, and other cost-related anomalies. Cost-related reports are generated for each workload and application, categorized by department and environment.
 
-**Q: What is the requirement for the on-premises footprint and MPLS?**  
-A: The on-premises footprint needs to be minimized and MPLS replaced with a cloud-based approach. Local internet breakout from all sites to improve SaaS application performance and reduce WAN load needs to be enabled.
+## Performance and Monitoring
 
-**Q: What is the requirement for the environments?**  
-A: Production, Staging, and Development environments need to be separated with restricted communication between them.
+### What steps are taken to monitor and manage the performance of critical applications?
+A solution is implemented to monitor and manage the performance of the payment service and CRM system. Alerts are set up for the health, performance, and security status of all platform resources.
 
-**Q: What is the requirement for network traffic?**  
-A: The filtering of network traffic between Azure resources in an Azure virtual network needs to be enforced.
+### How is the performance of the payment service optimized?
+The performance of the payment service is enhanced by optimizing CRM system record retrieval.
 
-**Q: What is the requirement for VM backups?**  
-A: All production VMs and selected VMs in dev & test environments need to be backed up.
+## Migration
 
-**Q: What is the requirement for regulatory compliance security checks and reporting?**  
-A: Built-in platform regulatory compliance security checks and reporting for all production environment (PCI-DSS and GDPR) need to be implemented.
-
-**Q: What is the requirement for observability of resources?**  
-A: Observability of all resources across all environments with minimal effort needs to be implemented.
-
-**Q: What is the requirement for Public IP Addresses?**  
-A: Public IP Addresses need to be restricted to core network functionality only.
-
-**Q: What is the requirement for cost-related alerts?**  
-A: Cost-related alerts for abnormal consumption, cost overruns, etc. need to be received.
-
-**Q: What is the requirement for alerts related to the health, performance, and security of all platform resources?**  
-A: Alerts related to the health, performance, and security of all platform resources need to be received.
+### What is the timeline for migrating the SAP production landscape to Azure?
+The migration of the SAP production landscape to Azure is to be executed within a 6-week timeframe.

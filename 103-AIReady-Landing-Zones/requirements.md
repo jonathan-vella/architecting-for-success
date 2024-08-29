@@ -1,3 +1,7 @@
+# Architecting for Success: AI-Ready Azure Landing Zones
+
+---
+
 ## Azure subscription requirements
 
 - This is a Bring-Your-Own-Subscription event; no Azure subscriptions will be provided.

@@ -1,6 +1,4 @@
-# Architecting for Success
-
-## 103 - AI-Ready Landing Zones
+# Architecting for Success: AI-Ready Azure Landing Zones
 
 ### Overview
 

@@ -1,9 +1,8 @@
-# Architecting for Success
-## 103 - AIReady Azure Landing Zones
+# Architecting for Success: AI-Ready Azure Landing Zones
 
 ---
 
-## Challenge 01 - Designing Azure Landing Zones (3hrs)
+## Challenge 01 - Designing AI-Ready Azure Landing Zones (3hrs)
 
 In this challenge, you will design an Azure Landing Zones architecture for Contoso. You will be working through the customer scenario and their particular requirements to produce a tailored architecture for their Azure Landing Zone deployment.
 
@@ -47,25 +46,35 @@ Directions: With all participants in the session, the facilitator/SME presents a
 **Outcome**
 Design a solution and prepare to present the solution to the target customer audience in a 15-minute chalk-talk format.
 
-Timeframe: 1.5hours
+Timeframe: 2hours
 
-Your design must include all of the following:
+Your design must include a solution for all of the following:
 
-1. Details about minimum requirements and information you need have at hand to deploy the ALZ accelerator. Think of tenants, subscriptions, privileged identities, security contacts, IP addresses, etc.
-2. A management group hierarchy including subscription organization.
-3. A list of the required Azure Policy (built-in & custom) policies or initiatives including scope assignments.
-4. A list of RBAC assignments.
-5. A network topology.
-6. IP addressing planning including number of virtual networks required, subnet names & size, NSGs, and UDRs.
+- An Azure environment which is ready to securely and efficiently host Azure OpenAI related workloads.
+- Reduce on-premises infrastructure and replace MPLS with a cloud-based solution, enabling local internet breakout from all sites to enhance SaaS application performance and decrease WAN load.
+- Enforce policies to restrict resource creation to EU regions only.
+- Detect and report on Azure resources lacking zone resilience.
+- Isolate Production, Staging, and Development environments with restricted inter-environment communication.
+- Apply network traffic filtering between Azure resources within an Azure virtual network.
+- Ensure backup of all production VMs and selected VMs in development and test environments.
+- Implement built-in platform regulatory compliance checks and reporting for all production environments, adhering to PCI-DSS and GDPR standards.
+- Establish comprehensive observability across all resources and environments with minimal configuration effort.
+- Limit Public IP Addresses to core network functionalities only.
+- Configure alerts for abnormal consumption, cost overruns, and other cost-related anomalies.
+- Set up alerts for the health, performance, and security status of all platform resources.
+- Facilitate the generation of cost-related reports for each workload and application, categorized by department and environment.
+- Implement a cost management solution to restrict the use of M-Series VMs, OpenAI and Machine Learning services.
+- Execute the migration of the SAP production landscape to Azure within a 6-week timeframe.
+- Enhance the performance of the payment service by optimizing CRM system record retrieval.
+- Implement a solution to monitor and manage the performance of the payment service and CRM system.
 
-When designing your solution, consider the following:
+When designing your solution, you need to document the following:
 
-1. What will you use to help the customer easily create cost-related reports for each workload based on department, owner, and environment? And how will you apply it?
-2. How will you implement the customer's regulatory & compliance requirements?
-3. How will you make sure that M-Series and L-Series VMs can only be deployed in the SAP environments without impacting agility and scale?
-4. How will you ensure that "development environments and associated VNETs are not able to communicate with production"?
-5. How will you assign developers access to development environments at scale and with minimal administrative effort?
-6. How will you minimize the risk of cryptojacking?
+1. Details about minimum requirements and information you need have at hand to deploy Azure Landing Zones. Think of tenants, subscriptions, privileged identities, security contacts, IP addresses, etc.
+2. A management group hierarchy including subscription & resource organization.
+3. A network topology diagram.
+4. Azure Policy assignments.
+5. A list of RBAC assignments.
 
 ---
 

@@ -1,9 +1,8 @@
-# Architecting for Success
-## 103 - AIReady Azure Landing Zones
+# Architecting for Success: AI-Ready Azure Landing Zones
 
 ## Challenges
 
-- [Challenge 01](./challenge1.md) Designing AI-Ready ALZ (3hrs)
+- [Challenge 01](./challenge1.md) Designing AI-Ready ALZ (2hrs)
 - [Challenge 02](./challenge2.md) Deploying ALZ (1hrs)
 - [Challenge 03](./challenge3.md) Tailoring ALZ (3hrs)
 - [Challenge 04](./challenge4.md) BCDR at scale (2hrs)

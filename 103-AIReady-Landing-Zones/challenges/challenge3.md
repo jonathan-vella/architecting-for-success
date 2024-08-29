@@ -1,4 +1,4 @@
-# Architecting for Success - Azure Landing Zones
+# Architecting for Success: AI-Ready Azure Landing Zones
 
 ---
 

@@ -1,6 +1,6 @@
-# Architecting for Success
+# Architecting for Success: AI-Ready Azure Landing Zones
 
-## AI-Ready Azure Landing Zones Whiteboard Design Session
+## Whiteboard Design Session
 
 ## Abstract and learning objectives
 
