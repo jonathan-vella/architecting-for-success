@@ -1,8 +1,7 @@
 # Architecting for Success
+# 103 - AI-Ready Azure Landing Zones
 
-## 102 - Azure Landing Zones
-
-### Challenges
+## Challenges
 
 - [Challenge 01](./challenge1.md) Designing Azure Landing Zones (3hrs)
 - [Challenge 02](./challenge2.md) Deploying Azure Landing Zones (1.5hrs)

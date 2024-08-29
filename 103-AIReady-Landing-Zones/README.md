@@ -1,6 +1,6 @@
 # Architecting for Success
 
-## 103 - OpenAI-ready Platform
+## 103 - AI-Ready Landing Zones
 
 ### Overview
 
