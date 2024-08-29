@@ -32,7 +32,7 @@ Contoso aims to achieve the following business goals:
 - Their infrastructure includes a mix of Windows and Linux servers, some of which run legacy applications.
 - Workloads are hosted on VMware vSphere, with primary sites in Athens (Production DC) and Thessaloniki (Disaster Recovery DC).
 - The environment consists of approximately 75 VMs for production, fewer than 20 for development and testing, and around 20TB of data from various sources.
-- Several VMs run SAP HANA, utilizing a total of 4TB of RAM and 100TB of storage. The SAP landscape includes primary and secondary application servers, primary and secondary database servers, and a file server, all of which are critical and require high availability and disaster recovery.
+- Some VMs run SAP HANA, utilizing a total of 4TB of RAM and 100TB of storage. The SAP landscape includes primary and secondary application servers, primary and secondary database servers, and a file server, all of which are critical and require high availability and disaster recovery.
 - A site-to-site (S2S) connection links the on-premises DC in Athens to Azure.
 - A payment service, compliant with PCI-DSS, is hosted on Azure VMs.
 - The CRM system, used by both SAP and the payment service, runs on SQL Server 2019 Enterprise Edition. There have been ongoing performance issues between the payment service and the CRM system.
@@ -46,18 +46,20 @@ Contoso aims to achieve the following business goals:
 
 ### Requirements
 
-- Migrate the SAP production landscape to Azure within 6 weeks.
-- Optimize the performance of the payment service when reading records from the CRM system.
-- Block the ability to create resources outside of the EU.
-- Identify existing Azure resources which are not zone resilient.
-- Easily generate cost-related reports for each workload and application based on department and environment.
-- Implement a cost avoidance solution which will restrict the use of M-Series VMs and Machine Learning services.
-- Minimize on-premises footprint and replace MPLS with a cloud-based approach. Enable local internet breakout from all sites to improve SaaS application performance and reduce WAN load.
-- Separate Production, Staging, and Development environments with restricted communication between them.
-- Enforce the filtering of network traffic between Azure resources in an Azure virtual network.
-- Backup all production VMs and selected VMs in dev & test environments.
-- Implement built-in platform regulatory compliance security checks and reporting for all production environment (PCI-DSS and GDPR).
-- Implement observability of all resources across all environments with minimal effort.
-- Restrict Public IP Addresses to core network functionality only.
-- Receive cost-related alerts for abnormal consumption, cost overruns,  etc.
-- Receive alerts related to the health, performance, and security of all platform resources.
+- An Azure environment which is ready to securely and efficiently host Azure OpenAI related workloads.
+- Reduce on-premises infrastructure and replace MPLS with a cloud-based solution, enabling local internet breakout from all sites to enhance SaaS application performance and decrease WAN load.
+- Enforce policies to restrict resource creation to EU regions only.
+- Detect and report on Azure resources lacking zone resilience.
+- Isolate Production, Staging, and Development environments with restricted inter-environment communication.
+- Apply network traffic filtering between Azure resources within an Azure virtual network.
+- Ensure backup of all production VMs and selected VMs in development and test environments.
+- Implement built-in platform regulatory compliance checks and reporting for all production environments, adhering to PCI-DSS and GDPR standards.
+- Establish comprehensive observability across all resources and environments with minimal configuration effort.
+- Limit Public IP Addresses to core network functionalities only.
+- Configure alerts for abnormal consumption, cost overruns, and other cost-related anomalies.
+- Set up alerts for the health, performance, and security status of all platform resources.
+- Facilitate the generation of cost-related reports for each workload and application, categorized by department and environment.
+- Implement a cost management solution to restrict the use of M-Series VMs, OpenAI and Machine Learning services.
+- Execute the migration of the SAP production landscape to Azure within a 6-week timeframe.
+- Enhance the performance of the payment service by optimizing CRM system record retrieval.
+- Implement a solution to monitor and manage the performance of the payment service and CRM system.
