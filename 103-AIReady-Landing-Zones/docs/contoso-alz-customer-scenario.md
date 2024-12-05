@@ -8,7 +8,7 @@ Contoso, a family-owned business established in 1978, specializes in wholesale, 
 
 While the IT team is enthusiastic about this cloud journey, they lack expertise in cloud technologies and best practices. They seek guidance to accelerate cloud adoption, ensuring a reliable, secure, and compliant environment. Additionally, they aim to optimize costs and leverage AI to enhance customer experience and boost sales. The CEO prioritizes compliance with EU data privacy and security regulations, such as GDPR and the ePrivacy Directive.
 
-The IT team focuses on migrating workloads to Azure, optimizing costs, and ensuring high availability and disaster recovery. They seek guidance on designing and implementing an **Azure OpenAI-ready cloud environment** that meets their business and technical requirements. They are interested in best practices, reference architectures, and automation to accelerate cloud adoption, as well as guidance on monitoring, managing, and securing their cloud environment.
+The IT team focuses on migrating workloads to Azure, optimizing costs, and ensuring high availability and disaster recovery. They seek guidance on designing and implementing an **Azure AI-ready cloud environment** that meets their business and technical requirements. They are interested in best practices, reference architectures, and automation to accelerate cloud adoption, as well as guidance on monitoring, managing, and securing their cloud environment.
 
 ### Business goals
 
