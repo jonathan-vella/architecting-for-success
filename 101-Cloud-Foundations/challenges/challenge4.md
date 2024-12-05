@@ -1,6 +1,6 @@
 # Architecting for Success
 
-## Strategy and Plan Hackathon
+## Strategy and Plan workshop
 
 ## Challenge 4 - Sell it to Contoso, and your coach! (45mins)
 
@@ -26,3 +26,4 @@ When building the presentation, don't forget to include:
 1. Capture the necessary content from Challenges 1 through 3 in a presentation format.
 2. Present your high-level feasibility study in max 15mins.
 3. Impress the other teams and sell it to your coach!
+4. 
