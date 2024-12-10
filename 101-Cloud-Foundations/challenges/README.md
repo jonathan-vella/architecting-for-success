@@ -1,6 +1,6 @@
 # Architecting For Success
 
-# Strategy and Plan Hackathon
+# Strategy and Plan workshop
 
 ## Customer Scenario - Contoso Land Surveying
 
