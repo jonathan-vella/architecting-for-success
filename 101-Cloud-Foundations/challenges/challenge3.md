@@ -2,7 +2,7 @@
 
 ## Strategy and Plan Hackathon
 
-## Challenge 3 - Time to Plan (1hr 15mins)
+## Challenge 3 - Time to Plan (2hrs0
 
 This challenge's focus is to convert the aspirational goals of the cloud adoption strategy into an actionable plan. You will use the cloud adoption plan to guide technical efforts and align them with Contoso's business strategy.
 
