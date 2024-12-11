@@ -1,6 +1,6 @@
 # Architecting for Success
 
-## Strategy and Plan Hackathon
+## Strategy and Plan workshop
 
 ## Challenge 2 - Addressing Business Risks (1hr30mins)
 
