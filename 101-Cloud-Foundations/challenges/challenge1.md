@@ -1,6 +1,6 @@
 # Architecting for Success
 
-## Strategy and Plan Hackathon
+## Strategy and Plan workshop
 
 ## Challenge 1 - Build an outcome-based strategy (2hr 30mins)
 
