@@ -1,6 +1,6 @@
 # Architecting for Success
 
-## Strategy and Plan Hackathon
+## Strategy and Plan workshop
 
 ## Challenge 4 - Sell it to Contoso, and your coach! (1hr)
 
