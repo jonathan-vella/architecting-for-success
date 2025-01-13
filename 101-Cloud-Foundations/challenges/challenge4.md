@@ -2,7 +2,7 @@
 
 ## Strategy and Plan workshop
 
-## Challenge 4 - Sell it to Contoso, and your coach! (1hr)
+## Challenge 4 - Sell it to Contoso, and your coach! (1hr 30mins)
 
 In this challenge, each team will be presenting their business case to the _customer’s senior leadership team_ to justify adopting Azure.  
 When building the presentation, don't forget to include:
