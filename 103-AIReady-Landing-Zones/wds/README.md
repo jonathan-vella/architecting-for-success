@@ -38,7 +38,7 @@ Timeframe: 90 minutes
 
 Your design must include a solution for all of the following:
 
-- An Azure environment which is ready to securely and efficiently host Azure OpenAI related workloads.
+- An Azure environment which is ready to securely and efficiently host Azure AI related workloads.
 - Reduce on-premises infrastructure and replace MPLS with a cloud-based solution, enabling local internet breakout from all sites to enhance SaaS application performance and decrease WAN load.
 - Enforce policies to restrict resource creation to EU regions only.
 - Detect and report on Azure resources lacking zone resilience.
