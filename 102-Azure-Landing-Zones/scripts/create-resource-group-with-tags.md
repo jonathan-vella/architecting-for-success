@@ -7,7 +7,7 @@ This PowerShell script creates an Azure Resource Group with tags. The script use
 $name = "rg-lab-neu-001"
 $location = "northeurope"
 $subscription = "corp"
-$tags = @{environment= "dev"; costcenter= "shared"; workload="aks-demo"; application="demo"; owner="jonathan"; classification="pci"}
+$tags = @{environment= "dev"; owner= "jonathan"; costcenter="shared"; application="demo"; workload="demo"; sla="critical"; backup-policy=""; maint-window=""; technical-contact="someone@somewhere.com"}
 ```
 
 ## Script
